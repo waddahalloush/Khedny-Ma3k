@@ -1,0 +1,13 @@
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:anim="http://www.w3.org/2000/anim" anim="" anim:transform-origin="50% 50%" anim:duration="0.5" anim:ease="power1.inOut">
+  <g id="b3db96034171d6506b74ab79d9b3bdf3">
+    <g id="cd33a8037d0b49a54391b04470932dbd">
+      <path id="d92a64991d18bf1779c6cd03e7e1129f" fill-rule="evenodd" clip-rule="evenodd" d="M4 14C5.10457 14 6 13.1046 6 12C6 10.8954 5.10457 10 4 10C2.89543 10 2 10.8954 2 12C2 13.1046 2.89543 14 4 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM22 12C22 13.1046 21.1046 14 20 14C18.8954 14 18 13.1046 18 12C18 10.8954 18.8954 10 20 10C21.1046 10 22 10.8954 22 12Z" fill="url(#415ae2f7ff2011eb9c15cfff0d088dba)"></path>
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="415ae2f7ff2011eb9c15cfff0d088dba" x1="21.8559" y1="10.0576" x2="2.14411" y2="10.0576" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#025099"></stop>
+      <stop offset="1" stop-color="#4776A2"></stop>
+    </linearGradient>
+  </defs>
+</svg>
