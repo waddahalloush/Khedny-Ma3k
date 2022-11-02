@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
 import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
@@ -14,28 +13,50 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<PageViewModel> introList = [
       PageViewModel(
-        title: "Request Ride",
-        body: "Request a ride get picked up by a \n nearby community driver ",
+        title: "Welcome",
+        body:
+            "Welcome to Khedni MaaK. \n Request a ride get picked up by a \n nearby community driver ",
         image: SafeArea(
-            child: Center(
-                child: SvgPicture.asset(
-          AssetManager.page1,
-          width: context.width / 2,
+            child: Image.asset(
+          AssetManager.onboarding1,
+          width: context.width - 100,
           height: context.height,
-          fit: BoxFit.contain,
-        ))),
+        )),
         decoration: const PageDecoration(
           imageFlex: 2,
           titleTextStyle: TextStyle(
-              fontFamily: "Cairo",
+              fontFamily: "Nunito",
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 30.0),
+              fontSize: 32.0),
           bodyTextStyle: TextStyle(
-              fontFamily: "Cairo",
+              fontFamily: "Nunito",
               color: Colors.black45,
               fontWeight: FontWeight.w400,
-              fontSize: 20.0),
+              fontSize: 16.0),
+        ),
+      ),
+      PageViewModel(
+        title: "Request Ride",
+        body: "Request a ride get picked up by a \n nearby community driver ",
+        image: SafeArea(
+            child: Image.asset(
+          AssetManager.onboarding2,
+          width: context.width - 100,
+          height: context.height,
+        )),
+        decoration: const PageDecoration(
+          imageFlex: 2,
+          titleTextStyle: TextStyle(
+              fontFamily: "Nunito",
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 32.0),
+          bodyTextStyle: TextStyle(
+              fontFamily: "Nunito",
+              color: Colors.black45,
+              fontWeight: FontWeight.w400,
+              fontSize: 16.0),
         ),
       ),
       PageViewModel(
@@ -44,30 +65,30 @@ class OnBoardingScreen extends StatelessWidget {
             "Huge drivers network helps you find \n comforable, safe and cheap ride ",
         image: SafeArea(
             child: Center(
-                child: SvgPicture.asset(
-          AssetManager.page2,
-          width: context.width / 2,
+                child: Image.asset(
+          AssetManager.onboarding3,
+          width: context.width - 100,
           height: context.height,
           fit: BoxFit.contain,
         ))),
         decoration: const PageDecoration(
           imageFlex: 2,
           titleTextStyle: TextStyle(
-              fontFamily: "Cairo",
+              fontFamily: "Nunito",
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 30.0),
+              fontSize: 32.0),
           bodyTextStyle: TextStyle(
-              fontFamily: "Cairo",
+              fontFamily: "Nunito",
               color: Colors.black45,
               fontWeight: FontWeight.w400,
-              fontSize: 20.0),
+              fontSize: 16.0),
         ),
       ),
       PageViewModel(
         footer: BlurButton(
             onPress: () {
-              Navigator.pushNamed(context, AppRouter.recoveryRoute);
+              Navigator.pushNamed(context, AppRouter.createAccount);
             },
             label: "Get Started"),
         title: "Track Your Ride",
@@ -75,25 +96,23 @@ class OnBoardingScreen extends StatelessWidget {
             "Know your driver in advance and be \n able to view current location in real \n time on the map",
         image: SafeArea(
             child: Center(
-                child: SvgPicture.asset(
-          AssetManager.page2,
-          width: context.width - 20,
-          height: context.height * 0.7,
-          fit: BoxFit.fitHeight,
+                child: Image.asset(
+          AssetManager.onboarding2,
         ))),
         decoration: const PageDecoration(
-          bodyPadding: EdgeInsets.only(bottom: 40),
-          imagePadding: EdgeInsets.symmetric(vertical: 10),
+          imageFlex: 5,
+          imagePadding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+          bodyFlex: 3,
           titleTextStyle: TextStyle(
-              fontFamily: "Cairo",
+              fontFamily: "Nunito",
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 30.0),
           bodyTextStyle: TextStyle(
               color: Colors.black45,
-              fontFamily: "Cairo",
+              fontFamily: "Nunito",
               fontWeight: FontWeight.w400,
-              fontSize: 20.0),
+              fontSize: 16.0),
         ),
       ),
     ];

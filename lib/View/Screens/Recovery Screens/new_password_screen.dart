@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:khedni_m3k/Controller/cubit/app_cubit.dart';
-
+import 'package:provider/provider.dart';
+import '../../../Controller/app_provider.dart';
 import '../../../Core/Core/utils/Global Widgets/blur_button.dart';
 import 'Widgets/global_text_form.dart';
 
@@ -14,23 +13,20 @@ class NewPasswordScreen extends StatelessWidget {
     TextEditingController p2controller = TextEditingController();
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      //from Theme Data
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+        resizeToAvoidBottomInset: false,
+        //from Theme Data
+        appBar: AppBar(
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: BlocBuilder<AppCubit, AppState>(
-          builder: (context, state) {
-            var cubit = context.read<AppCubit>();
-            return Column(
+        body: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -46,34 +42,38 @@ class NewPasswordScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 80),
-                  child: GlobalTextForm(
-                    suffix: IconButton(
-                        onPressed: () {
-                          cubit.changeVisible1();
-                        },
-                        icon: cubit.visibleForm1
-                            ? const Icon(Icons.visibility)
-                            : const Icon(Icons.visibility_off)),
-                    controller: p1controller,
-                    keyBoardType: TextInputType.phone,
-                    label: "New Password",
-                    obSecure: cubit.visibleForm1 ? false : true,
+                  child: Consumer<AppProvider>(
+                    builder: (context, value, child) => GlobalTextForm(
+                      suffix: IconButton(
+                          onPressed: () {
+                            value.changeVisible1();
+                          },
+                          icon: value.isVisible1
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off)),
+                      controller: p1controller,
+                      keyBoardType: TextInputType.phone,
+                      label: "New Password",
+                      obSecure: value.isVisible1 ? false : true,
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
-                  child: GlobalTextForm(
-                    suffix: IconButton(
-                        onPressed: () {
-                          cubit.changeVisible2();
-                        },
-                        icon: cubit.visibleForm2
-                            ? const Icon(Icons.visibility)
-                            : const Icon(Icons.visibility_off)),
-                    controller: p2controller,
-                    keyBoardType: TextInputType.phone,
-                    label: "Confirm",
-                    obSecure: cubit.visibleForm2 ? false : true,
+                  child: Consumer<AppProvider>(
+                    builder: (context, value, child) => GlobalTextForm(
+                      suffix: IconButton(
+                          onPressed: () {
+                            value.changeVisible2();
+                          },
+                          icon: value.isVisible2
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off)),
+                      controller: p2controller,
+                      keyBoardType: TextInputType.phone,
+                      label: "Confirm",
+                      obSecure: value.isVisible2 ? false : true,
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -82,10 +82,6 @@ class NewPasswordScreen extends StatelessWidget {
                   child: BlurButton(onPress: () {}, label: "Confirm"),
                 )
               ],
-            );
-          },
-        ),
-      ),
-    );
+            )));
   }
 }

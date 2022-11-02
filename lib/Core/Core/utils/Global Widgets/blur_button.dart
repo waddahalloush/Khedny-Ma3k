@@ -16,7 +16,8 @@ class BlurButton extends StatelessWidget {
       alignment: Alignment.center,
       child: Container(
         width: double.infinity,
-        height: 50,
+        alignment: Alignment.center,
+        height: 55,
         decoration: BoxDecoration(
             boxShadow: const [
               BoxShadow(
@@ -29,8 +30,11 @@ class BlurButton extends StatelessWidget {
                 colors: [Color(0xFF4C78A3), Color(0xFF004E98)])),
         child: TextButton(
           onPressed: onPress,
-          child:
-              Text(label, style: Theme.of(context).primaryTextTheme.headline5),
+          child: Text(
+            label,
+            style: Theme.of(context).primaryTextTheme.headline5,
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

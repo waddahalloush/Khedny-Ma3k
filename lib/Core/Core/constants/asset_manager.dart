@@ -1,5 +1,33 @@
 class AssetManager {
-  static const String page1 = "assets/images/p1.svg";
-  static const String page2 = "assets/images/p2.svg";
+  static const String logo = "assets/images/logoKh.png";
+  static const String onboarding1 = "assets/images/onboarding1.png";
+  static const String onboarding2 = "assets/images/onboarding2.png";
+  static const String onboarding3 = "assets/images/onboarding3.png";
   static const String undo = "assets/images/undo.svg";
+  static const String payment = "assets/images/Payment.svg";
+  static const String ride = "assets/images/ride.svg";
+  static const String dash = "assets/images/dash.svg";
+  static const String car = "assets/images/car.svg";
+  static const String group = "assets/images/Group.svg";
+  static const String chat = "assets/images/Chat.svg";
+  static const String phoneIcon = "assets/images/Phone_icon.svg";
+  static const String fab = "assets/images/fab.png";
+  static const String king = "assets/images/king.png";
+  static const String dking = "assets/images/king.svg";
+  static const String clock = "assets/images/clock.png";
+  static const String money = "assets/images/money.png";
+  static const String walk = "assets/images/walk.png";
+  static const String door = "assets/images/door.png";
+  static const String smoke = "assets/images/smook.png";
+  static const String condition = "assets/images/condition.png";
+  static const String carType = "assets/images/car.png";
+  static const String messageBubble = "assets/images/messageBubble.png";
+  static const String menuH = "assets/images/menuH.png";
+  static const String oval = "assets/images/oval.png";
+  static const String wheel = "assets/images/wheel.png";
+  static const String send = "assets/images/send.png";
+  static const String progress = "assets/images/progress.png";
+  static const String progress2 = "assets/images/progress2.png";
+  static const String shape = "assets/images/shape.png";
+  static const String sedan = "assets/images/sedan.png";
 }

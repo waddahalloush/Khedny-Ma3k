@@ -30,12 +30,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.1
+  provider: ^6.0.4
   flutter_svg: ^1.1.5
   onboarding: ^3.1.0
   pinput: ^2.2.16
   form_field_validator: ^1.1.0
   introduction_screen: ^3.0.2
+  unicons: ^2.1.0
+  flutter_switch: ^0.3.2
+  animated_bottom_navigation_bar: ^1.1.0
+  persistent_bottom_nav_bar: ^5.0.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -65,10 +69,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Cairo
+    - family: Nunito
       fonts:
-        - asset: assets/fonts/Cairo-Regular.ttf
-        - asset: assets/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito-Bold.ttf
           style: italic
   #   - family: Trajan Pro
   #     fonts:

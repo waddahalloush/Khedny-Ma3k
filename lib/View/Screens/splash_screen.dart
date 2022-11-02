@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
 import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
 
 import '../../Core/Core/utils/app_router.dart';
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white,
       body: Center(
         child: Image.asset(
-          'assets/images/logo.png',
+          AssetManager.logo,
           height: context.height / 3,
           width: context.width - 20,
           fit: BoxFit.contain,
