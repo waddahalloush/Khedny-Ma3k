@@ -32,7 +32,7 @@ class OnBoardingScreen extends StatelessWidget {
           bodyTextStyle: TextStyle(
               fontFamily: "Nunito",
               color: Colors.black45,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontSize: 16.0),
         ),
       ),
@@ -55,7 +55,7 @@ class OnBoardingScreen extends StatelessWidget {
           bodyTextStyle: TextStyle(
               fontFamily: "Nunito",
               color: Colors.black45,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontSize: 16.0),
         ),
       ),
@@ -81,7 +81,7 @@ class OnBoardingScreen extends StatelessWidget {
           bodyTextStyle: TextStyle(
               fontFamily: "Nunito",
               color: Colors.black45,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontSize: 16.0),
         ),
       ),
@@ -97,7 +97,7 @@ class OnBoardingScreen extends StatelessWidget {
         image: SafeArea(
             child: Center(
                 child: Image.asset(
-          AssetManager.onboarding2,
+          AssetManager.onboarding4,
         ))),
         decoration: const PageDecoration(
           imageFlex: 5,
@@ -111,7 +111,7 @@ class OnBoardingScreen extends StatelessWidget {
           bodyTextStyle: TextStyle(
               color: Colors.black45,
               fontFamily: "Nunito",
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontSize: 16.0),
         ),
       ),

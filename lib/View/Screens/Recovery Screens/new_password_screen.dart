@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
 import 'package:provider/provider.dart';
 import '../../../Controller/app_provider.dart';
 import '../../../Core/Core/utils/Global Widgets/blur_button.dart';
@@ -9,8 +10,7 @@ class NewPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController p1controller = TextEditingController();
-    TextEditingController p2controller = TextEditingController();
+    
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -51,7 +51,7 @@ class NewPasswordScreen extends StatelessWidget {
                           icon: value.isVisible1
                               ? const Icon(Icons.visibility)
                               : const Icon(Icons.visibility_off)),
-                      controller: p1controller,
+              
                       keyBoardType: TextInputType.phone,
                       label: "New Password",
                       obSecure: value.isVisible1 ? false : true,
@@ -69,7 +69,7 @@ class NewPasswordScreen extends StatelessWidget {
                           icon: value.isVisible2
                               ? const Icon(Icons.visibility)
                               : const Icon(Icons.visibility_off)),
-                      controller: p2controller,
+                    
                       keyBoardType: TextInputType.phone,
                       label: "Confirm",
                       obSecure: value.isVisible2 ? false : true,
@@ -79,7 +79,11 @@ class NewPasswordScreen extends StatelessWidget {
                 const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 80, top: 40),
-                  child: BlurButton(onPress: () {}, label: "Confirm"),
+                  child: BlurButton(
+                      onPress: () {
+                        Navigator.of(context).pushNamed(AppRouter.mainRoute);
+                      },
+                      label: "Confirm"),
                 )
               ],
             )));

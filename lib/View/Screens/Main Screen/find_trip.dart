@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
 import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
 
 import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
@@ -24,18 +25,19 @@ class FindTripScreen extends StatelessWidget {
           children: [
             const MainAppBarWidget(title: "Find Trip"),
             const SizedBox(
-              height: 43,
+              height: 22,
             ),
             Container(
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               width: context.width,
-              height: context.height * 0.2,
+              height: context.height * 0.25,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: const Color(0xFFD6D6D6)),
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 26, bottom: 22),
+                padding: const EdgeInsets.only(top: 24, bottom: 12),
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
@@ -48,16 +50,39 @@ class FindTripScreen extends StatelessWidget {
                       color: const Color(0xFFFFFFFF)),
                   child: Column(
                     children: [
-                      FindRideFormWidget(
-                        color: Theme.of(context).primaryColor,
-                        hint: "Location",
-                      ),
-                      FindRideFormWidget(
-                        color: Theme.of(context).primaryColorLight,
-                        hint: "Destination",
+                      Row(
+                        children: [
+                          Image.asset(
+                            AssetManager.mediumProgress,
+                            width: 20,
+                            height: 85,
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                FindRideFormWidget(
+                                  color: Theme.of(context).primaryColor,
+                                  hint: "Location",
+                                ),
+                                FindRideFormWidget(
+                                  color: Theme.of(context).primaryColorLight,
+                                  hint: "Destination",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       Row(
                         children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Image.asset(
+                              AssetManager.timer,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
                           Expanded(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -65,7 +90,6 @@ class FindTripScreen extends StatelessWidget {
                                       .primaryTextTheme
                                       .caption,
                                   hintText: "Pick a time",
-                                  prefixIcon: const Icon(Icons.timer_outlined),
                                   labelStyle: Theme.of(context)
                                       .primaryTextTheme
                                       .caption),
@@ -75,6 +99,14 @@ class FindTripScreen extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Image.asset(
+                              AssetManager.group,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
                           Expanded(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -82,7 +114,6 @@ class FindTripScreen extends StatelessWidget {
                                       .primaryTextTheme
                                       .caption,
                                   hintText: "Number of people",
-                                  prefixIcon: const Icon(Icons.group),
                                   labelStyle: Theme.of(context)
                                       .primaryTextTheme
                                       .caption),
@@ -100,8 +131,8 @@ class FindTripScreen extends StatelessWidget {
                             onToggle: (value) {},
                             activeColor: Theme.of(context).primaryColorLight,
                             value: true,
-                            width: 58,
-                            height: 30,
+                            width: 50,
+                            height: 28,
                           ),
                           const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20),

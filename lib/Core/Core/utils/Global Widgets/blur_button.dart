@@ -22,7 +22,7 @@ class BlurButton extends StatelessWidget {
             boxShadow: const [
               BoxShadow(
                   blurRadius: 20,
-                  color: Color.fromARGB(255, 163, 155, 251),
+                  color: Color.fromARGB(255, 180, 173, 251),
                   offset: Offset(0, 7))
             ],
             borderRadius: BorderRadius.circular(25),

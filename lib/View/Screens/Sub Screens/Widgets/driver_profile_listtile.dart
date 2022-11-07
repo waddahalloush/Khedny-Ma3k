@@ -37,7 +37,7 @@ class DriverProfileListTile extends StatelessWidget {
                 driverName,
                 style: Theme.of(context).primaryTextTheme.headline1,
               ),
-              SvgPicture.asset(AssetManager.king)
+              SvgPicture.asset(AssetManager.purplecrown)
             ],
           ),
         ),

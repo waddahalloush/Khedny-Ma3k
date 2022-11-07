@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
 import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
@@ -10,25 +9,23 @@ class CreateAccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 35, horizontal: 17),
         child: Column(
           children: [
-            Container(
-              width: context.width,
-              height: context.height * 0.4,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color(0xFFD6D6D6)),
-            ),
             const SizedBox(
               height: 43,
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Create an Account with your\nphone number",
-                style: Theme.of(context).primaryTextTheme.headline1,
+                "Create an account with your\nphone number",
+                style: TextStyle(
+                    fontSize: 22,
+                    fontFamily: "Nunito",
+                    fontWeight: FontWeight.w800,
+                    color: Color(0xFF000000)),
               ),
             ),
             const SizedBox(
@@ -37,7 +34,7 @@ class CreateAccountScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Number Phone",
+                "Phone number",
                 style: Theme.of(context).primaryTextTheme.caption,
               ),
             ),
@@ -59,13 +56,23 @@ class CreateAccountScreen extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20)),
             ),
             const SizedBox(
-              height: 43,
+              height: 8,
             ),
-            BlurButton(
-                onPress: () {
-                  Navigator.pushNamed(context, AppRouter.otpRoute);
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRouter.recoveryRoute);
                 },
-                label: "Continue")
+                child: Text("Recover Account",
+                    style: Theme.of(context).primaryTextTheme.headline2)),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 200),
+              child: BlurButton(
+                  onPress: () {
+                    Navigator.pushNamed(context, AppRouter.otpRoute);
+                  },
+                  label: "Continue"),
+            )
           ],
         ),
       ),

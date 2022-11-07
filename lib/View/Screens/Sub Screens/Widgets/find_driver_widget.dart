@@ -38,7 +38,10 @@ class FindDriverWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.asset(AssetManager.progress),
+                  Image.asset(
+                    AssetManager.miniProgress,
+                    height: 65,
+                  ),
                   const SizedBox(
                     width: 20,
                   ),
@@ -50,7 +53,7 @@ class FindDriverWidget extends StatelessWidget {
                         style: Theme.of(context).primaryTextTheme.headline3,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Text(
                         "Damascus",
@@ -79,7 +82,7 @@ class FindDriverWidget extends StatelessWidget {
                         height: 5,
                       ),
                       DriverRoadParameterWidget(
-                        icon: AssetManager.clock,
+                        icon: AssetManager.redDot,
                         title: "0 / 2",
                         weight: FontWeight.normal,
                       ),

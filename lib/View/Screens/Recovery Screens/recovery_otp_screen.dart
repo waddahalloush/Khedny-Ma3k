@@ -171,7 +171,7 @@ class RecoveryOtpScreen extends StatelessWidget {
                         mini: true,
                         elevation: 0,
                         child: SvgPicture.asset(
-                          AssetManager.undo,
+                          AssetManager.money,
                           height: 30,
                           width: 30,
                         ),

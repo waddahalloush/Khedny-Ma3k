@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class DrawerListTileWidget extends StatelessWidget {
   final String icon;
@@ -16,16 +15,19 @@ class DrawerListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: ontap,
-      leading: SvgPicture.asset(
-        icon,
-        height: 35,
-        width: 30,
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).primaryTextTheme.headline1,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: ListTile(
+        onTap: ontap,
+        leading: Image.asset(
+          icon,
+          height: 35,
+          width: 30,
+        ),
+        title: Text(
+          title,
+          style: Theme.of(context).primaryTextTheme.headline1,
+        ),
       ),
     );
   }

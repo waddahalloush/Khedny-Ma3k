@@ -11,6 +11,7 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       resizeToAvoidBottomInset: false,
       //from Theme Data
       appBar: AppBar(
         elevation: 0,
@@ -29,9 +30,13 @@ class OtpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Please enter the 4 digit OTP\nsent to +62812 0101 0101",
-                style: Theme.of(context).primaryTextTheme.bodyText1,
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Nunito",
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xFF5E5E5E)),
               ),
               Padding(
                   padding: const EdgeInsets.only(top: 37, bottom: 47),
@@ -55,15 +60,23 @@ class OtpScreen extends StatelessWidget {
                               color: const Color(0XFFACACAC),
                             ))),
                   )),
-              Text(
+              const Text(
                 "Don't tell anyone the code",
-                style: Theme.of(context).primaryTextTheme.bodyText1,
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Nunito",
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xFF5E5E5E)),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5, bottom: 37),
+              const Padding(
+                padding: EdgeInsets.only(top: 5, bottom: 37),
                 child: Text(
                   "Expiring In 04 : 59",
-                  style: Theme.of(context).primaryTextTheme.bodyText1,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: "Nunito",
+                      fontWeight: FontWeight.normal,
+                      color: Color(0xFF5E5E5E)),
                 ),
               ),
               Padding(

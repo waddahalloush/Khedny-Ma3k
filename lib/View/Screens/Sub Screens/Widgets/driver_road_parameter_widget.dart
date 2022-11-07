@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 class DriverRoadParameterWidget extends StatelessWidget {
   final String icon;
   final String title;
-  
+
   final FontWeight weight;
 
   const DriverRoadParameterWidget({
     Key? key,
     required this.icon,
     required this.title,
-    
     required this.weight,
   }) : super(key: key);
 

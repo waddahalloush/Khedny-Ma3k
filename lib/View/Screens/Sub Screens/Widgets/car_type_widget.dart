@@ -19,14 +19,20 @@ class CarTypeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(3),
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.black26),
             borderRadius: BorderRadius.circular(8)),
         child: ListTile(
-          leading: Image.asset(
-            carImage,
+          leading: Container(
+            color: Colors.transparent,
+            child: Image.asset(
+              carImage,
+              width: 100,
+              height: 100,
+              fit: BoxFit.contain,
+            ),
           ),
           title: Text(carName,
               style: Theme.of(context).primaryTextTheme.headline1),

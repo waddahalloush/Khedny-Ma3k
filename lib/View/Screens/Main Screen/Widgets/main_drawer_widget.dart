@@ -12,53 +12,55 @@ class MainDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: Colors.white,
-      width: context.width - 50,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Column(
-          children: [
-            const UserAccountDrawerWidget(),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-              child: Divider(),
-            ),
-            DrawerListTileWidget(
-              title: "Dashboard",
-              icon: AssetManager.dash,
-              ontap: () {},
-            ),
-            DrawerListTileWidget(
-              title: "My ride",
-              icon: AssetManager.ride,
-              ontap: () {},
-            ),
-            DrawerListTileWidget(
-              title: "My payment",
-              icon: AssetManager.payment,
-              ontap: () {},
-            ),
-            DrawerListTileWidget(
-              title: "My vehicles",
-              icon: AssetManager.car,
-              ontap: () {},
-            ),
-            DrawerListTileWidget(
-              title: "Chat",
-              icon: AssetManager.chat,
-              ontap: () {},
-            ),
-            DrawerListTileWidget(
-              title: "Group",
-              icon: AssetManager.group,
-              ontap: () {},
-            ),
-          ],
+    return SafeArea(
+      child: Drawer(
+        backgroundColor: Colors.white,
+        width: context.width - 50,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30),
+          child: Column(
+            children: [
+              const UserAccountDrawerWidget(),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                child: Divider(),
+              ),
+              DrawerListTileWidget(
+                title: "Dashboard",
+                icon: AssetManager.dashBoard,
+                ontap: () {},
+              ),
+              DrawerListTileWidget(
+                title: "My ride",
+                icon: AssetManager.myRide,
+                ontap: () {},
+              ),
+              DrawerListTileWidget(
+                title: "My payment",
+                icon: AssetManager.payment,
+                ontap: () {},
+              ),
+              DrawerListTileWidget(
+                title: "My vehicles",
+                icon: AssetManager.myVehicles,
+                ontap: () {},
+              ),
+              DrawerListTileWidget(
+                title: "Chat",
+                icon: AssetManager.chat,
+                ontap: () {},
+              ),
+              DrawerListTileWidget(
+                title: "About",
+                icon: AssetManager.about,
+                ontap: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );

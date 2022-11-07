@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/request_trip_bottom_sheet.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_profile_listtile.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_road_parameter_widget.dart';
 
@@ -31,37 +32,47 @@ class TripDetailsScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Divider(thickness: 2),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset(AssetManager.progress2),
-                const SizedBox(
-                  width: 20,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Husayn al-Bahr, Tartous",
-                      style: Theme.of(context).primaryTextTheme.headline3,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Homs",
-                      style: Theme.of(context).primaryTextTheme.headline3,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Damascus",
-                      style: Theme.of(context).primaryTextTheme.headline3,
-                    ),
-                  ],
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    AssetManager.progress,
+                    width: 30,
+                    height: 100,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Husayn al-Bahr, Tartous",
+                        style: Theme.of(context).primaryTextTheme.headline3,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Homs",
+                        style: Theme.of(context).primaryTextTheme.headline3,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Damascus",
+                        style: Theme.of(context).primaryTextTheme.headline3,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Container(
               padding: const EdgeInsets.all(10),
@@ -123,7 +134,7 @@ class TripDetailsScreen extends StatelessWidget {
                   const Divider(),
                   ListTile(
                     leading: Image.asset(
-                      AssetManager.condition,
+                      AssetManager.air,
                       width: 40,
                       height: 40,
                     ),
@@ -180,7 +191,7 @@ class TripDetailsScreen extends StatelessWidget {
             ),
             const CarTypeWidget(
               carName: "Sedan - Loyota i123",
-              carImage: AssetManager.carType,
+              carImage: AssetManager.sedan,
               carModel: "MH12D1433",
               carColor: "Red",
               carSeats: 5,
@@ -211,7 +222,9 @@ class TripDetailsScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showRequestTripBottomSheet(context);
+                  },
                   child: Text(
                     "Book the Trip",
                     style: Theme.of(context).primaryTextTheme.headline5,

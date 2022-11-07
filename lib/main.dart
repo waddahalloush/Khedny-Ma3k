@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
                   fontSize: 15,
                   overflow: TextOverflow.ellipsis,
                   fontFamily: "Nunito",
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black),
               caption: TextStyle(
                   fontSize: 15,

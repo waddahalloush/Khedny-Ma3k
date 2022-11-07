@@ -5,7 +5,7 @@ class GlobalTextForm extends StatelessWidget {
   final String label;
   final bool obSecure;
   final Widget suffix;
-  final TextEditingController controller;
+ 
   final TextInputType keyBoardType;
 
   const GlobalTextForm({
@@ -13,7 +13,7 @@ class GlobalTextForm extends StatelessWidget {
     required this.label,
     required this.obSecure,
     required this.suffix,
-    required this.controller,
+   
     required this.keyBoardType,
   }) : super(key: key);
 
@@ -26,7 +26,7 @@ class GlobalTextForm extends StatelessWidget {
           floatingLabelStyle: Theme.of(context).primaryTextTheme.caption,
           labelText: label,suffixIcon:suffix ,
           labelStyle: Theme.of(context).primaryTextTheme.caption),
-      controller: controller,
+     
       keyboardType: keyBoardType,
       obscureText: obSecure,
     );

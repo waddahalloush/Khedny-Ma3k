@@ -10,7 +10,6 @@ class RecoveryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       //from Theme Data
@@ -39,11 +38,10 @@ class RecoveryScreen extends StatelessWidget {
               "Enter Phone Number to receive recovery code",
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 80),
+            const Padding(
+              padding: EdgeInsets.only(top: 80),
               child: GlobalTextForm(
-                suffix: const SizedBox(),
-                controller: controller,
+                suffix: SizedBox(),
                 keyBoardType: TextInputType.phone,
                 label: "Phone Number",
                 obSecure: false,
@@ -62,7 +60,7 @@ class RecoveryScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 80, top: 40),
               child: BlurButton(
                   onPress: () {
-                    Navigator.pushNamed(context, AppRouter.otpRoute);
+                    Navigator.pushNamed(context, AppRouter.recoverotpRoute);
                   },
                   label: "Get The Code"),
             )

@@ -10,7 +10,7 @@ class SearchResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 40),
         child: ListView(
           shrinkWrap: true,
           children: [

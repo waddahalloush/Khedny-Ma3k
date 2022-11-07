@@ -27,17 +27,19 @@ class UserAccountDrawerWidget extends StatelessWidget {
             style: Theme.of(context).primaryTextTheme.headline2,
           ),
           const SizedBox(
-            width: 6,
+            width: 10,
           ),
           Image.asset(
-            AssetManager.king,
+            AssetManager.purplecrown,
             width: 27,
             height: 27,
           )
         ],
       ),
       trailing: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             Icons.arrow_forward_ios_rounded,
           )),

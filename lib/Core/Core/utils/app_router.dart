@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/View/Screens/Create%20Account%20Screen/create_account_screen.dart';
-import 'package:khedni_m3k/View/Screens/Main%20Screen/chat_driver_screen.dart';
 import 'package:khedni_m3k/View/Screens/Recovery%20Screens/new_password_screen.dart';
 import 'package:khedni_m3k/View/Screens/Recovery%20Screens/recovery_otp_screen.dart';
 import 'package:khedni_m3k/View/Screens/Recovery%20Screens/recovery_screen.dart';
@@ -56,10 +55,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const MainScreen(),
         );
-      case chatRoute:
-        return MaterialPageRoute(
-          builder: (context) => const ChatDriver(),
-        );
+
       case testRoute:
         return MaterialPageRoute(
           builder: (context) => const Test(),
