@@ -14,22 +14,22 @@ class BlurButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Container(
-        width: double.infinity,
-        alignment: Alignment.center,
-        height: 55,
-        decoration: BoxDecoration(
-            boxShadow: const [
-              BoxShadow(
-                  blurRadius: 20,
-                  color: Color.fromARGB(255, 180, 173, 251),
-                  offset: Offset(0, 7))
-            ],
-            borderRadius: BorderRadius.circular(25),
-            gradient: const LinearGradient(
-                colors: [Color(0xFF4C78A3), Color(0xFF004E98)])),
-        child: TextButton(
-          onPressed: onPress,
+      child: InkWell(
+        onTap: onPress,
+        child: Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          height: 55,
+          decoration: BoxDecoration(
+              boxShadow: const [
+                BoxShadow(
+                    blurRadius: 20,
+                    color: Color.fromARGB(255, 180, 173, 251),
+                    offset: Offset(0, 7))
+              ],
+              borderRadius: BorderRadius.circular(25),
+              gradient: const LinearGradient(
+                  colors: [Color(0xFF4C78A3), Color(0xFF004E98)])),
           child: Text(
             label,
             style: Theme.of(context).primaryTextTheme.headline5,

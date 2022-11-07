@@ -10,52 +10,53 @@ class MessageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: Column(
-          children: [
-            const MainAppBarWidget(title: " Messages "),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                Container(
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                  padding: const EdgeInsets.all(5),
-                  width: context.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                      ],
-                      color: const Color(0xFFFFFFFF)),
-                  child: ListTile(
-                    onTap: () {
-                      showChatDriverDialog(context);
-                    },
-                    leading: const DriverConnectionImage(),
-                    title: Text(
-                      "Kimmy Natasa",
-                      style: Theme.of(context).primaryTextTheme.headline1,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              const MainAppBarWidget(title: " Messages "),
+              ListView(
+                shrinkWrap: true,
+                children: [
+                  Container(
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                    padding: const EdgeInsets.all(5),
+                    width: context.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
+                        ],
+                        color: const Color(0xFFFFFFFF)),
+                    child: ListTile(
+                      onTap: () {
+                        showChatDriverDialog(context);
+                      },
+                      leading: const DriverConnectionImage(),
+                      title: Text(
+                        "Kimmy Natasa",
+                        style: Theme.of(context).primaryTextTheme.headline1,
+                      ),
+                      subtitle: Text(
+                        "Online",
+                        style: Theme.of(context).primaryTextTheme.caption,
+                      ),
+                      trailing: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.more_vert,
+                            color: Colors.black,
+                            size: 20,
+                          )),
                     ),
-                    subtitle: Text(
-                      "Online",
-                      style: Theme.of(context).primaryTextTheme.caption,
-                    ),
-                    trailing: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.more_vert,
-                          color: Colors.black,
-                          size: 20,
-                        )),
-                  ),
-                )
-              ],
-            ),
-          ],
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

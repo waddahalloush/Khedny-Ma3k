@@ -4,7 +4,7 @@ import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/become_driver_modal.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_drawer_widget.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/my_trip_screen.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/my_offered_trip_screen.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/my_offered_trip_screen.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/find_trip.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/message_screen.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/profile_screen.dart';

@@ -22,7 +22,7 @@ class CarTypeWidget extends StatelessWidget {
         padding: const EdgeInsets.all(3),
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.black26),
+            border: Border.all(color: Colors.black12),
             borderRadius: BorderRadius.circular(8)),
         child: ListTile(
           leading: Container(
