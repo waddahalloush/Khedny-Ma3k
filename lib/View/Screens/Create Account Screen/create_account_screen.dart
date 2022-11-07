@@ -11,7 +11,7 @@ class CreateAccountScreen extends StatelessWidget {
         child: Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 35, horizontal: 17),
+        padding: const EdgeInsets.symmetric(vertical: 45, horizontal: 17),
         child: Column(
           children: [
             const SizedBox(

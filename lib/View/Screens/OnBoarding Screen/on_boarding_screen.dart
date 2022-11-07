@@ -19,8 +19,8 @@ class OnBoardingScreen extends StatelessWidget {
         image: SafeArea(
             child: Image.asset(
           AssetManager.onboarding1,
-          width: context.width - 100,
-          height: context.height,
+          width: context.width - 120,
+          height: context.height / 2,
         )),
         decoration: const PageDecoration(
           imageFlex: 2,
@@ -42,8 +42,8 @@ class OnBoardingScreen extends StatelessWidget {
         image: SafeArea(
             child: Image.asset(
           AssetManager.onboarding2,
-          width: context.width - 100,
-          height: context.height,
+          width: context.width - 120,
+          height: context.height / 2,
         )),
         decoration: const PageDecoration(
           imageFlex: 2,
@@ -67,8 +67,8 @@ class OnBoardingScreen extends StatelessWidget {
             child: Center(
                 child: Image.asset(
           AssetManager.onboarding3,
-          width: context.width - 100,
-          height: context.height,
+          width: context.width - 120,
+          height: context.height / 2,
           fit: BoxFit.contain,
         ))),
         decoration: const PageDecoration(
@@ -101,7 +101,7 @@ class OnBoardingScreen extends StatelessWidget {
         ))),
         decoration: const PageDecoration(
           imageFlex: 5,
-          imagePadding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+          imagePadding: EdgeInsets.symmetric(vertical: 70, horizontal: 30),
           bodyFlex: 3,
           titleTextStyle: TextStyle(
               fontFamily: "Nunito",
@@ -129,8 +129,8 @@ class OnBoardingScreen extends StatelessWidget {
             spacing: const EdgeInsets.all(0),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20))),
+            activeShape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(2))),
         showDoneButton: false,
         showNextButton: false,
         showBackButton: false,
