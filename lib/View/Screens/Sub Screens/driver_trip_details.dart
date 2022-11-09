@@ -94,7 +94,6 @@ class DriverTripDetailsScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black12),
@@ -212,8 +211,8 @@ class DriverTripDetailsScreen extends StatelessWidget {
                       ),
                       Image.asset(
                         AssetManager.messageBubble,
-                        width: 50,
-                        height: 50,
+                        width: 30,
+                        height: 30,
                       ),
                       const SizedBox(
                         width: 10,
@@ -252,9 +251,9 @@ class DriverTripDetailsScreen extends StatelessWidget {
                             child: InkWell(
                           onTap: () {},
                           child: Container(
-                            width: double.infinity,
+                            width: context.width - 20,
                             alignment: Alignment.center,
-                            height: 55,
+                            height: 40,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(
@@ -264,7 +263,7 @@ class DriverTripDetailsScreen extends StatelessWidget {
                             child: Text(
                               "Decline",
                               style: TextStyle(
-                                  fontSize: 22,
+                                  fontSize: 20,
                                   fontFamily: "Nunito",
                                   fontWeight: FontWeight.bold,
                                   color: Theme.of(context).primaryColorLight),

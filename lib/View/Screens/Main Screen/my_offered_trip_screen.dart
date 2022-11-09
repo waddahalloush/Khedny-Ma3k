@@ -112,8 +112,8 @@ class DriverTripWidget extends StatelessWidget {
                 const Spacer(),
                 Image.asset(
                   AssetManager.messageBubble,
-                  width: 50,
-                  height: 50,
+                  width: 30,
+                  height: 30,
                 ),
                 const SizedBox(
                   width: 15,

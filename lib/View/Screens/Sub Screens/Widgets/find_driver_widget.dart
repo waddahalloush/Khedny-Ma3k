@@ -24,8 +24,8 @@ class FindDriverWidget extends StatelessWidget {
         );
       },
       child: Container(
-        margin: const EdgeInsets.all(15),
-        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
         width: context.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
@@ -33,63 +33,62 @@ class FindDriverWidget extends StatelessWidget {
             color: const Color(0xFFFFFFFF)),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    AssetManager.miniProgress,
-                    height: 65,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Tartous",
-                        style: Theme.of(context).primaryTextTheme.headline3,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Damascus",
-                        style: Theme.of(context).primaryTextTheme.headline3,
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
-                      DriverRoadParameterWidget(
-                        icon: AssetManager.money,
-                        title: "20",
-                        weight: FontWeight.bold,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      DriverRoadParameterWidget(
-                        icon: AssetManager.clock,
-                        title: "16:28",
-                        weight: FontWeight.normal,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      DriverRoadParameterWidget(
-                        icon: AssetManager.redDot,
-                        title: "0 / 2",
-                        weight: FontWeight.normal,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  AssetManager.miniProgress,
+                  height: 45,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Tartous",
+                      style: Theme.of(context).primaryTextTheme.headline3,
+                    ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    Text(
+                      "Damascus",
+                      style: Theme.of(context).primaryTextTheme.headline3,
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: const [
+                    DriverRoadParameterWidget(
+                      icon: AssetManager.money,
+                      title: "20",
+                      weight: FontWeight.bold,
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    DriverRoadParameterWidget(
+                      icon: AssetManager.clock,
+                      title: "16:28",
+                      weight: FontWeight.normal,
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    DriverRoadParameterWidget(
+                      icon: AssetManager.redDot,
+                      title: "0 / 2",
+                      weight: FontWeight.normal,
+                    ),
+                  ],
+                ),
+              ],
             ),
             const DriverProfileListTile(
               driverName: "Bernard",

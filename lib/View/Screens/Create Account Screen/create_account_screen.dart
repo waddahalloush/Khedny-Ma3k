@@ -64,15 +64,14 @@ class CreateAccountScreen extends StatelessWidget {
                 },
                 child: Text("Recover Account",
                     style: Theme.of(context).primaryTextTheme.headline2)),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 200),
-              child: BlurButton(
-                  onPress: () {
-                    Navigator.pushNamed(context, AppRouter.otpRoute);
-                  },
-                  label: "Continue"),
-            )
+            const SizedBox(
+              height: 40,
+            ),
+            BlurButton(
+                onPress: () {
+                  Navigator.pushNamed(context, AppRouter.otpRoute);
+                },
+                label: "Continue")
           ],
         ),
       ),

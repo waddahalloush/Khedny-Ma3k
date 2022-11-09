@@ -28,11 +28,11 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: context.width,
-                    height: 120,
+                    height: 90,
                   ),
                   Container(
-                    width: 95,
-                    height: 95,
+                    width: 80,
+                    height: 80,
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Colors.grey),
                   ),
@@ -41,8 +41,8 @@ class ProfileScreen extends StatelessWidget {
                       bottom: 10,
                       child: Image.asset(
                         AssetManager.edit,
-                        width: 30,
-                        height: 30,
+                        width: 20,
+                        height: 20,
                       ))
                 ],
               ),
@@ -57,10 +57,10 @@ class ProfileScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Image.asset(
                       AssetManager.banner,
-                      height: 83,
+                      height: 70,
                       width: 400,
                       fit: BoxFit.fitHeight,
                     ),
@@ -71,7 +71,7 @@ class ProfileScreen extends StatelessWidget {
                       Text(
                         "Quick Ride Wallet",
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 13,
                             fontFamily: "Nunito",
                             fontWeight: FontWeight.w600,
                             color: Colors.white),
@@ -82,7 +82,7 @@ class ProfileScreen extends StatelessWidget {
                       Text(
                         "43.64 Points",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontFamily: "Nunito",
                             fontWeight: FontWeight.w800,
                             color: Colors.white),
@@ -119,7 +119,7 @@ class ProfileScreen extends StatelessWidget {
                         const Icon(
                           Icons.star,
                           color: Color(0XFFFFB461),
-                          size: 35,
+                          size: 25,
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.min,
@@ -150,16 +150,16 @@ class ProfileScreen extends StatelessWidget {
                         color: Color(0XFFFFB461),
                       ),
                       itemCount: 5,
-                      itemSize: 40.0,
+                      itemSize: 30.0,
                       direction: Axis.horizontal,
                     )
                   ],
                 ),
               ),
               SizedBox(
-                height: context.height * 0.22,
+                height: context.height * 0.20,
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 5),
                   scrollDirection: Axis.horizontal,
                   children: [
                     const CarWidget(
@@ -184,7 +184,7 @@ class ProfileScreen extends StatelessWidget {
                           color: const Color(0xFFFFFFFF)),
                       child: Icon(
                         Icons.add_circle_outline,
-                        size: 70,
+                        size: 50,
                         color: Theme.of(context).primaryColor,
                       ),
                     )
@@ -218,7 +218,7 @@ class DriverFeaturesWidget extends StatelessWidget {
           style: Theme.of(context).primaryTextTheme.headline1,
         ),
         const SizedBox(
-          height: 10,
+          height: 3,
         ),
         Text(
           title,

@@ -19,6 +19,7 @@ class MainAppBarWidget extends StatelessWidget {
       child: Row(
         children: [
           FloatingActionButton(
+              mini: true,
               heroTag: "m",
               onPressed: () {
                 context.read<AppProvider>().openDrawer();
@@ -27,8 +28,8 @@ class MainAppBarWidget extends StatelessWidget {
               backgroundColor: Colors.white,
               child: Image.asset(
                 AssetManager.menu,
-                height: 35,
-                width: 30,
+                height: 25,
+                width: 20,
               )),
           const Spacer(),
           Text(
@@ -37,14 +38,15 @@ class MainAppBarWidget extends StatelessWidget {
           ),
           const Spacer(),
           FloatingActionButton(
+              mini: true,
               heroTag: "n",
               onPressed: () {},
               elevation: 2,
               backgroundColor: Colors.white,
               child: Image.asset(
                 AssetManager.bell,
-                height: 35,
-                width: 30,
+                height: 25,
+                width: 20,
               )),
         ],
       ),

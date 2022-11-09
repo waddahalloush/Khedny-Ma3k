@@ -5,6 +5,8 @@ class GlobalTextForm extends StatelessWidget {
   final String label;
   final bool obSecure;
   final Widget suffix;
+  final bool isReadOnly;
+  final VoidCallback onTap;
  
   final TextInputType keyBoardType;
 
@@ -13,13 +15,14 @@ class GlobalTextForm extends StatelessWidget {
     required this.label,
     required this.obSecure,
     required this.suffix,
-   
+    required this.isReadOnly,
+    required this.onTap,
     required this.keyBoardType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextFormField(readOnly: isReadOnly,onTap: onTap,
       decoration: InputDecoration(
           floatingLabelAlignment: FloatingLabelAlignment.start,
           floatingLabelBehavior: FloatingLabelBehavior.always,

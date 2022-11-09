@@ -17,55 +17,53 @@ class DriverProfileListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: ListTile(
-        horizontalTitleGap: 0,
-        leading: Transform.translate(
-          offset: const Offset(-20, 0),
-          child: const CircleAvatar(
-            radius: 45,
-            backgroundColor: Color(0xFFC4C4C4),
-          ),
+    return ListTile(
+      visualDensity: VisualDensity.compact,
+      horizontalTitleGap: 0,
+      leading: Transform.translate(
+        offset: const Offset(-20, 0),
+        child: const CircleAvatar(
+          radius: 25,
+          backgroundColor: Color(0xFFC4C4C4),
         ),
-        title: Transform.translate(
-          offset: const Offset(-20, 0),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                driverName,
-                style: Theme.of(context).primaryTextTheme.headline1,
-              ),
-              SvgPicture.asset(AssetManager.purplecrown)
-            ],
-          ),
+      ),
+      title: Transform.translate(
+        offset: const Offset(-10, 0),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              driverName,
+              style: Theme.of(context).primaryTextTheme.headline1,
+            ),
+            SvgPicture.asset(AssetManager.purplecrown)
+          ],
         ),
-        subtitle: Transform.translate(
-          offset: const Offset(-20, 0),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              const SizedBox(
-                width: 3,
-              ),
-              Text(
-                driverRate,
-                style: Theme.of(context).primaryTextTheme.headline1,
-              ),
-              const SizedBox(
-                width: 3,
-              ),
-              Text(
-                "($driverTrips)",
-                style: Theme.of(context).primaryTextTheme.bodyText1,
-              ),
-            ],
-          ),
+      ),
+      subtitle: Transform.translate(
+        offset: const Offset(-10, 0),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            const SizedBox(
+              width: 3,
+            ),
+            Text(
+              driverRate,
+              style: Theme.of(context).primaryTextTheme.headline1,
+            ),
+            const SizedBox(
+              width: 3,
+            ),
+            Text(
+              "($driverTrips)",
+              style: Theme.of(context).primaryTextTheme.bodyText1,
+            ),
+          ],
         ),
       ),
     );

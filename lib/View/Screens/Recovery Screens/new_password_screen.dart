@@ -43,7 +43,8 @@ class NewPasswordScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 80),
                   child: Consumer<AppProvider>(
-                    builder: (context, value, child) => GlobalTextForm(
+                    builder: (context, value, child) => GlobalTextForm( isReadOnly: false,
+                    onTap: () {},
                       suffix: IconButton(
                           onPressed: () {
                             value.changeVisible1();
@@ -61,7 +62,8 @@ class NewPasswordScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Consumer<AppProvider>(
-                    builder: (context, value, child) => GlobalTextForm(
+                    builder: (context, value, child) => GlobalTextForm( isReadOnly: false,
+                    onTap: () {},
                       suffix: IconButton(
                           onPressed: () {
                             value.changeVisible2();

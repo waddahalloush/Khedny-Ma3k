@@ -28,7 +28,8 @@ class MainScreen extends StatelessWidget {
       const ProfileScreen(),
     ];
     return Consumer<AppProvider>(
-      builder: (context, value, child) => Scaffold(resizeToAvoidBottomInset: false,
+      builder: (context, value, child) => Scaffold(
+        resizeToAvoidBottomInset: false,
         key: value.scaffoldKey,
         drawer: const MainDrawerWidget(),
         body: PersistentTabView(
@@ -47,29 +48,29 @@ class MainScreen extends StatelessWidget {
                 ),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 20),
             PersistentBottomNavBarItem(
                 icon: const Icon(Icons.time_to_leave_outlined),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 20),
             PersistentBottomNavBarItem(
               icon: Image.asset(
                 AssetManager.fab,
-                width: 90,
-                height: 90,
+                width: 50,
+                height: 50,
               ),
             ),
             PersistentBottomNavBarItem(
                 icon: const Icon(UniconsLine.comment),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 20),
             PersistentBottomNavBarItem(
                 icon: const Icon(UniconsLine.user_circle),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 20),
           ],
           confineInSafeArea: true,
           backgroundColor: Colors.white, // Default is Colors.white.
@@ -96,7 +97,7 @@ class MainScreen extends StatelessWidget {
             curve: Curves.ease,
             duration: Duration(milliseconds: 200),
           ),
-          navBarHeight: 80,
+          navBarHeight: 60,
 
           popAllScreensOnTapAnyTabs: true,
           navBarStyle: NavBarStyle

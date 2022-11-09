@@ -38,10 +38,12 @@ class RecoveryScreen extends StatelessWidget {
               "Enter Phone Number to receive recovery code",
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 80),
+            Padding(
+              padding: const EdgeInsets.only(top: 80),
               child: GlobalTextForm(
-                suffix: SizedBox(),
+                isReadOnly: false,
+                onTap: () {},
+                suffix: const SizedBox(),
                 keyBoardType: TextInputType.phone,
                 label: "Phone Number",
                 obSecure: false,

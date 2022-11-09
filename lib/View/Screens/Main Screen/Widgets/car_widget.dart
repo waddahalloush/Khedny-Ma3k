@@ -27,8 +27,8 @@ class CarWidget extends StatelessWidget {
         children: [
           Image.asset(
             carImage,
-            width: 80,
-            height: 80,
+            width: 70,
+            height: 60,
           ),
           Text(
             carname,

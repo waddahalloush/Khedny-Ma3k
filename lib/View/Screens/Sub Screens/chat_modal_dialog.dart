@@ -4,7 +4,6 @@ import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
 import 'package:khedni_m3k/Controller/app_provider.dart';
 import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
 import 'package:provider/provider.dart';
 
 import '../Main Screen/Widgets/driver_connection_image.dart';
@@ -23,14 +22,17 @@ Future<bool> showChatDriverDialog(BuildContext context) {
                     borderRadius:
                         const BorderRadius.all(Radius.circular(32.0))),
                 title: ListTile(
+                  horizontalTitleGap: 1,
                   visualDensity: VisualDensity.compact,
                   dense: true,
                   onTap: () {},
-                  leading: const DriverConnectionImage(),
+                  leading: Transform.translate(
+                      offset: const Offset(-15, 0),
+                      child: const DriverConnectionImage()),
                   title: const Text(
                     "Kimmy Natasa",
                     style: TextStyle(
-                        fontSize: 19,
+                        fontSize: 15,
                         fontFamily: "Nunito",
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF000000)),
@@ -44,32 +46,26 @@ Future<bool> showChatDriverDialog(BuildContext context) {
                       icon: const Icon(
                         Icons.close,
                         color: Colors.black,
-                        size: 20,
+                        size: 15,
                       )),
                 ),
-                content: Expanded(
-                  child: SizedBox(
-                    width: context.width,
-                    height: context.height / 3,
-                    child: ListView.builder(
-                      itemCount: myType.chatList.length,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, i) => ChatBubble(
-                        clipper:
-                            ChatBubbleClipper5(type: BubbleType.sendBubble),
-                        alignment: Alignment.topRight,
-                        margin: const EdgeInsets.only(top: 20),
-                        backGroundColor: Colors.blue,
-                        child: Container(
-                          constraints: BoxConstraints(
-                            maxWidth: MediaQuery.of(context).size.width * 0.4,
-                          ),
-                          child: Text(
-                            myType.chatList[i],
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
+                content: ListView.builder(
+                  itemCount: myType.chatList.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, i) => ChatBubble(
+                    clipper: ChatBubbleClipper5(type: BubbleType.sendBubble),
+                    alignment: Alignment.topRight,
+                    margin: const EdgeInsets.only(top: 20),
+                    backGroundColor: Colors.blue,
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.4,
+                      ),
+                      child: Text(
+                        myType.chatList[i],
+                        style: const TextStyle(
+                            color: Colors.white, fontSize: 12),
                       ),
                     ),
                   ),

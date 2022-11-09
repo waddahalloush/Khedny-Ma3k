@@ -100,8 +100,8 @@ class OnBoardingScreen extends StatelessWidget {
           AssetManager.onboarding4,
         ))),
         decoration: const PageDecoration(
-          imageFlex: 5,
-          imagePadding: EdgeInsets.symmetric(vertical: 70, horizontal: 30),
+          imageFlex: 4,
+          imagePadding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
           bodyFlex: 3,
           titleTextStyle: TextStyle(
               fontFamily: "Nunito",
@@ -123,14 +123,14 @@ class OnBoardingScreen extends StatelessWidget {
         pages: introList,
         dotsDecorator: DotsDecorator(
             activeColor: const Color.fromARGB(255, 144, 114, 226),
-            size: const Size(30.0, 10.0),
-            activeSize: const Size(30.0, 10.0),
+            size: const Size(20.0, 8.0),
+            activeSize: const Size(20.0, 8.0),
             color: Colors.black26,
             spacing: const EdgeInsets.all(0),
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
             activeShape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(2))),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(1))),
         showDoneButton: false,
         showNextButton: false,
         showBackButton: false,

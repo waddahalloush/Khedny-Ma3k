@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             primaryColorDark: const Color(0XFFACACAC),
             primaryColorLight: const Color(0xFFFC6752),
             scaffoldBackgroundColor: Colors.white,
+            
             appBarTheme: const AppBarTheme(
                 elevation: 0,
                 color: Colors.white,
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
             canvasColor: const Color(0XFF877EF2),
             primaryTextTheme: const TextTheme(
               headline1: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF000000)),
@@ -47,12 +48,12 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Color(0xFFC4C4C4)),
               headline3: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF000000)),
               headline5: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.bold,
                   color: Color(0xFFFFFFFF)),

@@ -9,10 +9,8 @@ class SearchResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 40),
+      body: SafeArea(
         child: ListView(
-          shrinkWrap: true,
           children: [
             Row(
               children: [
@@ -36,7 +34,7 @@ class SearchResultScreen extends StatelessWidget {
               ],
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.symmetric(vertical: 5),
               child: Divider(thickness: 2),
             ),
             ListView.builder(

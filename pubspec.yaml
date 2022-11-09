@@ -35,9 +35,11 @@ dependencies:
   flutter_svg: ^1.1.5
   flutter_switch: ^0.3.2
   form_field_validator: ^1.1.0
+  image_picker: ^0.8.6
   introduction_screen: ^3.0.2
   onboarding: ^3.1.0
   persistent_bottom_nav_bar: ^5.0.2
+  flutter_material_pickers: ^3.3.0
   pinput: ^2.2.16
   provider: ^6.0.4
   unicons: ^2.1.0

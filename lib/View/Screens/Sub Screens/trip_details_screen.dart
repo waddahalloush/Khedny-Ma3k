@@ -93,7 +93,6 @@ class TripDetailsScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black26),

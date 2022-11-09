@@ -23,7 +23,7 @@ class DriverRoadParameterWidget extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   fontFamily: "Nunito",
                   fontWeight: weight,
                   color: const Color(0xFF000000)),
@@ -33,8 +33,8 @@ class DriverRoadParameterWidget extends StatelessWidget {
             ),
             Image.asset(
               icon,
-              width: 25,
-              height: 25,
+              width: 20,
+              height: 20,
               fit: BoxFit.cover,
             ),
           ],
