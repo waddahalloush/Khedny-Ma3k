@@ -1,14 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Controller/app_provider.dart';
-
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/global_bubble_text_form.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/add_vehicle_bottm_sheet.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../Core/constants/asset_manager.dart';
+import '../../../../Core/utils/Global Widgets/blur_button.dart';
+import '../../../../Core/utils/Global Widgets/global_bubble_text_form.dart';
 import '../../Recovery Screens/Widgets/global_text_form.dart';
 import 'car_widget.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
 import 'package:provider/provider.dart';
 import '../../../Controller/app_provider.dart';
-import '../../../Core/Core/utils/Global Widgets/blur_button.dart';
+import '../../../Core/utils/Global Widgets/blur_button.dart';
+import '../../../Core/utils/app_router.dart';
 import 'Widgets/global_text_form.dart';
 
 class NewPasswordScreen extends StatelessWidget {

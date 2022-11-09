@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:khedni_m3k/Controller/app_provider.dart';
-import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
 import 'package:provider/provider.dart';
+
+import 'Core/utils/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AppProvider(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Khedny M3K',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primaryColor: const Color(0XFF004E98),

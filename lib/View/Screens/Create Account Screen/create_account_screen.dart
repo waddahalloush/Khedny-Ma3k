@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
-import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
 
+import '../../../Core/utils/Global Widgets/blur_button.dart';
+import '../../../Core/utils/app_router.dart';
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
 

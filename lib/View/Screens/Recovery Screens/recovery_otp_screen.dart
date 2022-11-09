@@ -1,11 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_firstRecoveryOtpScreen
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:pinput/pinput.dart';
-
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import '../../../Core/constants/asset_manager.dart';
+import '../../../Core/utils/app_router.dart';
 
 class RecoveryOtpScreen extends StatelessWidget {
   const RecoveryOtpScreen({Key? key}) : super(key: key);

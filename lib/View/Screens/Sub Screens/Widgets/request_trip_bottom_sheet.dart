@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
-
-import '../../../../Core/Core/constants/asset_manager.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import '../../../../Core/constants/asset_manager.dart';
 import '../../Main Screen/Widgets/find_ride_form_widget.dart';
 
 void showRequestTripBottomSheet(BuildContext context) => showModalBottomSheet(
@@ -170,29 +169,3 @@ class DriverInfoWidget extends StatelessWidget {
 
 
 
-// Row(
-//         mainAxisSize: MainAxisSize.min,
-//         children: [
-//           Image.asset(
-//             AssetManager.carType,
-//           ),
-//           Column(
-//             mainAxisSize: MainAxisSize.min,
-//             children: [
-//               Text("Sedan - Loyota i123",
-//                   style: Theme.of(context).primaryTextTheme.headline1),
-//               Text("MH12D1433",
-//                   style: Theme.of(context).primaryTextTheme.headline2),
-//               Row(mainAxisSize: MainAxisSize.min,
-//                 children: [
-//                   Text("Color : Red",
-//                       style: Theme.of(context).primaryTextTheme.headline2),
-//                   const Spacer(),
-//                   Text("5 Seats",
-//                       style: Theme.of(context).primaryTextTheme.headline2),
-//                 ],
-//               )
-//             ],
-//           )
-//         ],
-//       ),

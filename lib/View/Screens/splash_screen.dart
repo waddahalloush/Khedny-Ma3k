@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
-
-import '../../Core/Core/utils/app_router.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import '../../Core/constants/asset_manager.dart';
+import '../../Core/utils/app_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -33,8 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Image.asset(
           AssetManager.logo,
-          height: context.height / 3,
-          width: context.width - 20,
+          height: context.height / 3.5,
+          width: context.width - 40,
           fit: BoxFit.contain,
         ),
       ),

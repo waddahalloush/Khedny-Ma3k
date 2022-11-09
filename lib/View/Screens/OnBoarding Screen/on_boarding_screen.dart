@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
-import 'package:khedni_m3k/Core/Core/utils/app_router.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
-
-import '../../../Core/Core/constants/asset_manager.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import '../../../Core/constants/asset_manager.dart';
+import '../../../Core/utils/Global Widgets/blur_button.dart';
+import '../../../Core/utils/app_router.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);

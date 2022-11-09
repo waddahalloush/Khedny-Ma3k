@@ -1,12 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/driver_trip_details.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../../../Core/constants/asset_manager.dart';
 import 'Widgets/become_driver_modal.dart';
 import '../Sub Screens/Widgets/driver_road_parameter_widget.dart';
 

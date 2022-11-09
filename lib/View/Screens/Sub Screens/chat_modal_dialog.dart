@@ -3,9 +3,8 @@ import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
 import 'package:khedni_m3k/Controller/app_provider.dart';
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
 import 'package:provider/provider.dart';
-
+import '../../../Core/constants/asset_manager.dart';
 import '../Main Screen/Widgets/driver_connection_image.dart';
 
 Future<bool> showChatDriverDialog(BuildContext context) {

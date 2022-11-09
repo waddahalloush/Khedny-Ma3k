@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../Core/Core/constants/asset_manager.dart';
-
+import '../../../../Core/constants/asset_manager.dart';
 class UserAccountDrawerWidget extends StatelessWidget {
   const UserAccountDrawerWidget({
     Key? key,

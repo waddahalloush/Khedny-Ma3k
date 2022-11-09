@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../Core/Core/constants/asset_manager.dart';
+import '../../../../Core/constants/asset_manager.dart';
 
 class DriverProfileListTile extends StatelessWidget {
   final String driverName;

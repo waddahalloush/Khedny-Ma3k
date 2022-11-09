@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_setup_bottom_sheet.dart';
+
+import '../../../../Core/constants/asset_manager.dart';
+import '../../../../Core/utils/Global Widgets/blur_button.dart';
 
 void showBecomeDriverBottomSheet(
   BuildContext context,

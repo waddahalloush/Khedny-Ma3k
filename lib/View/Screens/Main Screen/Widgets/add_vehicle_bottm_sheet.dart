@@ -5,12 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
 import 'package:flutter_material_pickers/helpers/show_swatch_picker.dart';
 import 'package:khedni_m3k/Controller/app_provider.dart';
-
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../Core/constants/asset_manager.dart';
+import '../../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../Recovery Screens/Widgets/global_text_form.dart';
 
 void showAddVehicleBottomSheet(

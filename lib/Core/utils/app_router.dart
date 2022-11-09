@@ -3,7 +3,6 @@ import 'package:khedni_m3k/View/Screens/Create%20Account%20Screen/create_account
 import 'package:khedni_m3k/View/Screens/Recovery%20Screens/new_password_screen.dart';
 import 'package:khedni_m3k/View/Screens/Recovery%20Screens/recovery_otp_screen.dart';
 import 'package:khedni_m3k/View/Screens/Recovery%20Screens/recovery_screen.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/test.dart';
 import '../../../View/Screens/Main Screen/main_screen.dart';
 import '../../../View/Screens/OTP Screen/otp_screen.dart';
 import '../../../View/Screens/OnBoarding Screen/on_boarding_screen.dart';
@@ -56,10 +55,7 @@ class AppRouter {
           builder: (context) => const MainScreen(),
         );
 
-      case testRoute:
-        return MaterialPageRoute(
-          builder: (context) => const Test(),
-        );
+    
     }
     return null;
   }

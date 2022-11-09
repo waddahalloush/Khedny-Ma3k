@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 
 class GlobalBubbleTextForm extends StatelessWidget {
   final Widget suffix;

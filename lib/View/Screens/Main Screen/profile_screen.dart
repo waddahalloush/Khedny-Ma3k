@@ -1,10 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
-
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import '../../../Core/constants/asset_manager.dart';
 import 'Widgets/car_widget.dart';
 import 'Widgets/main_app_bar_widget.dart';
 
@@ -18,6 +16,7 @@ class ProfileScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),

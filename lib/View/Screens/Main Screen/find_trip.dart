@@ -4,14 +4,12 @@ import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
 import 'package:flutter_material_pickers/helpers/show_time_picker.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:khedni_m3k/Controller/app_provider.dart';
-import 'package:khedni_m3k/Core/Core/constants/asset_manager.dart';
-import 'package:khedni_m3k/Core/Core/utils/Global%20Widgets/blur_button.dart';
-
-import 'package:khedni_m3k/Core/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/search_result_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
-
+import '../../../Core/constants/asset_manager.dart';
+import '../../../Core/utils/Global Widgets/blur_button.dart';
 import 'Widgets/find_ride_form_widget.dart';
 import 'Widgets/main_app_bar_widget.dart';
 

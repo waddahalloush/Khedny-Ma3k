@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/request_trip_bottom_sheet.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_profile_listtile.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_road_parameter_widget.dart';
-
-import '../../../Core/Core/constants/asset_manager.dart';
+import '../../../Core/constants/asset_manager.dart';
 import 'Widgets/car_type_widget.dart';
 
 class TripDetailsScreen extends StatelessWidget {
