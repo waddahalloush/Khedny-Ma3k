@@ -27,7 +27,7 @@ class FindRideFormWidget extends StatelessWidget {
           final Prediction? p = await PlacesAutocomplete.show(
             insetPadding: const EdgeInsets.all(8),
             context: context,
-            apiKey: 'AIzaSyAOjJpV1QhoeYLDA2h3ydlHBdciOA2HZlQ',
+            apiKey: '',
             overlayBorderRadius: BorderRadius.circular(10),
             radius: 5,
 
