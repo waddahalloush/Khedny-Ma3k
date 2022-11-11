@@ -4,7 +4,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
 import 'package:flutter_material_pickers/helpers/show_swatch_picker.dart';
-import 'package:khedni_m3k/Controller/app_provider.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:provider/provider.dart';
 
@@ -69,9 +70,9 @@ class DriverSetupWidget extends StatelessWidget {
                 onPressed: () {
                   myType.upLoadImage(context, false);
                 },
-                child: const Text(
-                  "Upload Photo",
-                  style: TextStyle(
+                child: Text(
+                  "UploadPhoto".tr(context),
+                  style: const TextStyle(
                       color: Color(0XFF406C96),
                       fontWeight: FontWeight.bold,
                       fontSize: 15),
@@ -82,7 +83,7 @@ class DriverSetupWidget extends StatelessWidget {
                 child: GlobalTextForm(
                     isReadOnly: true,
                     onTap: () {},
-                    label: "Car Model",
+                    label: "CarModel".tr(context),
                     obSecure: false,
                     suffix: const SizedBox(),
                     keyBoardType: TextInputType.name),
@@ -95,7 +96,7 @@ class DriverSetupWidget extends StatelessWidget {
                 child: GlobalTextForm(
                     isReadOnly: true,
                     onTap: () {},
-                    label: "Plate Number",
+                    label: "PlateNum".tr(context),
                     obSecure: false,
                     suffix: const SizedBox(),
                     keyBoardType: TextInputType.name),
@@ -119,7 +120,7 @@ class DriverSetupWidget extends StatelessWidget {
                               },
                             );
                           },
-                          label: "Color",
+                          label: "Color".tr(context),
                           obSecure: false,
                           suffix: const SizedBox(),
                           keyBoardType: TextInputType.name),
@@ -138,7 +139,7 @@ class DriverSetupWidget extends StatelessWidget {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2023));
                           },
-                          label: "Year Make",
+                          label: "YearMake".tr(context),
                           obSecure: false,
                           suffix: const SizedBox(),
                           keyBoardType: TextInputType.name),
@@ -149,57 +150,54 @@ class DriverSetupWidget extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  width: context.width / 2 + 30,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: Image.asset(
-                            AssetManager.group,
-                            width: 20,
-                            height: 20,
-                          ),
+              SizedBox(
+                width: context.width / 2 + 30,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Image.asset(
+                          AssetManager.group,
+                          width: 20,
+                          height: 20,
                         ),
-                        Expanded(
-                          child: Consumer<AppProvider>(
-                            builder: (context, myType, child) {
-                              return TextFormField(
-                                onTap: () {
-                                  showMaterialNumberPicker(
-                                      context: context,
-                                      title: 'Pick Number Of Seats',
-                                      maxNumber: 5,
-                                      minNumber: 1,
-                                      selectedNumber: 1,
-                                      onChanged: (value) {
-                                        myType.setNumOfPepole(value);
-                                      });
-                                },
-                                readOnly: true,
-                                showCursor: true,
-                                controller: myType.numSeatsController,
-                                decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        horizontal: 10),
-                                    floatingLabelStyle: Theme.of(context)
-                                        .primaryTextTheme
-                                        .caption,
-                                    hintText: "Number of Seats",
-                                    labelStyle: Theme.of(context)
-                                        .primaryTextTheme
-                                        .caption),
-                                keyboardType: TextInputType.datetime,
-                              );
-                            },
-                          ),
+                      ),
+                      Expanded(
+                        child: Consumer<AppProvider>(
+                          builder: (context, myType, child) {
+                            return TextFormField(
+                              onTap: () {
+                                showMaterialNumberPicker(
+                                    context: context,
+                                    title: 'SeatsNum'.tr(context),
+                                    maxNumber: 5,
+                                    minNumber: 1,
+                                    selectedNumber: 1,
+                                    onChanged: (value) {
+                                      myType.setNumOfPepole(value);
+                                    });
+                              },
+                              readOnly: true,
+                              showCursor: true,
+                              controller: myType.numSeatsController,
+                              decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  floatingLabelStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .caption,
+                                  hintText: "SeatsNum".tr(context),
+                                  labelStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .caption),
+                              keyboardType: TextInputType.datetime,
+                            );
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -221,9 +219,9 @@ class DriverSetupWidget extends StatelessWidget {
                       },
                     ),
                   ),
-                  const Text(
-                    "Air conditioning",
-                    style: TextStyle(
+                  Text(
+                    "Aircondation".tr(context),
+                    style: const TextStyle(
                         fontSize: 16,
                         fontFamily: "Nunito",
                         fontWeight: FontWeight.w600,
@@ -247,7 +245,7 @@ class DriverSetupWidget extends StatelessWidget {
                     onPress: () {
                       Navigator.pop(context);
                     },
-                    label: "Add Car"),
+                    label: "AddCar".tr(context)),
               )
             ],
           );

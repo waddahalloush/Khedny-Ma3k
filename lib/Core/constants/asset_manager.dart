@@ -18,6 +18,7 @@ class AssetManager {
   static const String hatch = "assets/images/hatch.png";
   static const String hMenu = "assets/images/HMenu.png";
   static const String mediumProgress = "assets/images/mediumProgress.png";
+  static const String bigProgress = "assets/images/bigProgress.png";
   static const String menu = "assets/images/menu.png";
   static const String messageBubble = "assets/images/messageBubble.png";
   static const String miniProgress = "assets/images/miniProgress.png";
@@ -31,10 +32,12 @@ class AssetManager {
   static const String sedan = "assets/images/sedan.png";
   static const String smoke = "assets/images/smoke.png";
   static const String check = "assets/images/check.png";
-  static const String send = "assets/images/send.png";
+  static const String send = "assets/images/send.svg";
   static const String group = "assets/images/group.png";
   static const String timer = "assets/images/timer.png";
   static const String tripProgress = "assets/images/tripProgress.png";
   static const String checkBox = "assets/images/Checkbox.png";
+  static const String calender = "assets/images/calender.png";
+  static const String remove = "assets/images/remove.png";
   
 }

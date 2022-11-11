@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
 import 'Widgets/global_text_form.dart';
@@ -15,7 +16,7 @@ class RecoveryScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -27,14 +28,14 @@ class RecoveryScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Recovery",
+              "Recovery".tr(context),
               style: Theme.of(context).primaryTextTheme.headline1,
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
-              "Enter Phone Number to receive recovery code",
+              "RecoverySub".tr(context),
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
             Padding(
@@ -44,7 +45,7 @@ class RecoveryScreen extends StatelessWidget {
                 onTap: () {},
                 suffix: const SizedBox(),
                 keyBoardType: TextInputType.phone,
-                label: "Phone Number",
+                label: "PhoneNumber".tr(context),
                 obSecure: false,
               ),
             ),
@@ -52,7 +53,7 @@ class RecoveryScreen extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Text(
-                "Make sure you confirmed your Number.\n By pressing button below, you'll get an SMS \n with recovery code. Input this code on the \n next page to reset your password",
+                "confirmedNumber".tr(context),
                 style: Theme.of(context).primaryTextTheme.subtitle1,
                 textAlign: TextAlign.center,
               ),
@@ -63,7 +64,7 @@ class RecoveryScreen extends StatelessWidget {
                   onPress: () {
                     Navigator.pushNamed(context, AppRouter.recoverotpRoute);
                   },
-                  label: "Get The Code"),
+                  label: "GetCode".tr(context)),
             )
           ],
         ),

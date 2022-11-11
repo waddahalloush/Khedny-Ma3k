@@ -2,70 +2,70 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-      primaryColor: const Color(0xFF845EB5),
-      primaryColorLight: const Color(0xFFDD3663),
-      primaryColorDark: Colors.black87,
-      drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
-      appBarTheme: const AppBarTheme(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: Colors.white,
-      ),
-      primaryTextTheme: const TextTheme(
-        headline1: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w900,
-            color: Color(0xFF33196B)), //heading screens text
-        headline2: TextStyle(
-            fontSize: 15,
-            color: Colors.indigo,
-            fontWeight: FontWeight.w900), // User Name text
-        headline3: TextStyle(
-            fontSize: 16,
-            color: Colors.white,
-            fontWeight: FontWeight.w400), // Gifts text
-        headline4: TextStyle(
-          color: Colors.black,
-          fontSize: 15,
-        ), //login with email & Button text
-        headline5: TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-            fontWeight: FontWeight.bold), // Button text
-        headline6: TextStyle(
-            color: Color(0xFFDD3663),
-            fontSize: 14,
-            fontWeight: FontWeight.w900), //play video & skip Text
-        subtitle1: TextStyle(
-            fontSize: 12,
-            color: Color(0xFF33196B),
-            fontWeight: FontWeight.bold), //screens Details text
-        subtitle2:
-            TextStyle(fontSize: 11, color: Color(0xFFDD3663)), // terms subtitle
-        bodyText1: TextStyle(
-            fontSize: 18,
-            color: Color(0xFF33196B),
-            fontWeight: FontWeight.w600), //wanna know Text
-        bodyText2: TextStyle(
-            fontSize: 10,
-            color: Color(0xFF33196B),
-            fontWeight: FontWeight.bold), // play video subtitle
-        caption: TextStyle(
-          fontSize: 10,
-          color: Color.fromARGB(255, 67, 66, 66),
-        ), //create account text
-        overline: TextStyle(
-            color: Color(0xFF845EB5),
-            fontSize: 10,
-            fontWeight: FontWeight.bold), //like intrests text
-      ),
-      scaffoldBackgroundColor: const Color(0xFFEEFCFF),
-      fontFamily: 'Cairo',
-      dividerColor: Colors.indigo,
-      iconTheme: const IconThemeData(color: Colors.indigo),
-      inputDecorationTheme: const InputDecorationTheme(
-        border: InputBorder.none,
-      ));
+            primaryColor: const Color(0XFF004E98),
+            primaryColorDark: const Color(0XFFACACAC),
+            primaryColorLight: const Color(0xFFFC6752),
+            scaffoldBackgroundColor: Colors.white,
+            
+            appBarTheme: const AppBarTheme(
+                elevation: 0,
+                color: Colors.white,
+                iconTheme: IconThemeData(color: Colors.black, size: 24)),
+            primarySwatch: Colors.blue,
+            canvasColor: const Color(0XFF877EF2),
+            primaryTextTheme: const TextTheme(
+              headline1: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF000000)),
+              headline2: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFC4C4C4)),
+              headline3: TextStyle(
+                  fontSize: 15,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF000000)),
+              headline5: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFFFFFF)),
+              bodyText1: TextStyle(
+                  fontSize: 16,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFC4C4C4)),
+              bodyText2: TextStyle(
+                  fontSize: 16,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF423E46)),
+              subtitle1: TextStyle(
+                  fontSize: 15,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black54),
+              subtitle2: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Nunito",
+                  color: Color.fromARGB(255, 59, 98, 238)),
+              overline: TextStyle(
+                  fontSize: 15,
+                  overflow: TextOverflow.ellipsis,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black),
+              caption: TextStyle(
+                  fontSize: 15,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.normal,
+                  color: Color(0xFF5E5E5E)),
+            ));
 
   static ThemeData darkTheme = ThemeData(
       primaryColor: Colors.amber,

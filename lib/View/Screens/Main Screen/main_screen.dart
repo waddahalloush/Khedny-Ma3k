@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/Controller/app_provider.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/become_driver_modal.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_drawer_widget.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/my_trip_screen.dart';

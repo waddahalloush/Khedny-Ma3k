@@ -11,11 +11,15 @@ class AppProvider extends ChangeNotifier {
   bool driverLicense = false;
   bool airCondition = false;
   int navIndex = 0;
-   File? driverimage;
-   File? carimage;
+  File? driverimage;
+  File? carimage;
   TextEditingController numOfPepoleController = TextEditingController();
   TextEditingController timeController = TextEditingController();
   TextEditingController numSeatsController = TextEditingController();
+   TextEditingController sourceController = TextEditingController();
+   TextEditingController stopController = TextEditingController();
+    TextEditingController distController = TextEditingController();
+    TextEditingController pricePerPassengerController = TextEditingController();
 
   List<String> chatList = [
     "Hello there. Where is the pickup location in Homs?"
@@ -55,10 +59,12 @@ class AppProvider extends ChangeNotifier {
     doorToDoor = val;
     notifyListeners();
   }
+
   void changeDriverLicense() {
     driverLicense = !driverLicense;
     notifyListeners();
   }
+
   void changeairCondition(bool val) {
     airCondition = val;
     notifyListeners();
@@ -68,17 +74,24 @@ class AppProvider extends ChangeNotifier {
     numOfPepoleController.text = val.toString();
     notifyListeners();
   }
-
-  void setTime(TimeOfDay val) {
-    timeController.text = "${val.hour}:${val.minute}";
+  void setPricePerPassenger(int val) {
+    pricePerPassengerController.text = val.toString();
     notifyListeners();
   }
-  Future upLoadImage(BuildContext context , bool isDriver) async {
+
+  void setTime(DateTime val) {
+    timeController.text = "${val.year}/${val.month}/${val.day}";
+    notifyListeners();
+  }
+
+  Future upLoadImage(BuildContext context, bool isDriver) async {
     try {
       var pickedImage =
           await ImagePicker().pickImage(source: ImageSource.gallery);
       if (pickedImage == null) return;
-     isDriver? driverimage = File(pickedImage.path):carimage = File(pickedImage.path);
+      isDriver
+          ? driverimage = File(pickedImage.path)
+          : carimage = File(pickedImage.path);
       notifyListeners();
     } on PlatformException {
       ScaffoldMessenger.of(context)

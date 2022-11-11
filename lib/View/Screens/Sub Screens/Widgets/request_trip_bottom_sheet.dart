@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../../Main Screen/Widgets/find_ride_form_widget.dart';
 
@@ -41,7 +45,7 @@ class DriverInfoWidget extends StatelessWidget {
                     color: const Color(0XFFE4E6E9),
                     borderRadius: BorderRadius.circular(2.5)),
               )),
-          Text("Enter the details for your request",
+          Text("RequestDetail".tr(context),
               style: Theme.of(context).primaryTextTheme.bodyText2),
           const SizedBox(
             height: 30,
@@ -70,50 +74,75 @@ class DriverInfoWidget extends StatelessWidget {
                         height: 85,
                       ),
                       Expanded(
-                        child: Column(
-                          children: [
-                            FindRideFormWidget(
-                              color: Theme.of(context).primaryColor,
-                              hint: "Location",
-                            ),
-                            FindRideFormWidget(
-                              color: Theme.of(context).primaryColorLight,
-                              hint: "Destination",
-                            ),
-                          ],
+                        child: Consumer<AppProvider>(
+                          builder: (context, myType, child) {
+                            return Column(
+                              children: [
+                                FindRideFormWidget(
+                                  controller: myType.sourceController,
+                                  color: Theme.of(context).primaryColor,
+                                  hint: "Location".tr(context),
+                                ),
+                                FindRideFormWidget(
+                                  controller: myType.distController,
+                                  color: Theme.of(context).primaryColorLight,
+                                  hint: "Destination".tr(context),
+                                ),
+                              ],
+                            );
+                          },
                         ),
                       ),
                     ],
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: SizedBox(
-                      width: context.width / 2,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: Image.asset(
-                              AssetManager.group,
-                              width: 20,
-                              height: 20,
-                            ),
+                  SizedBox(
+                    width: context.width / 2,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Image.asset(
+                            AssetManager.group,
+                            width: 20,
+                            height: 20,
                           ),
-                          Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  floatingLabelStyle: Theme.of(context)
-                                      .primaryTextTheme
-                                      .caption,
-                                  hintText: "Number of people",
-                                  labelStyle: Theme.of(context)
-                                      .primaryTextTheme
-                                      .caption),
-                              keyboardType: TextInputType.number,
-                            ),
+                        ),
+                        Expanded(
+                          child: Consumer<AppProvider>(
+                            builder: (context, myType, child) {
+                              return TextFormField(
+                                style: const TextStyle(fontSize: 13),
+                                onTap: () {
+                                  showMaterialNumberPicker(
+                                      context: context,
+                                      title: 'NumPeople'.tr(context),
+                                      maxNumber: 5,
+                                      minNumber: 1,
+                                      selectedNumber: 1,
+                                      onChanged: (value) {
+                                        myType.setNumOfPepole(value);
+                                      });
+                                },
+                                readOnly: true,
+                                showCursor: true,
+                                controller: myType.numOfPepoleController,
+                                decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    floatingLabelStyle: Theme.of(context)
+                                        .primaryTextTheme
+                                        .caption,
+                                    hintText: 'NumPeople'.tr(context),
+                                    hintStyle: const TextStyle(fontSize: 13),
+                                    labelStyle: Theme.of(context)
+                                        .primaryTextTheme
+                                        .caption),
+                                keyboardType: TextInputType.datetime,
+                              );
+                            },
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Container(
@@ -123,7 +152,9 @@ class DriverInfoWidget extends StatelessWidget {
                       decoration: InputDecoration(
                         floatingLabelStyle:
                             Theme.of(context).primaryTextTheme.caption,
-                        hintText: "Addtional Info",
+                        hintText: "Additional".tr(context),
+                        hintStyle:
+                            const TextStyle(color: Colors.grey, fontSize: 12),
                         enabledBorder: const OutlineInputBorder(),
                         focusedBorder: const OutlineInputBorder(),
                       ),
@@ -148,7 +179,7 @@ class DriverInfoWidget extends StatelessWidget {
                       child: TextButton(
                         onPressed: () {},
                         child: Text(
-                          "Send Request",
+                          "SendRequest".tr(context),
                           style: Theme.of(context).primaryTextTheme.headline5,
                           textAlign: TextAlign.center,
                         ),
@@ -164,8 +195,3 @@ class DriverInfoWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_firstRecoveryOtpScreen
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:pinput/pinput.dart';
 import '../../../Core/constants/asset_manager.dart';
@@ -17,7 +17,7 @@ class RecoveryOtpScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -29,11 +29,11 @@ class RecoveryOtpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Recovery",
+              "Recovery".tr(context),
               style: Theme.of(context).primaryTextTheme.headline1,
             ),
             Text(
-              "Enter the recovery code you received",
+              "ReciveRecovery".tr(context),
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
             Align(
@@ -63,7 +63,7 @@ class RecoveryOtpScreen extends StatelessWidget {
               child: TextButton(
                 onPressed: () {},
                 child: Text(
-                  "You didn't recive the code ! Resend it .",
+                  "Resend".tr(context),
                   style: Theme.of(context).primaryTextTheme.subtitle2,
                 ),
               ),
@@ -169,8 +169,8 @@ class RecoveryOtpScreen extends StatelessWidget {
                         },
                         mini: true,
                         elevation: 0,
-                        child: SvgPicture.asset(
-                          AssetManager.money,
+                        child: Image.asset(
+                          AssetManager.remove,
                           height: 30,
                           width: 30,
                         ),

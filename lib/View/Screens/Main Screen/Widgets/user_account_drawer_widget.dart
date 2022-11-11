@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 
 import '../../../../Core/constants/asset_manager.dart';
+
 class UserAccountDrawerWidget extends StatelessWidget {
   const UserAccountDrawerWidget({
     Key? key,
@@ -22,7 +24,7 @@ class UserAccountDrawerWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "Verified",
+            "Verified".tr(context),
             style: Theme.of(context).primaryTextTheme.headline2,
           ),
           const SizedBox(

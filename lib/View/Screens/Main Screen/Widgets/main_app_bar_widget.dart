@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:khedni_m3k/Controller/app_provider.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 
 import '../../../../Core/constants/asset_manager.dart';
 

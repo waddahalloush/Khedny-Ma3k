@@ -1,6 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+
 import '../../../Core/constants/asset_manager.dart';
 import '../Sub Screens/Widgets/driver_road_parameter_widget.dart';
 
@@ -21,11 +24,12 @@ class MyTripScreen extends StatelessWidget {
                     width: 30,
                   ),
                   Text(
-                    "MY Trips",
+                    "MYTrips".tr(context),
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   const Spacer(),
-                  FloatingActionButton(mini: true,
+                  FloatingActionButton(
+                      mini: true,
                       heroTag: "n",
                       onPressed: () {},
                       elevation: 2,
@@ -40,12 +44,19 @@ class MyTripScreen extends StatelessWidget {
             ),
             const Divider(),
             MyRideCardWidget(
+              numPassenger: 1,
               distance: "11,3",
-              driver: "Jinny",
               time: "20th May, 17:00",
-              status: "Waiting for Confirmation",
-              statusColor: Theme.of(context).primaryColorLight,
+              status: "waitConfirm".tr(context),
               from: "Latakia",
+              to: "Damascus",
+            ),
+            MyRideCardWidget(
+              numPassenger: 3,
+              distance: "11,3",
+              time: "21th June, 18:00",
+              status: "Confirmed".tr(context),
+              from: "Baniyas",
               to: "Damascus",
             )
           ],
@@ -58,27 +69,27 @@ class MyTripScreen extends StatelessWidget {
 class MyRideCardWidget extends StatelessWidget {
   final String time;
   final String status;
-  final Color statusColor;
+  final int numPassenger;
+
   final String distance;
   final String from;
   final String to;
-  final String driver;
+
   const MyRideCardWidget({
     Key? key,
     required this.time,
     required this.status,
-    required this.statusColor,
+    required this.numPassenger,
     required this.distance,
     required this.from,
     required this.to,
-    required this.driver,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5,horizontal: 30),
-      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       width: context.width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
@@ -161,7 +172,9 @@ class MyRideCardWidget extends StatelessWidget {
                       fontSize: 16,
                       fontFamily: 'Nunito',
                       fontWeight: FontWeight.w700,
-                      color: statusColor),
+                      color: status == "Confirmed".tr(context)
+                          ? Colors.green
+                          : Theme.of(context).primaryColorLight),
                 )
               ],
             ),
@@ -169,27 +182,29 @@ class MyRideCardWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Row(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.circle,
                   size: 10,
                   color: Colors.black,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Text(
-                  "Passengers",
-                  style: TextStyle(
+                  "Passengers".tr(context),
+                  style: const TextStyle(
                       fontSize: 16,
                       fontFamily: 'Nunito',
                       fontWeight: FontWeight.normal,
                       color: Colors.black),
                 ),
-                Spacer(),
+                const Spacer(),
                 DriverRoadParameterWidget(
-                  icon: AssetManager.redDot,
-                  title: "0 / 2",
+                  icon: numPassenger < 3
+                      ? AssetManager.redDot
+                      : AssetManager.greenDot,
+                  title: "$numPassenger / 3",
                   weight: FontWeight.normal,
                 ),
               ],

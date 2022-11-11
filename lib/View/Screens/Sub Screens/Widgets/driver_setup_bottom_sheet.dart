@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/add_vehicle_bottm_sheet.dart';
@@ -9,8 +8,8 @@ import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../../Core/utils/Global Widgets/global_bubble_text_form.dart';
+import '../../Main Screen/Widgets/car_widget.dart';
 import '../../Recovery Screens/Widgets/global_text_form.dart';
-import 'car_widget.dart';
 
 void showDriverSetupBottomSheet(
   BuildContext context,
@@ -55,7 +54,7 @@ class DriverSetupWidget extends StatelessWidget {
               backgroundColor: Colors.transparent,
               leading: IconButton(
                   onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
-              title: Text("Become".tr(context),
+              title: Text("Become a Driver",
                   style: Theme.of(context).primaryTextTheme.headline3),
               centerTitle: true,
             ),
@@ -87,9 +86,9 @@ class DriverSetupWidget extends StatelessWidget {
               onPressed: () {
                 myType.upLoadImage(context, true);
               },
-              child: Text(
-                "AddProfImg".tr(context),
-                style: const TextStyle(
+              child: const Text(
+                "Add Profile Image",
+                style: TextStyle(
                     color: Color(0XFF406C96),
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
@@ -100,7 +99,7 @@ class DriverSetupWidget extends StatelessWidget {
               child: GlobalTextForm(
                   isReadOnly: false,
                   onTap: () {},
-                  label: "FName".tr(context),
+                  label: "First Name",
                   obSecure: false,
                   suffix: const SizedBox(),
                   keyBoardType: TextInputType.name),
@@ -113,7 +112,7 @@ class DriverSetupWidget extends StatelessWidget {
               child: GlobalTextForm(
                   isReadOnly: false,
                   onTap: () {},
-                  label: "LName".tr(context),
+                  label: "Last Name",
                   obSecure: false,
                   suffix: const SizedBox(),
                   keyBoardType: TextInputType.name),
@@ -126,7 +125,7 @@ class DriverSetupWidget extends StatelessWidget {
               onTap: () {
                 myType.changeDriverLicense();
               },
-              hint: "License".tr(context),
+              hint: "Driver License",
               suffix: myType.driverLicense
                   ? Icon(
                       Icons.check,
@@ -138,7 +137,7 @@ class DriverSetupWidget extends StatelessWidget {
                     ),
             ),
             GlobalBubbleTextForm(
-              hint: "WhatsApp".tr(context),
+              hint: "WhatsApp",
               isReadOnly: false,
               onTap: () {},
               suffix: const Icon(
@@ -149,7 +148,7 @@ class DriverSetupWidget extends StatelessWidget {
             GlobalBubbleTextForm(
               isReadOnly: false,
               onTap: () {},
-              hint: "Telegram".tr(context),
+              hint: "Telegram",
               suffix: const Icon(
                 Icons.telegram_outlined,
                 color: Color(0XFF406C96),
@@ -196,7 +195,7 @@ class DriverSetupWidget extends StatelessWidget {
                     Navigator.pop(context);
                     showAddVehicleBottomSheet(context);
                   },
-                  label: "Next".tr(context)),
+                  label: "Next"),
             )
           ],
         );

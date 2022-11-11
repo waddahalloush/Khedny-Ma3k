@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
-import 'package:flutter_material_pickers/helpers/show_time_picker.dart';
+import 'package:flutter_material_pickers/flutter_material_pickers.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:khedni_m3k/Controller/app_provider.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/search_result_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -26,7 +26,7 @@ class FindTripScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const MainAppBarWidget(title: "Find Trip"),
+              MainAppBarWidget(title: "FindTrip".tr(context)),
               const SizedBox(
                 height: 8,
               ),
@@ -50,27 +50,35 @@ class FindTripScreen extends StatelessWidget {
                           BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
                         ],
                         color: const Color(0xFFFFFFFF)),
-                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Row(
                           children: [
                             Image.asset(
                               AssetManager.mediumProgress,
-                              width: 20,
-                              height: 85,
+                              width: 16,
+                              height: 72,
                             ),
                             Expanded(
-                              child: Column(
-                                children: [
-                                  FindRideFormWidget(
-                                    color: Theme.of(context).primaryColor,
-                                    hint: "Location",
-                                  ),
-                                  FindRideFormWidget(
-                                    color: Theme.of(context).primaryColorLight,
-                                    hint: "Destination",
-                                  ),
-                                ],
+                              child: Consumer<AppProvider>(
+                                builder: (context, myType, child) {
+                                  return Column(
+                                    children: [
+                                      FindRideFormWidget(
+                                        controller: myType.sourceController,
+                                        color: Theme.of(context).primaryColor,
+                                        hint: "Location".tr(context),
+                                      ),
+                                      FindRideFormWidget(
+                                        controller: myType.distController,
+                                        color:
+                                            Theme.of(context).primaryColorLight,
+                                        hint: "Destination".tr(context),
+                                      ),
+                                    ],
+                                  );
+                                },
                               ),
                             ),
                           ],
@@ -90,22 +98,26 @@ class FindTripScreen extends StatelessWidget {
                                 builder: (context, myType, child) {
                                   return TextFormField(
                                     onTap: () {
-                                      showMaterialTimePicker(
-                                        context: context,
-                                        onChanged: (value) {
-                                          myType.setTime(value);
-                                        },
-                                        selectedTime: TimeOfDay.now(),
-                                      );
+                                      showMaterialDatePicker(
+                                          context: context,
+                                          onChanged: (value) {
+                                            myType.setTime(value);
+                                          },
+                                          firstDate: DateTime.now(),
+                                          lastDate: DateTime(2025),
+                                          selectedDate: DateTime.now());
                                     },
                                     readOnly: true,
                                     showCursor: true,
+                                    style: const TextStyle(fontSize: 13),
                                     controller: myType.timeController,
                                     decoration: InputDecoration(
                                         floatingLabelStyle: Theme.of(context)
                                             .primaryTextTheme
                                             .caption,
-                                        hintText: "Pick a time",
+                                        hintText: "Picktime".tr(context),
+                                        hintStyle:
+                                            const TextStyle(fontSize: 13),
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 horizontal: 10),
@@ -132,10 +144,11 @@ class FindTripScreen extends StatelessWidget {
                               child: Consumer<AppProvider>(
                                 builder: (context, myType, child) {
                                   return TextFormField(
+                                    style: const TextStyle(fontSize: 13),
                                     onTap: () {
                                       showMaterialNumberPicker(
                                           context: context,
-                                          title: 'Pick Number Of Pepole',
+                                          title: "NumPeople".tr(context),
                                           maxNumber: 5,
                                           minNumber: 1,
                                           selectedNumber: 1,
@@ -153,7 +166,9 @@ class FindTripScreen extends StatelessWidget {
                                         floatingLabelStyle: Theme.of(context)
                                             .primaryTextTheme
                                             .caption,
-                                        hintText: "Number of people",
+                                        hintText: "NumPeople".tr(context),
+                                        hintStyle:
+                                            const TextStyle(fontSize: 13),
                                         labelStyle: Theme.of(context)
                                             .primaryTextTheme
                                             .caption),
@@ -164,7 +179,6 @@ class FindTripScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      
                         Consumer<AppProvider>(
                           builder: (context, myType, child) {
                             return Row(
@@ -179,29 +193,26 @@ class FindTripScreen extends StatelessWidget {
                                   width: 45,
                                   height: 24,
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 20),
-                                  child: Text("Door to Door"),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                  child: Text("Door".tr(context)),
                                 )
                               ],
                             );
                           },
                         ),
-                       
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
-                          child: BlurButton(
-                              onPress: () {
-                                PersistentNavBarNavigator.pushNewScreen(
-                                  context,
-                                  screen: const SearchResultScreen(),
-                                  withNavBar: true,
-                                  pageTransitionAnimation:
-                                      PageTransitionAnimation.cupertino,
-                                );
-                              },
-                              label: "Search"),
-                        )
+                        BlurButton(
+                            onPress: () {
+                              PersistentNavBarNavigator.pushNewScreen(
+                                context,
+                                screen: const SearchResultScreen(),
+                                withNavBar: true,
+                                pageTransitionAnimation:
+                                    PageTransitionAnimation.cupertino,
+                              );
+                            },
+                            label: "Search".tr(context))
                       ],
                     ),
                   ),

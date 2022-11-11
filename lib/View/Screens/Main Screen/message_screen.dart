@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
+import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/feed_back_dialog.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/chat_modal_dialog.dart';
 
 import 'Widgets/driver_connection_image.dart';
@@ -16,7 +18,7 @@ class MessageScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              const MainAppBarWidget(title: " Messages "),
+              MainAppBarWidget(title: "Messages".tr(context)),
               ListView(
                 shrinkWrap: true,
                 children: [
@@ -26,7 +28,7 @@ class MessageScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     width: context.width,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
                         ],
@@ -41,11 +43,13 @@ class MessageScreen extends StatelessWidget {
                         style: Theme.of(context).primaryTextTheme.headline1,
                       ),
                       subtitle: Text(
-                        "Online",
+                        "Online".tr(context),
                         style: Theme.of(context).primaryTextTheme.caption,
                       ),
                       trailing: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showFeedBackDriverDialog(context);
+                          },
                           icon: const Icon(
                             Icons.more_vert,
                             color: Colors.black,

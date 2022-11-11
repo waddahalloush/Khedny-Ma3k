@@ -1,12 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:flutter/material.dart';
+import 'package:flutter_google_places_hoc081098/flutter_google_places_hoc081098.dart';
+import 'package:google_maps_webservice/places.dart';
 
 class FindRideFormWidget extends StatelessWidget {
   final Color color;
   final String hint;
+  final TextEditingController controller;
   const FindRideFormWidget({
     Key? key,
     required this.color,
     required this.hint,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -14,7 +20,25 @@ class FindRideFormWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        style: const TextStyle(fontSize: 13),
+        controller: controller,
+        readOnly: true,
+        onTap: () async {
+          final Prediction? p = await PlacesAutocomplete.show(
+            insetPadding: const EdgeInsets.all(8),
+            context: context,
+            apiKey: 'AIzaSyAOjJpV1QhoeYLDA2h3ydlHBdciOA2HZlQ',
+            overlayBorderRadius: BorderRadius.circular(10),
+            radius: 5,
+
+            mode: Mode.overlay, // or Mode.fullscreen
+            language: 'ar',
+            components: [Component(Component.country, 'sy')],
+          );
+          controller.text = p!.description ?? "";
+        },
         decoration: InputDecoration(
+            constraints: const BoxConstraints(maxHeight: 35),
             hintText: hint,
             suffixIcon: IconButton(
                 onPressed: () {},
@@ -24,9 +48,12 @@ class FindRideFormWidget extends StatelessWidget {
                   color: Color(0XFF5E5E5E),
                 )),
             hintStyle: const TextStyle(
-                color: Color(0XFF5E5E5E), fontSize: 18, fontFamily: 'Nunito'),
+                overflow: TextOverflow.ellipsis,
+                color: Color(0XFF5E5E5E),
+                fontSize: 15,
+                fontFamily: 'Nunito'),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                const EdgeInsets.symmetric(horizontal: 4, vertical: 10)),
       ),
     );
   }

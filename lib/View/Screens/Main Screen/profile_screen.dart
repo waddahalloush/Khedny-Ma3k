@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import '../../../Core/constants/asset_manager.dart';
 import 'Widgets/car_widget.dart';
@@ -18,9 +19,9 @@ class ProfileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: MainAppBarWidget(title: " My Profile "),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: MainAppBarWidget(title: "MyProfile".tr(context)),
               ),
               Stack(
                 alignment: Alignment.center,
@@ -50,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Text("Verified Profile",
+              Text("VerifiedProfile".tr(context),
                   style: Theme.of(context).primaryTextTheme.subtitle2),
               Stack(
                 alignment: Alignment.center,
@@ -66,21 +67,21 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Text(
-                        "Quick Ride Wallet",
-                        style: TextStyle(
+                        "QuickWallet".tr(context),
+                        style: const TextStyle(
                             fontSize: 13,
                             fontFamily: "Nunito",
                             fontWeight: FontWeight.w600,
                             color: Colors.white),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 40,
                       ),
                       Text(
-                        "43.64 Points",
-                        style: TextStyle(
+                        "43.64 ${"Points".tr(context)}",
+                        style: const TextStyle(
                             fontSize: 18,
                             fontFamily: "Nunito",
                             fontWeight: FontWeight.w800,
@@ -92,18 +93,18 @@ class ProfileScreen extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
+                children: [
                   DriverFeaturesWidget(
                     value: "1,260",
-                    title: "total ride",
+                    title: "totalride".tr(context),
                   ),
                   DriverFeaturesWidget(
                     value: "414",
-                    title: "as rider",
+                    title: "AsRider".tr(context),
                   ),
                   DriverFeaturesWidget(
                     value: "846",
-                    title: "as passenger",
+                    title: "AsPassenger".tr(context),
                   ),
                 ],
               ),

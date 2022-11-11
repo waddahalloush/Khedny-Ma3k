@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/user_account_drawer_widget.dart';
 import '../../../../Core/constants/asset_manager.dart';
@@ -33,32 +34,32 @@ class MainDrawerWidget extends StatelessWidget {
                   child: Divider(),
                 ),
                 DrawerListTileWidget(
-                  title: "Dashboard",
+                  title: "Dashboard".tr(context),
                   icon: AssetManager.dashBoard,
                   ontap: () {},
                 ),
                 DrawerListTileWidget(
-                  title: "My ride",
+                  title: "Myride".tr(context),
                   icon: AssetManager.myRide,
                   ontap: () {},
                 ),
                 DrawerListTileWidget(
-                  title: "My payment",
+                  title: "Mypayment".tr(context),
                   icon: AssetManager.payment,
                   ontap: () {},
                 ),
                 DrawerListTileWidget(
-                  title: "My vehicles",
+                  title: "Myvehicles".tr(context),
                   icon: AssetManager.myVehicles,
                   ontap: () {},
                 ),
                 DrawerListTileWidget(
-                  title: "Chat",
+                  title: "Chat".tr(context),
                   icon: AssetManager.chat,
                   ontap: () {},
                 ),
                 DrawerListTileWidget(
-                  title: "About",
+                  title: "About".tr(context),
                   icon: AssetManager.about,
                   ontap: () {},
                 ),

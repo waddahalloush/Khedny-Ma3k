@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_setup_bottom_sheet.dart';
 
@@ -55,14 +56,14 @@ class BecomeDriverWidget extends StatelessWidget {
           height: 30,
         ),
         Text(
-          "Become a Driver",
+          "Become".tr(context),
           style: Theme.of(context).primaryTextTheme.headline1,
         ),
         const SizedBox(
           height: 18,
         ),
         Text(
-          "In order to offer trips you have to\nstup your driver's account",
+          "BecomeSub".tr(context),
           style: Theme.of(context).primaryTextTheme.bodyText1,
           textAlign: TextAlign.center,
         ),
@@ -74,7 +75,7 @@ class BecomeDriverWidget extends StatelessWidget {
                 Navigator.pop(context);
                 showDriverSetupBottomSheet(context);
               },
-              label: "Get Started"),
+              label: "Started".tr(context)),
         )
       ],
     );

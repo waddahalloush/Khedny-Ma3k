@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import '../../../Core/constants/asset_manager.dart';
 import '../../../Core/utils/Global Widgets/blur_button.dart';
@@ -12,9 +13,8 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<PageViewModel> introList = [
       PageViewModel(
-        title: "Welcome",
-        body:
-            "Welcome to Khedni MaaK. \n Request a ride get picked up by a \n nearby community driver ",
+        title: "Welcome".tr(context),
+        body: "WelcomeSub".tr(context),
         image: SafeArea(
             child: Image.asset(
           AssetManager.onboarding1,
@@ -36,8 +36,8 @@ class OnBoardingScreen extends StatelessWidget {
         ),
       ),
       PageViewModel(
-        title: "Request Ride",
-        body: "Request a ride get picked up by a \n nearby community driver ",
+        title: "RequestRide".tr(context),
+        body: "RequestRideSub".tr(context),
         image: SafeArea(
             child: Image.asset(
           AssetManager.onboarding2,
@@ -59,9 +59,8 @@ class OnBoardingScreen extends StatelessWidget {
         ),
       ),
       PageViewModel(
-        title: "Confirm Your Driver",
-        body:
-            "Huge drivers network helps you find \n comforable, safe and cheap ride ",
+        title: "CfmDriver".tr(context),
+        body: "CfmDriverSub".tr(context),
         image: SafeArea(
             child: Center(
                 child: Image.asset(
@@ -89,10 +88,9 @@ class OnBoardingScreen extends StatelessWidget {
             onPress: () {
               Navigator.pushNamed(context, AppRouter.createAccount);
             },
-            label: "Get Started"),
-        title: "Track Your Ride",
-        body:
-            "Know your driver in advance and be \n able to view current location in real \n time on the map",
+            label: "Started".tr(context)),
+        title: "Track".tr(context),
+        body: "TrackSub".tr(context),
         image: SafeArea(
             child: Center(
                 child: Image.asset(
@@ -100,8 +98,8 @@ class OnBoardingScreen extends StatelessWidget {
         ))),
         decoration: const PageDecoration(
           imageFlex: 4,
-          imagePadding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-          bodyFlex: 3,
+          imagePadding: EdgeInsets.all(20),
+          bodyFlex: 4,
           titleTextStyle: TextStyle(
               fontFamily: "Nunito",
               color: Colors.black,

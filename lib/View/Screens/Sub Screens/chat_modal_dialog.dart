@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
-import 'package:khedni_m3k/Controller/app_provider.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:provider/provider.dart';
-import '../../../Core/constants/asset_manager.dart';
 import '../Main Screen/Widgets/driver_connection_image.dart';
 
 Future<bool> showChatDriverDialog(BuildContext context) {
@@ -15,19 +15,17 @@ Future<bool> showChatDriverDialog(BuildContext context) {
               return AlertDialog(
                 actionsAlignment: MainAxisAlignment.center,
                 actionsPadding: const EdgeInsets.all(10),
+                titlePadding: const EdgeInsets.all(0),
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                     side: BorderSide(color: Theme.of(context).primaryColor),
                     borderRadius:
                         const BorderRadius.all(Radius.circular(32.0))),
                 title: ListTile(
-                  horizontalTitleGap: 1,
                   visualDensity: VisualDensity.compact,
                   dense: true,
                   onTap: () {},
-                  leading: Transform.translate(
-                      offset: const Offset(-15, 0),
-                      child: const DriverConnectionImage()),
+                  leading: const DriverConnectionImage(),
                   title: const Text(
                     "Kimmy Natasa",
                     style: TextStyle(
@@ -37,7 +35,7 @@ Future<bool> showChatDriverDialog(BuildContext context) {
                         color: Color(0xFF000000)),
                   ),
                   subtitle: Text(
-                    "Online",
+                    "Online".tr(context),
                     style: Theme.of(context).primaryTextTheme.caption,
                   ),
                   trailing: IconButton(
@@ -51,7 +49,7 @@ Future<bool> showChatDriverDialog(BuildContext context) {
                 content: ListView.builder(
                   itemCount: myType.chatList.length,
                   shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, i) => ChatBubble(
                     clipper: ChatBubbleClipper5(type: BubbleType.sendBubble),
                     alignment: Alignment.topRight,
@@ -63,37 +61,31 @@ Future<bool> showChatDriverDialog(BuildContext context) {
                       ),
                       child: Text(
                         myType.chatList[i],
-                        style: const TextStyle(
-                            color: Colors.white, fontSize: 12),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
                   ),
                 ),
                 actions: [
-                  AppBar(
-                    automaticallyImplyLeading: false,
-                    elevation: 0,
-                    title: TextFormField(
-                        controller: myType.chatController,
-                        decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            hintText: "Enter Message")),
-                    actions: [
-                      InkWell(
-                        onTap: () {
-                          myType.chatController.text.isEmpty
-                              ? null
-                              : myType
-                                  .addChatToList(myType.chatController.text);
-                        },
-                        child: Image.asset(
-                          AssetManager.send,
-                          width: 30,
-                          height: 30,
-                        ),
-                      )
-                    ],
-                  )
+                  TextFormField(
+                      autofocus: true,
+                      controller: myType.chatController,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          suffix: IconButton(
+                            alignment: Alignment.bottomRight,
+                            padding: const EdgeInsets.all(0),
+                            iconSize: 30,
+                            icon: Icon(
+                              Icons.telegram_rounded,
+                              color: Theme.of(context).canvasColor,
+                            ),
+                            onPressed: () {
+                              myType.addChatToList(myType.chatController.text);
+                            },
+                          ),
+                          hintText: "EnterMessage".tr(context))),
                 ],
               );
             },

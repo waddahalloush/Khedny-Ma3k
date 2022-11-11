@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 
 import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
-class CreateAccountScreen extends StatelessWidget {
+
+class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
+}
+
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
+  late TextEditingController phoneController;
+  @override
+  void initState() {
+    phoneController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,36 +33,32 @@ class CreateAccountScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 45, horizontal: 17),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
               height: 43,
             ),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Create an account with your\nphone number",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontFamily: "Nunito",
-                    fontWeight: FontWeight.w800,
-                    color: Color(0xFF000000)),
-              ),
+            Text(
+              "Createaccount".tr(context),
+              style: const TextStyle(
+                  fontSize: 22,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF000000)),
             ),
             const SizedBox(
               height: 43,
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Phone number",
-                style: Theme.of(context).primaryTextTheme.caption,
-              ),
+            Text(
+              "PhoneNumber".tr(context),
+              style: Theme.of(context).primaryTextTheme.caption,
             ),
             const SizedBox(
               height: 8,
             ),
             TextFormField(
               keyboardType: TextInputType.phone,
+              controller: phoneController,
               decoration: InputDecoration(
                   hintText: "+62812 0101 0101",
                   enabledBorder: const OutlineInputBorder(),
@@ -58,12 +74,15 @@ class CreateAccountScreen extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(AppRouter.recoveryRoute);
-                },
-                child: Text("Recover Account",
-                    style: Theme.of(context).primaryTextTheme.headline2)),
+            Align(
+              alignment: Alignment.center,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AppRouter.recoveryRoute);
+                  },
+                  child: Text("RecoverAccount".tr(context),
+                      style: Theme.of(context).primaryTextTheme.headline2)),
+            ),
             const SizedBox(
               height: 40,
             ),
@@ -71,7 +90,7 @@ class CreateAccountScreen extends StatelessWidget {
                 onPress: () {
                   Navigator.pushNamed(context, AppRouter.otpRoute);
                 },
-                label: "Continue")
+                label: "Continue".tr(context))
           ],
         ),
       ),

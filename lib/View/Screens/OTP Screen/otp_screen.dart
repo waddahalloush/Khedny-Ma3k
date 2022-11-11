@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:pinput/pinput.dart';
 
@@ -53,101 +54,98 @@ class _OtpScreenState extends State<OtpScreen> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 25),
-        child: SizedBox(
-          height: context.height,
-          width: context.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Please enter the 4 digit OTP\nsent to +62812 0101 0101",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "Nunito",
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xFF5E5E5E)),
+      body: SizedBox(
+        height: context.height,
+        width: context.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "OTP".tr(context),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.normal,
+                  color: Color(0xFF5E5E5E)),
+            ),
+            Padding(
+                padding: const EdgeInsets.only(top: 37, bottom: 47),
+                child: Pinput(
+                  obscureText: true,
+                  obscuringWidget: const CircleAvatar(
+                      radius: 10, backgroundColor: Color(0XFF5E5E5E)),
+                  onCompleted: (value) {},
+                  defaultPinTheme: PinTheme(
+                      width: 50,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      height: 50,
+                      textStyle: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w900,
+                          color: Color(0xFF000000)),
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(
+                            color: const Color(0XFFACACAC),
+                          ))),
+                )),
+            Text(
+              "code".tr(context),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.normal,
+                  color: Color(0xFF5E5E5E)),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5, bottom: 37),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Expiring".tr(context),
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xFF5E5E5E)),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CountdownTimer(
+                    controller: controller,
+                    onEnd: onEnd,
+                    endTime: endTime,
+                  )
+                ],
               ),
-              Padding(
-                  padding: const EdgeInsets.only(top: 37, bottom: 47),
-                  child: Pinput(
-                    obscureText: true,
-                    obscuringWidget: const CircleAvatar(
-                        radius: 10, backgroundColor: Color(0XFF5E5E5E)),
-                    onCompleted: (value) {},
-                    defaultPinTheme: PinTheme(
-                        width: 50,
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 50,
-                        textStyle: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w900,
-                            color: Color(0xFF000000)),
-                        decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              color: const Color(0XFFACACAC),
-                            ))),
-                  )),
-              const Text(
-                "Don't tell anyone the code",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "Nunito",
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xFF5E5E5E)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5, bottom: 37),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Expiring In",
+            ),
+            Padding(
+                padding: const EdgeInsets.only(bottom: 43),
+                child: TextButton(
+                  onPressed: isCountDownComplete
+                      ? () {
+                          Navigator.popAndPushNamed(
+                              context, AppRouter.otpRoute);
+                        }
+                      : () {},
+                  child: Text("resendOTP".tr(context),
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
                           fontFamily: "Nunito",
-                          fontWeight: FontWeight.normal,
-                          color: Color(0xFF5E5E5E)),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    CountdownTimer(
-                      controller: controller,
-                      onEnd: onEnd,
-                      endTime: endTime,
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                  padding: const EdgeInsets.only(bottom: 43),
-                  child: TextButton(
-                    onPressed: isCountDownComplete
-                        ? () {
-                            Navigator.popAndPushNamed(
-                                context, AppRouter.otpRoute);
-                          }
-                        : () {},
-                    child: Text("RESEND OTP",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Nunito",
-                            color: isCountDownComplete
-                                ? const Color.fromARGB(255, 59, 98, 238)
-                                : Colors.grey)),
-                  )),
-              BlurButton(
-                  onPress: () {
-                    Navigator.pushNamed(context, AppRouter.mainRoute);
-                  },
-                  label: "Submit")
-            ],
-          ),
+                          color: isCountDownComplete
+                              ? const Color.fromARGB(255, 59, 98, 238)
+                              : Colors.grey)),
+                )),
+            BlurButton(
+                onPress: () {
+                  Navigator.pushNamed(context, AppRouter.mainRoute);
+                },
+                label: "Submit".tr(context))
+          ],
         ),
       ),
     );

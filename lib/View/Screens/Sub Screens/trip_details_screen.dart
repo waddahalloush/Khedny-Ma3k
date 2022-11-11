@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/request_trip_bottom_sheet.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_profile_listtile.dart';
 import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_road_parameter_widget.dart';
@@ -81,7 +82,7 @@ class TripDetailsScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8)),
               child: Row(
                 children: [
-                  Text("Price per Passenger",
+                  Text("PricePassenger".tr(context),
                       style: Theme.of(context).primaryTextTheme.headline3),
                   const Spacer(),
                   const DriverRoadParameterWidget(
@@ -101,11 +102,11 @@ class TripDetailsScreen extends StatelessWidget {
                   ListTile(
                     leading: Image.asset(
                       AssetManager.door,
-                      width: 40,
-                      height: 40,
+                      width: 30,
+                      height: 30,
                     ),
                     title: Text(
-                      "Door to Door",
+                      "Door".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                     trailing: Icon(
@@ -117,11 +118,11 @@ class TripDetailsScreen extends StatelessWidget {
                   ListTile(
                     leading: Image.asset(
                       AssetManager.smoke,
-                      width: 40,
-                      height: 40,
+                      width: 30,
+                      height: 30,
                     ),
                     title: Text(
-                      "Smooking ",
+                      "Smook".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                     trailing: Icon(
@@ -133,11 +134,11 @@ class TripDetailsScreen extends StatelessWidget {
                   ListTile(
                     leading: Image.asset(
                       AssetManager.air,
-                      width: 40,
-                      height: 40,
+                      width: 30,
+                      height: 30,
                     ),
                     title: Text(
-                      "Air condation",
+                      "Aircondation".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                     trailing: Icon(
@@ -157,7 +158,7 @@ class TripDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Additional Info",
+                  Text("Additional".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2),
                   Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla aenean id in nisi, vestibulum in aliquet.",
@@ -199,7 +200,7 @@ class TripDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Safety notice",
+                  Text("Safety".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2),
                   Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla aenean id in nisi, vestibulum in aliquet.",
@@ -224,7 +225,7 @@ class TripDetailsScreen extends StatelessWidget {
                     showRequestTripBottomSheet(context);
                   },
                   child: Text(
-                    "Book the Trip",
+                    "Book".tr(context),
                     style: Theme.of(context).primaryTextTheme.headline5,
                     textAlign: TextAlign.center,
                   ),
