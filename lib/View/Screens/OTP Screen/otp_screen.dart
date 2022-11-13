@@ -16,6 +16,7 @@ class OtpScreen extends StatefulWidget {
 
 class _OtpScreenState extends State<OtpScreen> {
   late CountdownTimerController controller;
+  late TextEditingController pinPutcontroller;
   bool isCountDownComplete = false;
   void onEnd() {
     setState(() {
@@ -31,12 +32,14 @@ class _OtpScreenState extends State<OtpScreen> {
       endTime: endTime,
       onEnd: onEnd,
     );
+    pinPutcontroller = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
     controller.dispose();
+    pinPutcontroller.dispose();
     super.dispose();
   }
 
@@ -70,7 +73,7 @@ class _OtpScreenState extends State<OtpScreen> {
             ),
             Padding(
                 padding: const EdgeInsets.only(top: 37, bottom: 47),
-                child: Pinput(
+                child: Pinput(controller: pinPutcontroller,
                   obscureText: true,
                   obscuringWidget: const CircleAvatar(
                       radius: 10, backgroundColor: Color(0XFF5E5E5E)),

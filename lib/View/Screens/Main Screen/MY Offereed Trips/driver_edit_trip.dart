@@ -1,14 +1,32 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_profile_listtile.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_road_parameter_widget.dart';
-import '../../../Core/constants/asset_manager.dart';
-import '../../../Core/utils/Global Widgets/blur_button.dart';
-import 'Widgets/car_type_widget.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_profile_listtile.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_road_parameter_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../../../../Core/utils/Global Widgets/blur_button.dart';
+import '../Widgets/car_type_widget.dart';
 
-class DriverTripDetailsScreen extends StatelessWidget {
-  const DriverTripDetailsScreen({Key? key}) : super(key: key);
+class DriverEditTripScreen extends StatefulWidget {
+  const DriverEditTripScreen({Key? key}) : super(key: key);
+
+  @override
+  State<DriverEditTripScreen> createState() => _DriverEditTripScreenState();
+}
+
+class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
+  late TextEditingController noteController;
+  @override
+  void initState() {
+    noteController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    noteController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -231,8 +249,9 @@ class DriverTripDetailsScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: TextFormField(
-                      maxLines: 3,readOnly: true,
+                    child: TextFormField(controller: noteController,
+                      maxLines: 3,
+                      readOnly: true,
                       initialValue: "I have 2 pieces of luggage ",
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(5),

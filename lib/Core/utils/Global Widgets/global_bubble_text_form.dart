@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 
 class GlobalBubbleTextForm extends StatelessWidget {
@@ -7,12 +8,14 @@ class GlobalBubbleTextForm extends StatelessWidget {
   final String hint;
   final bool isReadOnly;
   final VoidCallback onTap;
+  final TextEditingController controller;
   const GlobalBubbleTextForm({
     Key? key,
     required this.suffix,
     required this.hint,
     required this.isReadOnly,
     required this.onTap,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -24,7 +27,7 @@ class GlobalBubbleTextForm extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
             color: const Color(0xFFFFFFFF)),
-        child: TextFormField(
+        child: TextFormField(controller: controller,
           readOnly: isReadOnly,
           onTap: onTap,
           decoration: InputDecoration(

@@ -5,7 +5,7 @@ import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
-import '../../Main Screen/Widgets/find_ride_form_widget.dart';
+import '../Widgets/find_ride_form_widget.dart';
 
 void showRequestTripBottomSheet(BuildContext context) => showModalBottomSheet(
       barrierColor: Colors.black45,
@@ -24,10 +24,39 @@ void showRequestTripBottomSheet(BuildContext context) => showModalBottomSheet(
       ),
     );
 
-class DriverInfoWidget extends StatelessWidget {
+class DriverInfoWidget extends StatefulWidget {
   const DriverInfoWidget({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<DriverInfoWidget> createState() => _DriverInfoWidgetState();
+}
+
+class _DriverInfoWidgetState extends State<DriverInfoWidget> {
+    late TextEditingController originController;
+  late TextEditingController distinationController;
+  late TextEditingController infoController;
+  late TextEditingController pepoleController;
+  @override
+  void initState() {
+    originController = TextEditingController();
+    distinationController = TextEditingController();
+    infoController = TextEditingController();
+    pepoleController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    originController.dispose();
+    distinationController.dispose();
+    infoController.dispose();
+    pepoleController.dispose();
+    super.dispose();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,12 +108,12 @@ class DriverInfoWidget extends StatelessWidget {
                             return Column(
                               children: [
                                 FindRideFormWidget(
-                                  controller: myType.sourceController,
+                                  controller: originController,
                                   color: Theme.of(context).primaryColor,
                                   hint: "Location".tr(context),
                                 ),
                                 FindRideFormWidget(
-                                  controller: myType.distController,
+                                  controller: distinationController,
                                   color: Theme.of(context).primaryColorLight,
                                   hint: "Destination".tr(context),
                                 ),
@@ -125,7 +154,7 @@ class DriverInfoWidget extends StatelessWidget {
                                 },
                                 readOnly: true,
                                 showCursor: true,
-                                controller: myType.numOfPepoleController,
+                                controller:pepoleController,
                                 decoration: InputDecoration(
                                     contentPadding: const EdgeInsets.symmetric(
                                         horizontal: 10),
@@ -148,7 +177,7 @@ class DriverInfoWidget extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 20),
                     child: TextFormField(
-                      maxLines: 4,
+                      maxLines: 4,controller: infoController,
                       decoration: InputDecoration(
                         floatingLabelStyle:
                             Theme.of(context).primaryTextTheme.caption,

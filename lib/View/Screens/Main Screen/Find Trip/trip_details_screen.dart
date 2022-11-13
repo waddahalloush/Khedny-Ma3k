@@ -1,11 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/request_trip_bottom_sheet.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_profile_listtile.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/driver_road_parameter_widget.dart';
-import '../../../Core/constants/asset_manager.dart';
-import 'Widgets/car_type_widget.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Find%20Trip/request_trip_bottom_sheet.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_profile_listtile.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_road_parameter_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../Widgets/car_type_widget.dart';
 
 class TripDetailsScreen extends StatelessWidget {
   const TripDetailsScreen({Key? key}) : super(key: key);

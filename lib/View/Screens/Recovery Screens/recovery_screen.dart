@@ -5,8 +5,26 @@ import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
 import 'Widgets/global_text_form.dart';
 
-class RecoveryScreen extends StatelessWidget {
+class RecoveryScreen extends StatefulWidget {
   const RecoveryScreen({Key? key}) : super(key: key);
+
+  @override
+  State<RecoveryScreen> createState() => _RecoveryScreenState();
+}
+
+class _RecoveryScreenState extends State<RecoveryScreen> {
+  late TextEditingController recoveryPhoneController;
+  @override
+  void initState() {
+    recoveryPhoneController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    recoveryPhoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +58,7 @@ class RecoveryScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 80),
-              child: GlobalTextForm(
+              child: GlobalTextForm(controller: recoveryPhoneController,
                 isReadOnly: false,
                 onTap: () {},
                 suffix: const SizedBox(),

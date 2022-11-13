@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_setup_bottom_sheet.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/driver_setup_bottom_sheet.dart';
 
 import '../../../../Core/constants/asset_manager.dart';
 import '../../../../Core/utils/Global Widgets/blur_button.dart';

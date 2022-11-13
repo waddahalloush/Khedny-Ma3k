@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/trip_details_screen.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Find%20Trip/trip_details_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import 'driver_profile_listtile.dart';

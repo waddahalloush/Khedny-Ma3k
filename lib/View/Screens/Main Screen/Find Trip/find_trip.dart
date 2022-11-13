@@ -5,16 +5,44 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/search_result_screen.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Find%20Trip/search_result_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
-import '../../../Core/constants/asset_manager.dart';
-import '../../../Core/utils/Global Widgets/blur_button.dart';
-import 'Widgets/find_ride_form_widget.dart';
-import 'Widgets/main_app_bar_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../../../../Core/utils/Global Widgets/blur_button.dart';
+import '../Widgets/find_ride_form_widget.dart';
+import '../Widgets/main_app_bar_widget.dart';
 
-class FindTripScreen extends StatelessWidget {
+class FindTripScreen extends StatefulWidget {
   const FindTripScreen({Key? key}) : super(key: key);
+
+  @override
+  State<FindTripScreen> createState() => _FindTripScreenState();
+}
+
+class _FindTripScreenState extends State<FindTripScreen> {
+   late TextEditingController originController;
+  late TextEditingController distinationController;
+  late TextEditingController dateController;
+  late TextEditingController pepoleController;
+  @override
+  void initState() {
+    originController = TextEditingController();
+    distinationController = TextEditingController();
+    dateController = TextEditingController();
+    pepoleController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    originController.dispose();
+    distinationController.dispose();
+    dateController.dispose();
+    pepoleController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +94,12 @@ class FindTripScreen extends StatelessWidget {
                                   return Column(
                                     children: [
                                       FindRideFormWidget(
-                                        controller: myType.sourceController,
+                                        controller: originController,
                                         color: Theme.of(context).primaryColor,
                                         hint: "Location".tr(context),
                                       ),
                                       FindRideFormWidget(
-                                        controller: myType.distController,
+                                        controller: distinationController,
                                         color:
                                             Theme.of(context).primaryColorLight,
                                         hint: "Destination".tr(context),
@@ -110,7 +138,7 @@ class FindTripScreen extends StatelessWidget {
                                     readOnly: true,
                                     showCursor: true,
                                     style: const TextStyle(fontSize: 13),
-                                    controller: myType.timeController,
+                                    controller: dateController,
                                     decoration: InputDecoration(
                                         floatingLabelStyle: Theme.of(context)
                                             .primaryTextTheme
@@ -158,7 +186,7 @@ class FindTripScreen extends StatelessWidget {
                                     },
                                     readOnly: true,
                                     showCursor: true,
-                                    controller: myType.numOfPepoleController,
+                                    controller: pepoleController,
                                     decoration: InputDecoration(
                                         contentPadding:
                                             const EdgeInsets.symmetric(

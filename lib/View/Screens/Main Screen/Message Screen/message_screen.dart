@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/Widgets/feed_back_dialog.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/chat_modal_dialog.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Message%20Screen/feed_back_dialog.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/Message%20Screen/chat_modal_dialog.dart';
 
-import 'Widgets/driver_connection_image.dart';
+import '../Widgets/driver_connection_image.dart';
 
 class MessageScreen extends StatelessWidget {
   const MessageScreen({Key? key}) : super(key: key);

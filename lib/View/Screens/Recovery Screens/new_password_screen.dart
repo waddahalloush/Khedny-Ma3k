@@ -6,8 +6,29 @@ import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
 import 'Widgets/global_text_form.dart';
 
-class NewPasswordScreen extends StatelessWidget {
+class NewPasswordScreen extends StatefulWidget {
   const NewPasswordScreen({Key? key}) : super(key: key);
+
+  @override
+  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
+}
+
+class _NewPasswordScreenState extends State<NewPasswordScreen> {
+  late TextEditingController newPassController;
+  late TextEditingController confirmPassController;
+  @override
+  void initState() {
+    newPassController = TextEditingController();
+    confirmPassController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    newPassController.dispose();
+    confirmPassController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +64,7 @@ class NewPasswordScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 80),
                   child: Consumer<AppProvider>(
                     builder: (context, value, child) => GlobalTextForm(
+                      controller: newPassController,
                       isReadOnly: false,
                       onTap: () {},
                       suffix: IconButton(
@@ -62,6 +84,7 @@ class NewPasswordScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 10),
                   child: Consumer<AppProvider>(
                     builder: (context, value, child) => GlobalTextForm(
+                      controller: confirmPassController,
                       isReadOnly: false,
                       onTap: () {},
                       suffix: IconButton(

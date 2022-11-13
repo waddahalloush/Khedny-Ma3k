@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/add_trip_screen.dart';
-import 'package:khedni_m3k/View/Screens/Sub%20Screens/driver_trip_details.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_trip_screen.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/driver_edit_trip.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import '../../../Core/constants/asset_manager.dart';
-import '../Sub Screens/Widgets/driver_road_parameter_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../Widgets/driver_road_parameter_widget.dart';
 
 class MyOfferedTripScreen extends StatelessWidget {
   const MyOfferedTripScreen({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class MyOfferedTripScreen extends StatelessWidget {
               onTap: () {
                 PersistentNavBarNavigator.pushNewScreen(
                   context,
-                  screen: const DriverTripDetailsScreen(),
+                  screen: const DriverEditTripScreen(),
                   withNavBar: true,
                   pageTransitionAnimation: PageTransitionAnimation.cupertino,
                 );

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 
-import '../../../Core/constants/asset_manager.dart';
-import '../Sub Screens/Widgets/driver_road_parameter_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../Widgets/driver_road_parameter_widget.dart';
 
 class MyTripScreen extends StatelessWidget {
   const MyTripScreen({Key? key}) : super(key: key);

@@ -5,7 +5,7 @@ import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:provider/provider.dart';
-import '../Main Screen/Widgets/driver_connection_image.dart';
+import '../Widgets/driver_connection_image.dart';
 
 Future<bool> showChatDriverDialog(BuildContext context) {
   showDialog(

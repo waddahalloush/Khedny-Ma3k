@@ -32,10 +32,41 @@ void showAddVehicleBottomSheet(
       ),
     );
 
-class DriverSetupWidget extends StatelessWidget {
+class DriverSetupWidget extends StatefulWidget {
   const DriverSetupWidget({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<DriverSetupWidget> createState() => _DriverSetupWidgetState();
+}
+
+class _DriverSetupWidgetState extends State<DriverSetupWidget> {
+    late TextEditingController carModelController;
+  late TextEditingController plateNumController;
+  late TextEditingController colorController;
+  late TextEditingController yearMakeController;
+  late TextEditingController seatsController;
+  @override
+  void initState() {
+    carModelController = TextEditingController();
+    plateNumController = TextEditingController();
+    colorController = TextEditingController();
+    yearMakeController = TextEditingController();
+    seatsController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    carModelController.dispose();
+    plateNumController.dispose();
+    colorController.dispose();
+    yearMakeController.dispose();
+    seatsController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +111,7 @@ class DriverSetupWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: GlobalTextForm(
+                child: GlobalTextForm(controller: carModelController,
                     isReadOnly: true,
                     onTap: () {},
                     label: "CarModel".tr(context),
@@ -93,7 +124,7 @@ class DriverSetupWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: GlobalTextForm(
+                child: GlobalTextForm(controller: plateNumController,
                     isReadOnly: true,
                     onTap: () {},
                     label: "PlateNum".tr(context),
@@ -109,7 +140,7 @@ class DriverSetupWidget extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: GlobalTextForm(
+                      child: GlobalTextForm(controller: colorController,
                           isReadOnly: true,
                           onTap: () {
                             showMaterialSwatchPicker(
@@ -129,7 +160,7 @@ class DriverSetupWidget extends StatelessWidget {
                       width: 10,
                     ),
                     Expanded(
-                      child: GlobalTextForm(
+                      child: GlobalTextForm(controller: yearMakeController,
                           isReadOnly: true,
                           onTap: () {
                             showDatePicker(
@@ -181,7 +212,7 @@ class DriverSetupWidget extends StatelessWidget {
                               },
                               readOnly: true,
                               showCursor: true,
-                              controller: myType.numSeatsController,
+                              controller: seatsController,
                               decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.symmetric(
                                       horizontal: 10),

@@ -4,8 +4,8 @@ import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:provider/provider.dart';
-import '../../../Core/constants/asset_manager.dart';
-import '../Main Screen/Widgets/find_ride_form_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../Widgets/find_ride_form_widget.dart';
 
 class AddTripScreen extends StatefulWidget {
   const AddTripScreen({Key? key}) : super(key: key);
@@ -21,6 +21,8 @@ class _AddTripScreenState extends State<AddTripScreen> {
   late TextEditingController originController;
   late TextEditingController stopController;
   late TextEditingController distinationController;
+  late TextEditingController infoController;
+  late TextEditingController safetyController;
   @override
   void initState() {
     pricePerPassengerController = TextEditingController();
@@ -29,6 +31,8 @@ class _AddTripScreenState extends State<AddTripScreen> {
     originController = TextEditingController();
     stopController = TextEditingController();
     distinationController = TextEditingController();
+    infoController = TextEditingController();
+    safetyController = TextEditingController();
 
     super.initState();
   }
@@ -41,6 +45,8 @@ class _AddTripScreenState extends State<AddTripScreen> {
     originController.dispose();
     stopController.dispose();
     distinationController.dispose();
+    infoController.dispose();
+    safetyController.dispose();
     super.dispose();
   }
 
@@ -369,7 +375,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     child: Text("Additional".tr(context),
                         style: Theme.of(context).primaryTextTheme.bodyText2),
                   ),
-                  TextFormField(
+                  TextFormField(controller: infoController,
                     style: const TextStyle(fontSize: 12),
                     maxLines: 2,
                     initialValue:
@@ -419,7 +425,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     child: Text("Safety".tr(context),
                         style: Theme.of(context).primaryTextTheme.bodyText2),
                   ),
-                  TextFormField(
+                  TextFormField(controller: safetyController,
                     style: const TextStyle(fontSize: 12),
                     maxLines: 2,
                     initialValue: "lateMay".tr(context),

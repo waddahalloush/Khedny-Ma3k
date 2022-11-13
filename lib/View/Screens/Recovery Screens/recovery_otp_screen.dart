@@ -6,12 +6,29 @@ import 'package:pinput/pinput.dart';
 import '../../../Core/constants/asset_manager.dart';
 import '../../../Core/utils/app_router.dart';
 
-class RecoveryOtpScreen extends StatelessWidget {
+class RecoveryOtpScreen extends StatefulWidget {
   const RecoveryOtpScreen({Key? key}) : super(key: key);
 
   @override
+  State<RecoveryOtpScreen> createState() => _RecoveryOtpScreenState();
+}
+
+class _RecoveryOtpScreenState extends State<RecoveryOtpScreen> {
+  late TextEditingController recoverypinController;
+  @override
+  void initState() {
+    recoverypinController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    recoverypinController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController pinController = TextEditingController();
     return Scaffold(
       //from Theme Data
       appBar: AppBar(
@@ -43,7 +60,7 @@ class RecoveryOtpScreen extends StatelessWidget {
                   child: Pinput(
                     onCompleted: (value) =>
                         Navigator.pushNamed(context, AppRouter.newPassRoute),
-                    controller: pinController,
+                    controller: recoverypinController,
                     defaultPinTheme: PinTheme(
                         width: context.width / 8,
                         textStyle: const TextStyle(
@@ -84,19 +101,19 @@ class RecoveryOtpScreen extends StatelessWidget {
                       KeyBoardNum(
                         num: 1,
                         onpress: () {
-                          pinController.text += "1";
+                          recoverypinController.text += "1";
                         },
                       ),
                       KeyBoardNum(
                         num: 2,
                         onpress: () {
-                          pinController.text += "2";
+                          recoverypinController.text += "2";
                         },
                       ),
                       KeyBoardNum(
                         num: 3,
                         onpress: () {
-                          pinController.text += "3";
+                          recoverypinController.text += "3";
                         },
                       )
                     ],
@@ -107,19 +124,19 @@ class RecoveryOtpScreen extends StatelessWidget {
                       KeyBoardNum(
                         num: 4,
                         onpress: () {
-                          pinController.text += "4";
+                          recoverypinController.text += "4";
                         },
                       ),
                       KeyBoardNum(
                         num: 5,
                         onpress: () {
-                          pinController.text += "5";
+                          recoverypinController.text += "5";
                         },
                       ),
                       KeyBoardNum(
                         num: 6,
                         onpress: () {
-                          pinController.text += "6";
+                          recoverypinController.text += "6";
                         },
                       )
                     ],
@@ -130,19 +147,19 @@ class RecoveryOtpScreen extends StatelessWidget {
                       KeyBoardNum(
                         num: 7,
                         onpress: () {
-                          pinController.text += "7";
+                          recoverypinController.text += "7";
                         },
                       ),
                       KeyBoardNum(
                         num: 8,
                         onpress: () {
-                          pinController.text += "8";
+                          recoverypinController.text += "8";
                         },
                       ),
                       KeyBoardNum(
                         num: 9,
                         onpress: () {
-                          pinController.text += "9";
+                          recoverypinController.text += "9";
                         },
                       )
                     ],
@@ -159,13 +176,13 @@ class RecoveryOtpScreen extends StatelessWidget {
                       KeyBoardNum(
                         num: 0,
                         onpress: () {
-                          pinController.text += "0";
+                          recoverypinController.text += "0";
                         },
                       ),
                       FloatingActionButton(
                         backgroundColor: Colors.transparent,
                         onPressed: () {
-                          pinController.clear();
+                          recoverypinController.clear();
                         },
                         mini: true,
                         elevation: 0,

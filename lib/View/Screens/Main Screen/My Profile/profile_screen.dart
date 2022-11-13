@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import '../../../Core/constants/asset_manager.dart';
-import 'Widgets/car_widget.dart';
-import 'Widgets/main_app_bar_widget.dart';
+import '../../../../Core/constants/asset_manager.dart';
+import '../Widgets/car_widget.dart';
+import '../Widgets/main_app_bar_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
