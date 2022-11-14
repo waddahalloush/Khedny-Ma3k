@@ -40,7 +40,7 @@ class DriverSetupWidget extends StatefulWidget {
 }
 
 class _DriverSetupWidgetState extends State<DriverSetupWidget> {
-    late TextEditingController fNameController;
+  late TextEditingController fNameController;
   late TextEditingController lNameController;
   late TextEditingController whatsAppController;
   late TextEditingController telegramController;
@@ -64,7 +64,6 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
     driverLicenceController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +126,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: GlobalTextForm(controller: fNameController,
+              child: GlobalTextForm(
+                  controller: fNameController,
                   isReadOnly: false,
                   onTap: () {},
                   label: "First Name",
@@ -140,7 +140,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: GlobalTextForm(controller: lNameController,
+              child: GlobalTextForm(
+                  controller: lNameController,
                   isReadOnly: false,
                   onTap: () {},
                   label: "Last Name",
@@ -151,7 +152,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             const SizedBox(
               height: 10,
             ),
-            GlobalBubbleTextForm(controller: driverLicenceController,
+            GlobalBubbleTextForm(
+              controller: driverLicenceController,
               isReadOnly: true,
               onTap: () {
                 myType.changeDriverLicense();
@@ -167,7 +169,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                       color: Theme.of(context).primaryColorLight,
                     ),
             ),
-            GlobalBubbleTextForm(controller: whatsAppController,
+            GlobalBubbleTextForm(
+              controller: whatsAppController,
               hint: "WhatsApp",
               isReadOnly: false,
               onTap: () {},
@@ -176,7 +179,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 color: Colors.green,
               ),
             ),
-            GlobalBubbleTextForm(controller: telegramController,
+            GlobalBubbleTextForm(
+              controller: telegramController,
               isReadOnly: false,
               onTap: () {},
               hint: "Telegram",
@@ -185,8 +189,9 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 color: Color(0XFF406C96),
               ),
             ),
-            SizedBox(
-              height: context.height * 0.22,
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              height: context.height * 0.15,
               child: ListView(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 scrollDirection: Axis.horizontal,

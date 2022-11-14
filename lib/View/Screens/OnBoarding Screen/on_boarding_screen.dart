@@ -97,9 +97,8 @@ class OnBoardingScreen extends StatelessWidget {
           AssetManager.onboarding4,
         ))),
         decoration: const PageDecoration(
-          imageFlex: 4,
-          imagePadding: EdgeInsets.all(20),
-          bodyFlex: 4,
+          imageFlex: 2,
+          imagePadding: EdgeInsets.symmetric(horizontal: 50, vertical: 70),
           titleTextStyle: TextStyle(
               fontFamily: "Nunito",
               color: Colors.black,

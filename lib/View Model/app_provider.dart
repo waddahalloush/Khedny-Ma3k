@@ -28,15 +28,7 @@ class AppProvider extends ChangeNotifier {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void changeVisible1() {
-    isVisible1 = !isVisible1;
-    notifyListeners();
-  }
-
-  void changeVisible2() {
-    isVisible2 = !isVisible2;
-    notifyListeners();
-  }
+ 
 
   void changeNav(int index) {
     navIndex = index;
@@ -55,10 +47,7 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeSwicthDoor(bool val) {
-    doorToDoor = val;
-    notifyListeners();
-  }
+ 
 
   void changeDriverLicense() {
     driverLicense = !driverLicense;

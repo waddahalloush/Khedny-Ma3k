@@ -29,15 +29,14 @@ class MyTripScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   FloatingActionButton(
-                      mini: true,
                       heroTag: "n",
                       onPressed: () {},
                       elevation: 2,
                       backgroundColor: Colors.white,
                       child: Image.asset(
                         AssetManager.bell,
-                        height: 25,
-                        width: 20,
+                        height: 35,
+                        width: 30,
                       )),
                 ],
               ),
@@ -88,7 +87,7 @@ class MyRideCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       width: context.width,
       decoration: BoxDecoration(

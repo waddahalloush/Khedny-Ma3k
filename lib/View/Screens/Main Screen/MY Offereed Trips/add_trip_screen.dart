@@ -3,6 +3,7 @@ import 'package:flutter_material_pickers/flutter_material_pickers.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_vehicle_bottm_sheet.dart';
 import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../Widgets/find_ride_form_widget.dart';
@@ -25,14 +26,14 @@ class _AddTripScreenState extends State<AddTripScreen> {
   late TextEditingController safetyController;
   @override
   void initState() {
-    pricePerPassengerController = TextEditingController();
-    timeController = TextEditingController();
-    dateController = TextEditingController();
-    originController = TextEditingController();
-    stopController = TextEditingController();
-    distinationController = TextEditingController();
-    infoController = TextEditingController();
-    safetyController = TextEditingController();
+    pricePerPassengerController = TextEditingController(text: "");
+    timeController = TextEditingController(text: "");
+    dateController = TextEditingController(text: "");
+    originController = TextEditingController(text: "");
+    stopController = TextEditingController(text: "");
+    distinationController = TextEditingController(text: "");
+    infoController = TextEditingController(text: "");
+    safetyController = TextEditingController(text: "");
 
     super.initState();
   }
@@ -375,11 +376,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     child: Text("Additional".tr(context),
                         style: Theme.of(context).primaryTextTheme.bodyText2),
                   ),
-                  TextFormField(controller: infoController,
+                  TextFormField(
+                    controller: infoController,
                     style: const TextStyle(fontSize: 12),
                     maxLines: 2,
-                    initialValue:
-                        "Additional info from driver, lorem ipsum dolor sitametm cinsectetur ...",
                     decoration: const InputDecoration(
                       constraints: BoxConstraints(maxHeight: 80),
                       enabledBorder: OutlineInputBorder(),
@@ -402,7 +402,9 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     ],
                     color: const Color(0xFFFFFFFF)),
                 child: TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      showAddVehicleBottomSheet(context);
+                    },
                     icon: Icon(
                       Icons.add_circle_outline,
                       color: Theme.of(context).primaryColorLight,
@@ -425,10 +427,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     child: Text("Safety".tr(context),
                         style: Theme.of(context).primaryTextTheme.bodyText2),
                   ),
-                  TextFormField(controller: safetyController,
+                  TextFormField(
+                    controller: safetyController,
                     style: const TextStyle(fontSize: 12),
                     maxLines: 2,
-                    initialValue: "lateMay".tr(context),
                     decoration: const InputDecoration(
                       constraints: BoxConstraints(maxHeight: 80),
                       enabledBorder: OutlineInputBorder(),

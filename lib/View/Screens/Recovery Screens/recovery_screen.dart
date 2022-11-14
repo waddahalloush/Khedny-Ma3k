@@ -1,8 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:provider/provider.dart';
 import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
+import '../../../View Model/recovery_provider.dart';
 import 'Widgets/global_text_form.dart';
 
 class RecoveryScreen extends StatefulWidget {
@@ -41,7 +44,7 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -49,16 +52,17 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
               "Recovery".tr(context),
               style: Theme.of(context).primaryTextTheme.headline1,
             ),
-            const SizedBox(
-              height: 10,
+             SizedBox(
+              height: 10.h,
             ),
             Text(
               "RecoverySub".tr(context),
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 80),
-              child: GlobalTextForm(controller: recoveryPhoneController,
+              padding:  EdgeInsets.only(top: 80.h),
+              child: GlobalTextForm(
+                controller: recoveryPhoneController,
                 isReadOnly: false,
                 onTap: () {},
                 suffix: const SizedBox(),
@@ -67,7 +71,7 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                 obSecure: false,
               ),
             ),
-            const Spacer(),
+            SizedBox(height: 168.h,),
             Align(
               alignment: Alignment.center,
               child: Text(
@@ -75,15 +79,14 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                 style: Theme.of(context).primaryTextTheme.subtitle1,
                 textAlign: TextAlign.center,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 80, top: 40),
-              child: BlurButton(
-                  onPress: () {
-                    Navigator.pushNamed(context, AppRouter.recoverotpRoute);
-                  },
-                  label: "GetCode".tr(context)),
-            )
+            ),SizedBox(height: 32.h,), 
+            BlurButton(
+                onPress: () {
+                  Provider.of<RcoveryProvider>(context)
+                      .setRecoverynumber(recoveryPhoneController.text);
+                  Navigator.pushNamed(context, AppRouter.recoverotpRoute);
+                },
+                label: "GetCode".tr(context))
           ],
         ),
       ),

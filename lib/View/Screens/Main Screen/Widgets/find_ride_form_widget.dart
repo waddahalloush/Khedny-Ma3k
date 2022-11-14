@@ -50,7 +50,7 @@ class FindRideFormWidget extends StatelessWidget {
             hintStyle: const TextStyle(
                 overflow: TextOverflow.ellipsis,
                 color: Color(0XFF5E5E5E),
-                fontSize: 15,
+                fontSize: 18,
                 fontFamily: 'Nunito'),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 4, vertical: 10)),

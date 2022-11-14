@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
-import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:pinput/pinput.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
+import '../../../View Model/account_otp_provider.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({Key? key}) : super(key: key);
@@ -57,23 +59,25 @@ class _OtpScreenState extends State<OtpScreen> {
           },
         ),
       ),
-      body: SizedBox(
-        height: context.height,
-        width: context.width,
+      body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 72.h,
+            ),
             Text(
               "OTP".tr(context),
-              style: const TextStyle(
-                  fontSize: 16,
+              style: TextStyle(
+                  fontSize: 16.sp,
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.normal,
-                  color: Color(0xFF5E5E5E)),
+                  color: const Color(0xFF5E5E5E)),
             ),
             Padding(
-                padding: const EdgeInsets.only(top: 37, bottom: 47),
-                child: Pinput(controller: pinPutcontroller,
+                padding: const EdgeInsets.only(top: 37, bottom: 48),
+                child: Pinput(
+                  controller: pinPutcontroller,
                   obscureText: true,
                   obscuringWidget: const CircleAvatar(
                       radius: 10, backgroundColor: Color(0XFF5E5E5E)),
@@ -95,11 +99,11 @@ class _OtpScreenState extends State<OtpScreen> {
                 )),
             Text(
               "code".tr(context),
-              style: const TextStyle(
-                  fontSize: 16,
+              style: TextStyle(
+                  fontSize: 16.sp,
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.normal,
-                  color: Color(0xFF5E5E5E)),
+                  color: const Color(0xFF5E5E5E)),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 37),
@@ -108,14 +112,14 @@ class _OtpScreenState extends State<OtpScreen> {
                 children: [
                   Text(
                     "Expiring".tr(context),
-                    style: const TextStyle(
-                        fontSize: 16,
+                    style: TextStyle(
+                        fontSize: 16.sp,
                         fontFamily: "Nunito",
                         fontWeight: FontWeight.normal,
-                        color: Color(0xFF5E5E5E)),
+                        color: const Color(0xFF5E5E5E)),
                   ),
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: 10.w,
                   ),
                   CountdownTimer(
                     controller: controller,
@@ -126,7 +130,7 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
             ),
             Padding(
-                padding: const EdgeInsets.only(bottom: 43),
+                padding: const EdgeInsets.only(bottom: 42),
                 child: TextButton(
                   onPressed: isCountDownComplete
                       ? () {
@@ -136,7 +140,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       : () {},
                   child: Text("resendOTP".tr(context),
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Nunito",
                           color: isCountDownComplete
@@ -145,6 +149,8 @@ class _OtpScreenState extends State<OtpScreen> {
                 )),
             BlurButton(
                 onPress: () {
+                  Provider.of<AccountOTPProvider>(context, listen: false)
+                      .checkAccountOtp(pinPutcontroller.text);
                   Navigator.pushNamed(context, AppRouter.mainRoute);
                 },
                 label: "Submit".tr(context))

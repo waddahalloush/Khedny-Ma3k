@@ -10,6 +10,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../../../../Core/utils/Global Widgets/blur_button.dart';
+import '../../../../View Model/find_trip_provider.dart';
 import '../Widgets/find_ride_form_widget.dart';
 import '../Widgets/main_app_bar_widget.dart';
 
@@ -21,7 +22,7 @@ class FindTripScreen extends StatefulWidget {
 }
 
 class _FindTripScreenState extends State<FindTripScreen> {
-   late TextEditingController originController;
+  late TextEditingController originController;
   late TextEditingController distinationController;
   late TextEditingController dateController;
   late TextEditingController pepoleController;
@@ -42,7 +43,6 @@ class _FindTripScreenState extends State<FindTripScreen> {
     pepoleController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class _FindTripScreenState extends State<FindTripScreen> {
                         ],
                         color: const Color(0xFFFFFFFF)),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Row(
                           children: [
@@ -89,26 +89,20 @@ class _FindTripScreenState extends State<FindTripScreen> {
                               height: 72,
                             ),
                             Expanded(
-                              child: Consumer<AppProvider>(
-                                builder: (context, myType, child) {
-                                  return Column(
-                                    children: [
-                                      FindRideFormWidget(
-                                        controller: originController,
-                                        color: Theme.of(context).primaryColor,
-                                        hint: "Location".tr(context),
-                                      ),
-                                      FindRideFormWidget(
-                                        controller: distinationController,
-                                        color:
-                                            Theme.of(context).primaryColorLight,
-                                        hint: "Destination".tr(context),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
+                                child: Column(
+                              children: [
+                                FindRideFormWidget(
+                                  controller: originController,
+                                  color: Theme.of(context).primaryColor,
+                                  hint: "Location".tr(context),
+                                ),
+                                FindRideFormWidget(
+                                  controller: distinationController,
+                                  color: Theme.of(context).primaryColorLight,
+                                  hint: "Destination".tr(context),
+                                ),
+                              ],
+                            )),
                           ],
                         ),
                         Row(
@@ -122,41 +116,35 @@ class _FindTripScreenState extends State<FindTripScreen> {
                               ),
                             ),
                             Expanded(
-                              child: Consumer<AppProvider>(
-                                builder: (context, myType, child) {
-                                  return TextFormField(
-                                    onTap: () {
-                                      showMaterialDatePicker(
-                                          context: context,
-                                          onChanged: (value) {
-                                            myType.setTime(value);
-                                          },
-                                          firstDate: DateTime.now(),
-                                          lastDate: DateTime(2025),
-                                          selectedDate: DateTime.now());
+                                child: TextFormField(
+                              onTap: () {
+                                showMaterialDatePicker(
+                                    context: context,
+                                    onChanged: (val) {
+                                      dateController.text =
+                                          "${val.year}/${val.month}/${val.day}";
                                     },
-                                    readOnly: true,
-                                    showCursor: true,
-                                    style: const TextStyle(fontSize: 13),
-                                    controller: dateController,
-                                    decoration: InputDecoration(
-                                        floatingLabelStyle: Theme.of(context)
-                                            .primaryTextTheme
-                                            .caption,
-                                        hintText: "Picktime".tr(context),
-                                        hintStyle:
-                                            const TextStyle(fontSize: 13),
-                                        contentPadding:
-                                            const EdgeInsets.symmetric(
-                                                horizontal: 10),
-                                        labelStyle: Theme.of(context)
-                                            .primaryTextTheme
-                                            .caption),
-                                    keyboardType: TextInputType.datetime,
-                                  );
-                                },
-                              ),
-                            ),
+                                    firstDate: DateTime.now(),
+                                    lastDate: DateTime(2025),
+                                    selectedDate: DateTime.now());
+                              },
+                              readOnly: true,
+                              showCursor: true,
+                              style: const TextStyle(fontSize: 13),
+                              controller: dateController,
+                              decoration: InputDecoration(
+                                  floatingLabelStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .caption,
+                                  hintText: "Picktime".tr(context),
+                                  hintStyle: const TextStyle(fontSize: 18),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  labelStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .caption),
+                              keyboardType: TextInputType.datetime,
+                            )),
                             const SizedBox(
                               width: 10,
                             ),
@@ -169,45 +157,38 @@ class _FindTripScreenState extends State<FindTripScreen> {
                               ),
                             ),
                             Expanded(
-                              child: Consumer<AppProvider>(
-                                builder: (context, myType, child) {
-                                  return TextFormField(
-                                    style: const TextStyle(fontSize: 13),
-                                    onTap: () {
-                                      showMaterialNumberPicker(
-                                          context: context,
-                                          title: "NumPeople".tr(context),
-                                          maxNumber: 5,
-                                          minNumber: 1,
-                                          selectedNumber: 1,
-                                          onChanged: (value) {
-                                            myType.setNumOfPepole(value);
-                                          });
-                                    },
-                                    readOnly: true,
-                                    showCursor: true,
-                                    controller: pepoleController,
-                                    decoration: InputDecoration(
-                                        contentPadding:
-                                            const EdgeInsets.symmetric(
-                                                horizontal: 10),
-                                        floatingLabelStyle: Theme.of(context)
-                                            .primaryTextTheme
-                                            .caption,
-                                        hintText: "NumPeople".tr(context),
-                                        hintStyle:
-                                            const TextStyle(fontSize: 13),
-                                        labelStyle: Theme.of(context)
-                                            .primaryTextTheme
-                                            .caption),
-                                    keyboardType: TextInputType.datetime,
-                                  );
-                                },
-                              ),
-                            ),
+                                child: TextFormField(
+                              style: const TextStyle(fontSize: 13),
+                              onTap: () {
+                                showMaterialNumberPicker(
+                                    context: context,
+                                    title: "NumPeople".tr(context),
+                                    maxNumber: 5,
+                                    minNumber: 1,
+                                    selectedNumber: 1,
+                                    onChanged: (val) {
+                                      pepoleController.text = val.toString();
+                                    });
+                              },
+                              readOnly: true,
+                              showCursor: true,
+                              controller: pepoleController,
+                              decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  floatingLabelStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .caption,
+                                  hintText: "NumPeople".tr(context),
+                                  hintStyle: const TextStyle(fontSize: 18),
+                                  labelStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .caption),
+                              keyboardType: TextInputType.datetime,
+                            )),
                           ],
                         ),
-                        Consumer<AppProvider>(
+                        Consumer<FindTripProvider>(
                           builder: (context, myType, child) {
                             return Row(
                               children: [
@@ -224,7 +205,12 @@ class _FindTripScreenState extends State<FindTripScreen> {
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 20),
-                                  child: Text("Door".tr(context)),
+                                  child: Text(
+                                    "Door".tr(context),
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline3,
+                                  ),
                                 )
                               ],
                             );
@@ -232,6 +218,11 @@ class _FindTripScreenState extends State<FindTripScreen> {
                         ),
                         BlurButton(
                             onPress: () {
+                              Provider.of<FindTripProvider>(context).searchTrip(
+                                  originController.text,
+                                  distinationController.text,
+                                  dateController.text,
+                                  pepoleController.text);
                               PersistentNavBarNavigator.pushNewScreen(
                                 context,
                                 screen: const SearchResultScreen(),

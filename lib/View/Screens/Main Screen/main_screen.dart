@@ -49,12 +49,12 @@ class MainScreen extends StatelessWidget {
                 ),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 20),
+                iconSize: 30),
             PersistentBottomNavBarItem(
                 icon: const Icon(Icons.time_to_leave_outlined),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 20),
+                iconSize: 30),
             PersistentBottomNavBarItem(
               icon: Image.asset(
                 AssetManager.fab,
@@ -66,12 +66,12 @@ class MainScreen extends StatelessWidget {
                 icon: const Icon(UniconsLine.comment),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 20),
+                iconSize: 30),
             PersistentBottomNavBarItem(
                 icon: const Icon(UniconsLine.user_circle),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 20),
+                iconSize: 30),
           ],
           confineInSafeArea: true,
           backgroundColor: Colors.white, // Default is Colors.white.
@@ -98,7 +98,7 @@ class MainScreen extends StatelessWidget {
             curve: Curves.ease,
             duration: Duration(milliseconds: 200),
           ),
-          navBarHeight: 60,
+          navBarHeight: 90,
 
           popAllScreensOnTapAnyTabs: true,
           navBarStyle: NavBarStyle
@@ -108,6 +108,3 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
-
-
-

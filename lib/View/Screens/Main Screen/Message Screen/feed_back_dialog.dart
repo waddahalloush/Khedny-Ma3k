@@ -30,13 +30,13 @@ Widget _buildDialogContent(BuildContext context) {
       Container(
         color: Colors.transparent,
         width: context.width,
-        height: context.height / 1.45,
+        height: context.height / 1.65,
       ),
       Container(
         // Bottom rectangular box
         // to push the box half way below circle
         width: context.width, alignment: Alignment.center,
-        height: context.height / 1.7,
+        height: context.height / 1.9,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -101,7 +101,7 @@ Widget _buildDialogContent(BuildContext context) {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                 ],
               ),
