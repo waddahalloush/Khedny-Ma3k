@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
-import 'package:provider/provider.dart';
 import '../../../Core/utils/Global Widgets/blur_button.dart';
 import '../../../Core/utils/app_router.dart';
-import '../../../View Model/recovery_provider.dart';
 import 'Widgets/global_text_form.dart';
 
 class RecoveryScreen extends StatefulWidget {
@@ -52,7 +50,7 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
               "Recovery".tr(context),
               style: Theme.of(context).primaryTextTheme.headline1,
             ),
-             SizedBox(
+            SizedBox(
               height: 10.h,
             ),
             Text(
@@ -60,7 +58,7 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
             Padding(
-              padding:  EdgeInsets.only(top: 80.h),
+              padding: EdgeInsets.only(top: 80.h),
               child: GlobalTextForm(
                 controller: recoveryPhoneController,
                 isReadOnly: false,
@@ -71,7 +69,9 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                 obSecure: false,
               ),
             ),
-            SizedBox(height: 168.h,),
+            SizedBox(
+              height: 168.h,
+            ),
             Align(
               alignment: Alignment.center,
               child: Text(
@@ -79,11 +79,14 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                 style: Theme.of(context).primaryTextTheme.subtitle1,
                 textAlign: TextAlign.center,
               ),
-            ),SizedBox(height: 32.h,), 
+            ),
+            SizedBox(
+              height: 32.h,
+            ),
             BlurButton(
                 onPress: () {
-                  Provider.of<RcoveryProvider>(context)
-                      .setRecoverynumber(recoveryPhoneController.text);
+                  // Provider.of<RcoveryProvider>(context)
+                  //     .setRecoverynumber(recoveryPhoneController.text);
                   Navigator.pushNamed(context, AppRouter.recoverotpRoute);
                 },
                 label: "GetCode".tr(context))

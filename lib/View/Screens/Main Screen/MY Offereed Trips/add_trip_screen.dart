@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/flutter_material_pickers.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/View%20Model/add_trip_provider.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_vehicle_bottm_sheet.dart';
@@ -279,92 +280,109 @@ class _AddTripScreenState extends State<AddTripScreen> {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black26),
-                  borderRadius: BorderRadius.circular(8)),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Image.asset(
-                      AssetManager.door,
-                      width: 30,
-                      height: 30,
-                    ),
-                    title: Text(
-                      "Door".tr(context),
-                      style: Theme.of(context).primaryTextTheme.bodyText2,
-                    ),
-                    trailing: Container(
-                      margin: const EdgeInsets.all(5),
-                      height: 24,
-                      width: 24,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3),
-                          gradient: const LinearGradient(
-                              colors: [Color(0xFF4776A2), Color(0xFF025099)])),
-                      child: Checkbox(
-                        value: true,
-                        activeColor: Colors.transparent,
-                        onChanged: (val) {},
+            Consumer<AddTripProvider>(
+              builder: (context, myType, child) {
+                return Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Image.asset(
+                          AssetManager.door,
+                          width: 30,
+                          height: 30,
+                        ),
+                        title: Text(
+                          "Door".tr(context),
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
+                        trailing: Container(
+                          margin: const EdgeInsets.all(5),
+                          height: 24,
+                          width: 24,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3),
+                              gradient: const LinearGradient(colors: [
+                                Color(0xFF4776A2),
+                                Color(0xFF025099)
+                              ])),
+                          child: Checkbox(
+                            value: myType.isDoorToDoor,
+                            activeColor: Colors.transparent,
+                            onChanged: (val) {
+                              myType.changeDoorToDoor(val!);
+                            },
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: Image.asset(
-                      AssetManager.smoke,
-                      width: 30,
-                      height: 30,
-                    ),
-                    title: Text(
-                      "Smook".tr(context),
-                      style: Theme.of(context).primaryTextTheme.bodyText2,
-                    ),
-                    trailing: Container(
-                      margin: const EdgeInsets.all(5),
-                      height: 24,
-                      width: 24,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3),
-                          gradient: const LinearGradient(
-                              colors: [Color(0xFF4776A2), Color(0xFF025099)])),
-                      child: Checkbox(
-                        value: true,
-                        activeColor: Colors.transparent,
-                        onChanged: (val) {},
+                      const Divider(),
+                      ListTile(
+                        leading: Image.asset(
+                          AssetManager.smoke,
+                          width: 30,
+                          height: 30,
+                        ),
+                        title: Text(
+                          "Smook".tr(context),
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
+                        trailing: Container(
+                          margin: const EdgeInsets.all(5),
+                          height: 24,
+                          width: 24,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3),
+                              gradient: const LinearGradient(colors: [
+                                Color(0xFF4776A2),
+                                Color(0xFF025099)
+                              ])),
+                          child: Checkbox(
+                            value: myType.isSmoking,
+                            activeColor: Colors.transparent,
+                            onChanged: (val) {
+                              myType.changeSmoking(val!);
+                            },
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: Image.asset(
-                      AssetManager.air,
-                      width: 30,
-                      height: 30,
-                    ),
-                    title: Text(
-                      "Aircondation".tr(context),
-                      style: Theme.of(context).primaryTextTheme.bodyText2,
-                    ),
-                    trailing: Container(
-                      margin: const EdgeInsets.all(5),
-                      height: 24,
-                      width: 24,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3),
-                          gradient: const LinearGradient(
-                              colors: [Color(0xFF4776A2), Color(0xFF025099)])),
-                      child: Checkbox(
-                        value: true,
-                        activeColor: Colors.transparent,
-                        onChanged: (val) {},
+                      const Divider(),
+                      ListTile(
+                        leading: Image.asset(
+                          AssetManager.air,
+                          width: 30,
+                          height: 30,
+                        ),
+                        title: Text(
+                          "Aircondation".tr(context),
+                          style: Theme.of(context).primaryTextTheme.bodyText2,
+                        ),
+                        trailing: Container(
+                          margin: const EdgeInsets.all(5),
+                          height: 24,
+                          width: 24,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3),
+                              gradient: const LinearGradient(colors: [
+                                Color(0xFF4776A2),
+                                Color(0xFF025099)
+                              ])),
+                          child: Checkbox(
+                            value: myType.isCondition,
+                            activeColor: Colors.transparent,
+                            onChanged: (val) {
+                              myType.changeCondition(val!);
+                            },
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),

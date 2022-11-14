@@ -4,10 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:pinput/pinput.dart';
-import 'package:provider/provider.dart';
 import '../../../Core/constants/asset_manager.dart';
 import '../../../Core/utils/app_router.dart';
-import '../../../View Model/recovery_otp_provider.dart';
 
 class RecoveryOtpScreen extends StatefulWidget {
   const RecoveryOtpScreen({Key? key}) : super(key: key);
@@ -65,8 +63,8 @@ class _RecoveryOtpScreenState extends State<RecoveryOtpScreen> {
                   padding: const EdgeInsets.only(top: 50, bottom: 20),
                   child: Pinput(
                     onCompleted: (value) {
-                      Provider.of<RecoveryOtpProvider>(context)
-                          .checkOtp(recoverypinController.text);
+                      // Provider.of<RecoveryOtpProvider>(context)
+                      //     .checkOtp(recoverypinController.text);
                       Navigator.pushNamed(context, AppRouter.newPassRoute);
                     },
                     controller: recoverypinController,

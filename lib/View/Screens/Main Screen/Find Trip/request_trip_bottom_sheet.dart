@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
-import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../Widgets/find_ride_form_widget.dart';
 
@@ -34,7 +32,7 @@ class DriverInfoWidget extends StatefulWidget {
 }
 
 class _DriverInfoWidgetState extends State<DriverInfoWidget> {
-    late TextEditingController originController;
+  late TextEditingController originController;
   late TextEditingController distinationController;
   late TextEditingController infoController;
   late TextEditingController pepoleController;
@@ -55,8 +53,6 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
     pepoleController.dispose();
     super.dispose();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -103,25 +99,20 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                         height: 85,
                       ),
                       Expanded(
-                        child: Consumer<AppProvider>(
-                          builder: (context, myType, child) {
-                            return Column(
-                              children: [
-                                FindRideFormWidget(
-                                  controller: originController,
-                                  color: Theme.of(context).primaryColor,
-                                  hint: "Location".tr(context),
-                                ),
-                                FindRideFormWidget(
-                                  controller: distinationController,
-                                  color: Theme.of(context).primaryColorLight,
-                                  hint: "Destination".tr(context),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      ),
+                          child: Column(
+                        children: [
+                          FindRideFormWidget(
+                            controller: originController,
+                            color: Theme.of(context).primaryColor,
+                            hint: "Location".tr(context),
+                          ),
+                          FindRideFormWidget(
+                            controller: distinationController,
+                            color: Theme.of(context).primaryColorLight,
+                            hint: "Destination".tr(context),
+                          ),
+                        ],
+                      )),
                     ],
                   ),
                   SizedBox(
@@ -137,47 +128,41 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                           ),
                         ),
                         Expanded(
-                          child: Consumer<AppProvider>(
-                            builder: (context, myType, child) {
-                              return TextFormField(
-                                style: const TextStyle(fontSize: 13),
-                                onTap: () {
-                                  showMaterialNumberPicker(
-                                      context: context,
-                                      title: 'NumPeople'.tr(context),
-                                      maxNumber: 5,
-                                      minNumber: 1,
-                                      selectedNumber: 1,
-                                      onChanged: (value) {
-                                        myType.setNumOfPepole(value);
-                                      });
-                                },
-                                readOnly: true,
-                                showCursor: true,
-                                controller:pepoleController,
-                                decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        horizontal: 10),
-                                    floatingLabelStyle: Theme.of(context)
-                                        .primaryTextTheme
-                                        .caption,
-                                    hintText: 'NumPeople'.tr(context),
-                                    hintStyle: const TextStyle(fontSize: 13),
-                                    labelStyle: Theme.of(context)
-                                        .primaryTextTheme
-                                        .caption),
-                                keyboardType: TextInputType.datetime,
-                              );
-                            },
-                          ),
-                        ),
+                            child: TextFormField(
+                          style: const TextStyle(fontSize: 13),
+                          onTap: () {
+                            showMaterialNumberPicker(
+                                context: context,
+                                title: 'NumPeople'.tr(context),
+                                maxNumber: 5,
+                                minNumber: 1,
+                                selectedNumber: 1,
+                                onChanged: (value) {
+                                  pepoleController.text = value.toString();
+                                });
+                          },
+                          readOnly: true,
+                          showCursor: true,
+                          controller: pepoleController,
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              floatingLabelStyle:
+                                  Theme.of(context).primaryTextTheme.caption,
+                              hintText: 'NumPeople'.tr(context),
+                              hintStyle: const TextStyle(fontSize: 13),
+                              labelStyle:
+                                  Theme.of(context).primaryTextTheme.caption),
+                          keyboardType: TextInputType.datetime,
+                        )),
                       ],
                     ),
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 20),
                     child: TextFormField(
-                      maxLines: 4,controller: infoController,
+                      maxLines: 4,
+                      controller: infoController,
                       decoration: InputDecoration(
                         floatingLabelStyle:
                             Theme.of(context).primaryTextTheme.caption,

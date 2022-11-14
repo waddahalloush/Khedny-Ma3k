@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
@@ -42,7 +41,7 @@ class DriverSetupWidget extends StatefulWidget {
 }
 
 class _DriverSetupWidgetState extends State<DriverSetupWidget> {
-    late TextEditingController carModelController;
+  late TextEditingController carModelController;
   late TextEditingController plateNumController;
   late TextEditingController colorController;
   late TextEditingController yearMakeController;
@@ -66,7 +65,6 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
     seatsController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +109,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: GlobalTextForm(controller: carModelController,
+                child: GlobalTextForm(
+                    controller: carModelController,
                     isReadOnly: true,
                     onTap: () {},
                     label: "CarModel".tr(context),
@@ -124,7 +123,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: GlobalTextForm(controller: plateNumController,
+                child: GlobalTextForm(
+                    controller: plateNumController,
                     isReadOnly: true,
                     onTap: () {},
                     label: "PlateNum".tr(context),
@@ -140,14 +140,76 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: GlobalTextForm(controller: colorController,
+                      child: GlobalTextForm(
+                          controller: colorController,
                           isReadOnly: true,
                           onTap: () {
                             showMaterialSwatchPicker(
                               context: context,
                               selectedColor: Colors.black,
                               onChanged: (value) {
-                                log("$value");
+                                switch (value.value) {
+                                  case 4294198070:
+                                    colorController.text = "Deep Red";
+                                    break;
+                                  case 4293467747:
+                                    colorController.text = "Red";
+                                    break;
+                                  case 4288423856:
+                                    colorController.text = "Pink";
+                                    break;
+                                  case 4284955319:
+                                    colorController.text = "Purple";
+                                    break;
+                                  case 4282339765:
+                                    colorController.text = "Deep Blue";
+                                    break;
+                                  case 4280391411:
+                                    colorController.text = "Blue";
+                                    break;
+                                  case 4278430196:
+                                    colorController.text = "Light Blue";
+                                    break;
+                                  case 4278238420:
+                                    colorController.text = "Green Blue";
+                                    break;
+                                  case 4278228616:
+                                    colorController.text = "Deep Green";
+                                    break;
+                                  case 4283215696:
+                                    colorController.text = "Green";
+                                    break;
+                                  case 4287349578:
+                                    colorController.text = "Light Green";
+                                    break;
+                                  case 4291681337:
+                                    colorController.text = "Phosphoric";
+                                    break;
+                                  case 4294961979:
+                                    colorController.text = "Yellow";
+                                    break;
+                                  case 4294951175:
+                                    colorController.text = "Light Orange";
+                                    break;
+                                  case 4394940672:
+                                    colorController.text = "Orange";
+                                    break;
+                                  case 4294924066:
+                                    colorController.text = "Deep Orange";
+                                    break;
+                                  case 4286141768:
+                                    colorController.text = "Brown";
+                                    break;
+                                  case 4288585374:
+                                    colorController.text = "Gray";
+                                    break;
+                                  case 4284513675:
+                                    colorController.text = "Blue Gray";
+                                    break;
+
+                                  default:
+                                    colorController.text = "Black";
+                                }
                               },
                             );
                           },
@@ -160,15 +222,16 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                       width: 10,
                     ),
                     Expanded(
-                      child: GlobalTextForm(controller: yearMakeController,
+                      child: GlobalTextForm(
+                          controller: yearMakeController,
                           isReadOnly: true,
                           onTap: () {
-                            showDatePicker(
-                                initialDatePickerMode: DatePickerMode.year,
+                            showMaterialNumberPicker(
                                 context: context,
-                                initialDate: DateTime.now(),
-                                firstDate: DateTime(2000),
-                                lastDate: DateTime(2023));
+                                minNumber: 1990,
+                                onChanged: (value) =>
+                                    yearMakeController.text = value.toString(),
+                                maxNumber: 2023);
                           },
                           label: "YearMake".tr(context),
                           obSecure: false,
@@ -207,7 +270,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                                     minNumber: 1,
                                     selectedNumber: 1,
                                     onChanged: (value) {
-                                      myType.setNumOfPepole(value);
+                                      seatsController.text = value.toString();
                                     });
                               },
                               readOnly: true,

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 
 class BlurButton extends StatelessWidget {
   final VoidCallback onPress;
@@ -18,7 +19,7 @@ class BlurButton extends StatelessWidget {
       child: InkWell(
         onTap: onPress,
         child: Container(
-          width: ScreenUtil().scaleWidth - 20,
+          width: context.width - 20,
           alignment: Alignment.center,
           height: 48,
           decoration: BoxDecoration(

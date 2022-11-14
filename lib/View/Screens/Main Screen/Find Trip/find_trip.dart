@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/flutter_material_pickers.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
-import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Find%20Trip/search_result_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -218,11 +217,11 @@ class _FindTripScreenState extends State<FindTripScreen> {
                         ),
                         BlurButton(
                             onPress: () {
-                              Provider.of<FindTripProvider>(context).searchTrip(
-                                  originController.text,
-                                  distinationController.text,
-                                  dateController.text,
-                                  pepoleController.text);
+                              // Provider.of<FindTripProvider>(context).searchTrip(
+                              //     originController.text,
+                              //     distinationController.text,
+                              //     dateController.text,
+                              //     pepoleController.text);
                               PersistentNavBarNavigator.pushNewScreen(
                                 context,
                                 screen: const SearchResultScreen(),
