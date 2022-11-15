@@ -4,26 +4,21 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:khedni_m3k/Core/constants/asset_manager.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../View Model/app_provider.dart';
-
-Future<bool> showFeedBackDriverDialog(BuildContext context) {
+Future<bool> showFeedBackDriverDialog(
+    BuildContext context, String driverName, List<String> way) {
   showDialog(
       context: context,
-      builder: (context) => Consumer<AppProvider>(
-            builder: (context, myType, child) {
-              return Dialog(
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                child: _buildDialogContent(context),
-              );
-            },
+      builder: (context) => Dialog(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            child: _buildDialogContent(context, driverName, way),
           ));
   return Future.value(true);
 }
 
-Widget _buildDialogContent(BuildContext context) {
+Widget _buildDialogContent(
+    BuildContext context, String driverName, List<String> way) {
   return Stack(
     alignment: Alignment.center,
     children: <Widget>[
@@ -50,16 +45,25 @@ Widget _buildDialogContent(BuildContext context) {
               child: Column(
                 children: [
                   Text(
-                    "Somar Bilal",
+                    driverName,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "Latakia , Tartous , Homs ,  Damascus ",
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                  Wrap(
+                    children: List.generate(
+                        way.length,
+                        (index) => Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Text(
+                                way[index],
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
+                              ),
+                            )),
                   ),
                   const SizedBox(
                     height: 20,
@@ -81,7 +85,7 @@ Widget _buildDialogContent(BuildContext context) {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Latakia",
+                              way.first,
                               textAlign: TextAlign.left,
                               style:
                                   Theme.of(context).primaryTextTheme.bodyText2,
@@ -90,7 +94,7 @@ Widget _buildDialogContent(BuildContext context) {
                               height: 10,
                             ),
                             Text(
-                              "Damascus",
+                              way.last,
                               textAlign: TextAlign.left,
                               style:
                                   Theme.of(context).primaryTextTheme.bodyText2,

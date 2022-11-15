@@ -13,18 +13,9 @@ class AppProvider extends ChangeNotifier {
   int navIndex = 0;
   File? driverimage;
   File? carimage;
-  TextEditingController numOfPepoleController = TextEditingController();
-  TextEditingController timeController = TextEditingController();
-  TextEditingController numSeatsController = TextEditingController();
-   TextEditingController sourceController = TextEditingController();
-   TextEditingController stopController = TextEditingController();
-    TextEditingController distController = TextEditingController();
-    TextEditingController pricePerPassengerController = TextEditingController();
+ 
 
-  List<String> chatList = [
-    "Hello there. Where is the pickup location in Homs?"
-  ];
-  TextEditingController chatController = TextEditingController();
+ 
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -41,11 +32,7 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addChatToList(String message) {
-    chatList.add(message);
-    chatController.clear();
-    notifyListeners();
-  }
+  
 
  
 
@@ -56,20 +43,6 @@ class AppProvider extends ChangeNotifier {
 
   void changeairCondition(bool val) {
     airCondition = val;
-    notifyListeners();
-  }
-
-  void setNumOfPepole(int val) {
-    numOfPepoleController.text = val.toString();
-    notifyListeners();
-  }
-  void setPricePerPassenger(int val) {
-    pricePerPassengerController.text = val.toString();
-    notifyListeners();
-  }
-
-  void setTime(DateTime val) {
-    timeController.text = "${val.year}/${val.month}/${val.day}";
     notifyListeners();
   }
 

@@ -3,9 +3,10 @@ import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/View%20Model/chat_modal_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../View Model/app_provider.dart';
 import '../Widgets/driver_connection_image.dart';
 
 Future<bool> showChatDriverDialog(BuildContext context) async {
@@ -45,7 +46,7 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppProvider>(
+    return Consumer<ChatModalProvider>(
       builder: (context, myType, child) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
@@ -70,7 +71,9 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                   style: Theme.of(context).primaryTextTheme.caption,
                 ),
                 trailing: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.close,
                       color: Colors.black,
@@ -79,18 +82,41 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
               ),
               ListView.builder(
                 shrinkWrap: true,
-                itemBuilder: (context, index) => ChatBubble(
-                  alignment: Alignment.centerRight,
-                  margin: const EdgeInsets.all(8),
-                  clipper: ChatBubbleClipper5(
-                    type: BubbleType.sendBubble,
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    myType.chatList[index],
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
+                itemBuilder: (context, index) => index % 2 == 0
+                    ? ChatBubble(
+                        alignment: Alignment.centerRight,
+                        margin: const EdgeInsets.all(8),
+                        clipper: ChatBubbleClipper5(
+                          type: BubbleType.sendBubble,
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Container(
+                          constraints:
+                              BoxConstraints(maxWidth: context.width / 2),
+                          child: Text(
+                            myType.chatList[index],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                    : ChatBubble(
+                        backGroundColor: Colors.grey,
+                        alignment: Alignment.centerLeft,
+                        margin: const EdgeInsets.all(8),
+                        clipper: ChatBubbleClipper5(
+                          type: BubbleType.receiverBubble,
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Container(
+                          constraints:
+                              BoxConstraints(maxWidth: context.width / 2),
+                          child: Text(
+                            myType.chatList[index],
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                 itemCount: myType.chatList.length,
               ),
               TextFormField(
