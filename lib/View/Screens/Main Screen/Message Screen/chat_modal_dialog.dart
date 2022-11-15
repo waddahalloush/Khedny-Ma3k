@@ -14,8 +14,10 @@ Future<bool> showChatDriverDialog(BuildContext context) async {
     context: context,
     builder: (context) => Dialog(
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: const BorderSide(color: Colors.white)),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       child: const ChatViewWidget(),
     ),
   );
@@ -58,13 +60,9 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                 dense: true,
                 onTap: () {},
                 leading: const DriverConnectionImage(),
-                title: const Text(
+                title: Text(
                   "Kimmy Natasa",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: "Nunito",
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF000000)),
+                  style: Theme.of(context).primaryTextTheme.headline3,
                 ),
                 subtitle: Text(
                   "Online".tr(context),
@@ -120,6 +118,7 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                 itemCount: myType.chatList.length,
               ),
               TextFormField(
+                  style: Theme.of(context).primaryTextTheme.headline3,
                   controller: messageController,
                   autofocus: true,
                   decoration: InputDecoration(
@@ -135,6 +134,7 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                           color: Theme.of(context).canvasColor,
                         ),
                       ),
+                      hintStyle: Theme.of(context).primaryTextTheme.headline3,
                       hintText: "EnterMessage".tr(context))),
             ],
           ),

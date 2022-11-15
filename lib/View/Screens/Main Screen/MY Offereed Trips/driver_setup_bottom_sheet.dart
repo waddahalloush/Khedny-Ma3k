@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/View%20Model/driver_setup_provider.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_vehicle_bottm_sheet.dart';
 import 'package:provider/provider.dart';
 
@@ -17,15 +17,16 @@ void showDriverSetupBottomSheet(
     showModalBottomSheet(
       barrierColor: Colors.black45,
       isScrollControlled: true,
+      constraints: BoxConstraints(maxHeight: context.height - 30),
       backgroundColor: Colors.transparent,
       context: context,
-      constraints: BoxConstraints(maxHeight: context.height / 1.3),
       builder: (context) => Container(
         width: context.width,
         height: context.height,
-        decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(35))),
+        decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(35))),
         child: const DriverSetupWidget(),
       ),
     );
@@ -68,22 +69,28 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Consumer<AppProvider>(builder: (context, myType, child) {
+      child: Consumer<DriverSetupProvider>(builder: (context, myType, child) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
-              width: 35,
-              height: 5,
-              decoration: BoxDecoration(
-                  color: const Color(0XFFE4E6E9),
-                  borderRadius: BorderRadius.circular(2.5)),
+            InkWell(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                width: 35,
+                height: 5,
+                decoration: BoxDecoration(
+                    color: const Color(0XFFE4E6E9),
+                    borderRadius: BorderRadius.circular(2.5)),
+              ),
             ),
             AppBar(
               backgroundColor: Colors.transparent,
               leading: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios)),
               title: Text("Become a Driver",
                   style: Theme.of(context).primaryTextTheme.headline3),
               centerTitle: true,
@@ -114,7 +121,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             ),
             TextButton(
               onPressed: () {
-                myType.upLoadImage(context, true);
+                myType.upLoadImage(context);
               },
               child: const Text(
                 "Add Profile Image",
@@ -153,22 +160,37 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               height: 10,
             ),
             GlobalBubbleTextForm(
-              controller: driverLicenceController,
-              isReadOnly: true,
-              onTap: () {
-                myType.changeDriverLicense();
-              },
-              hint: "Driver License",
-              suffix: myType.driverLicense
-                  ? Icon(
-                      Icons.check,
-                      color: Theme.of(context).primaryColor,
-                    )
-                  : Icon(
-                      Icons.close,
-                      color: Theme.of(context).primaryColorLight,
-                    ),
-            ),
+                controller: driverLicenceController,
+                isReadOnly: true,
+                onTap: () {
+                  myType.changeDriverLicense();
+                },
+                hint: "Driver License",
+                suffix: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            myType.upLoadLicenseImage(context);
+                          },
+                          icon: const Icon(
+                            Icons.policy_rounded,
+                            color: Colors.blue,
+                          )),
+                      myType.licenseimage != null
+                          ? const Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            )
+                          : Icon(
+                              Icons.close,
+                              color: Theme.of(context).primaryColorLight,
+                            ),
+                    ],
+                  ),
+                )),
             GlobalBubbleTextForm(
               controller: whatsAppController,
               hint: "WhatsApp",

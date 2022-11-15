@@ -27,9 +27,10 @@ class FindDriverWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
         width: context.width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-            color: const Color(0xFFFFFFFF)),
+          borderRadius: BorderRadius.circular(25),
+          boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
+          color: Theme.of(context).scaffoldBackgroundColor,
+        ),
         child: Column(
           children: [
             Row(

@@ -7,9 +7,10 @@ class AppTheme {
       primaryColorDark: const Color(0XFFACACAC),
       primaryColorLight: const Color(0xFFFC6752),
       scaffoldBackgroundColor: Colors.white,
+      dividerTheme: const DividerThemeData(thickness: 1, color: Colors.indigo),
       appBarTheme: const AppBarTheme(
           elevation: 0,
-          color: Colors.white,
+          color: Colors.transparent,
           iconTheme: IconThemeData(color: Colors.black, size: 24)),
       primarySwatch: Colors.blue,
       canvasColor: const Color(0XFF877EF2),
@@ -29,11 +30,18 @@ class AppTheme {
             fontFamily: "Nunito",
             fontWeight: FontWeight.bold,
             color: const Color(0xFF000000)),
+        headline4: TextStyle(
+            fontFamily: "Nunito",
+            color: Colors.black45,
+            fontWeight: FontWeight.w600,
+            fontSize: 16.0.sp),
         headline5: TextStyle(
             fontSize: 20.sp,
             fontFamily: "Nunito",
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)),
+        headline6: const TextStyle(
+            color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),
         bodyText1: TextStyle(
             fontSize: 16.sp,
             fontFamily: "Nunito",
@@ -61,68 +69,90 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             color: Colors.black),
         caption: TextStyle(
-            fontSize: 15.sp,
+            fontSize: 16.sp,
             fontFamily: "Nunito",
             fontWeight: FontWeight.normal,
             color: const Color(0xFF5E5E5E)),
       ));
 
   static ThemeData darkTheme = ThemeData(
-      primaryColor: Colors.amber,
-      primaryColorLight: Colors.deepOrange,
+      primaryColor: Colors.teal,
+      primaryColorLight: Colors.amber,
       primaryColorDark: Colors.white70,
+      primarySwatch: Colors.blue,
       drawerTheme: const DrawerThemeData(
         backgroundColor: Colors.black,
       ),
-      primaryTextTheme: const TextTheme(
+      appBarTheme: const AppBarTheme(
+          elevation: 0,
+          color: Colors.transparent,
+          iconTheme: IconThemeData(color: Colors.white, size: 24)),
+      primaryTextTheme: TextTheme(
         headline1: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w900,
+            fontSize: 20.sp,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.bold,
             color: Colors.white), //heading screens text
         headline2: TextStyle(
-            fontSize: 15,
+            fontSize: 15.sp,
+            fontFamily: "Nunito",
             color: Colors.white,
             fontWeight: FontWeight.w900), // User Name text
         headline3: TextStyle(
-            fontSize: 16,
-            color: Color(0xFF33196B),
+            fontSize: 16.sp,
+            fontFamily: "Nunito",
+            color: Colors.white,
             fontWeight: FontWeight.w400), // Gifts text
         headline4: TextStyle(
-          color: Colors.white,
-          fontSize: 15,
-        ), //login with email & Button text
+            fontFamily: "Nunito",
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 16.0.sp),
         headline5: TextStyle(
-            fontSize: 18,
+            fontSize: 20.sp,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.bold,
+            color: const Color(0xFFFFFFFF)), // Button text
+        headline6: const TextStyle(
             color: Colors.white,
-            fontWeight: FontWeight.bold), // Button text
-        headline6: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.w900), //play video & skip Text
+            fontFamily: "Nunito",
+            fontSize: 32,
+            fontWeight: FontWeight.w800), //play video & skip Text
         subtitle1: TextStyle(
-            fontSize: 12, color: Colors.white), //screens Details terms text
-        subtitle2:
-            TextStyle(fontSize: 11, color: Colors.redAccent), // terms subtitle
-        bodyText1: TextStyle(
+            fontSize: 15.sp,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.w400,
+            color: Colors.white), //screens Details terms text
+        subtitle2: TextStyle(
+            fontSize: 15.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Nunito",
+            color: const Color.fromARGB(255, 59, 98, 238)),
+        bodyText1: const TextStyle(
             fontSize: 18,
+            fontFamily: "Nunito",
             color: Color.fromARGB(255, 206, 211, 213),
             fontWeight: FontWeight.w600), //wanna know Text
         bodyText2: TextStyle(
-            fontSize: 10,
-            color: Colors.white,
-            fontWeight: FontWeight.bold), // play video subtitle
+            fontSize: 16.sp,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.bold,
+            color: Colors.white), // play video subtitle
         caption: TextStyle(
-          fontSize: 10,
-          color: Color.fromARGB(196, 250, 247, 247),
-        ), //create account text
+            fontSize: 16.sp,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.normal,
+            color: const Color.fromARGB(255, 244, 241, 241)),
         overline: TextStyle(
-            color: Colors.amber,
-            fontSize: 10,
-            fontWeight: FontWeight.bold), //like intrests text
+            fontSize: 15.sp,
+            overflow: TextOverflow.ellipsis,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.w600,
+            color: Colors.amber), //like intrests text
       ),
       scaffoldBackgroundColor: const Color.fromARGB(209, 17, 9, 35),
-      fontFamily: 'Cairo',
-      dividerColor: Colors.amber,
+      fontFamily: "Nunito",
+      dividerTheme: const DividerThemeData(thickness: 1, color: Colors.amber),
       iconTheme: const IconThemeData(color: Colors.white),
       inputDecorationTheme:
           const InputDecorationTheme(border: InputBorder.none));

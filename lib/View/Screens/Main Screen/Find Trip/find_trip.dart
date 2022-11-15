@@ -48,7 +48,7 @@ class _FindTripScreenState extends State<FindTripScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -62,8 +62,9 @@ class _FindTripScreenState extends State<FindTripScreen> {
                 width: context.width,
                 height: context.height * 0.25,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: const Color(0xFFD6D6D6)),
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.grey,
+                ),
               ),
               Expanded(
                 child: Padding(
@@ -72,11 +73,12 @@ class _FindTripScreenState extends State<FindTripScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     width: context.width,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        boxShadow: [
-                          BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                        ],
-                        color: const Color(0xFFFFFFFF)),
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: [
+                        BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
+                      ],
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -129,14 +131,17 @@ class _FindTripScreenState extends State<FindTripScreen> {
                               },
                               readOnly: true,
                               showCursor: true,
-                              style: const TextStyle(fontSize: 13),
+                              style:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               controller: dateController,
                               decoration: InputDecoration(
                                   floatingLabelStyle: Theme.of(context)
                                       .primaryTextTheme
                                       .caption,
                                   hintText: "Picktime".tr(context),
-                                  hintStyle: const TextStyle(fontSize: 18),
+                                  hintStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .headline3,
                                   contentPadding: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                   labelStyle: Theme.of(context)
@@ -157,7 +162,8 @@ class _FindTripScreenState extends State<FindTripScreen> {
                             ),
                             Expanded(
                                 child: TextFormField(
-                              style: const TextStyle(fontSize: 13),
+                              style:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               onTap: () {
                                 showMaterialNumberPicker(
                                     context: context,
@@ -179,7 +185,9 @@ class _FindTripScreenState extends State<FindTripScreen> {
                                       .primaryTextTheme
                                       .caption,
                                   hintText: "NumPeople".tr(context),
-                                  hintStyle: const TextStyle(fontSize: 18),
+                                  hintStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .headline3,
                                   labelStyle: Theme.of(context)
                                       .primaryTextTheme
                                       .caption),

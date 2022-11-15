@@ -22,11 +22,7 @@ class DriverRoadParameterWidget extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "Nunito",
-                  fontWeight: weight,
-                  color: const Color(0xFF000000)),
+              style: Theme.of(context).primaryTextTheme.headline3,
             ),
             const SizedBox(
               width: 8,

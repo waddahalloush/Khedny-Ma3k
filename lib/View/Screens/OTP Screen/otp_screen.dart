@@ -66,14 +66,8 @@ class _OtpScreenState extends State<OtpScreen> {
             SizedBox(
               height: 72.h,
             ),
-            Text(
-              "OTP".tr(context),
-              style: TextStyle(
-                  fontSize: 16.sp,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.normal,
-                  color: const Color(0xFF5E5E5E)),
-            ),
+            Text("OTP".tr(context),
+                style: Theme.of(context).primaryTextTheme.caption),
             Padding(
                 padding: const EdgeInsets.only(top: 37, bottom: 48),
                 child: Pinput(
@@ -99,31 +93,22 @@ class _OtpScreenState extends State<OtpScreen> {
                 )),
             Text(
               "code".tr(context),
-              style: TextStyle(
-                  fontSize: 16.sp,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.normal,
-                  color: const Color(0xFF5E5E5E)),
+              style: Theme.of(context).primaryTextTheme.caption,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 5, bottom: 37),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Expiring".tr(context),
-                    style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: "Nunito",
-                        fontWeight: FontWeight.normal,
-                        color: const Color(0xFF5E5E5E)),
-                  ),
+                  Text("Expiring".tr(context),
+                      style: Theme.of(context).primaryTextTheme.caption),
                   SizedBox(
                     width: 10.w,
                   ),
                   CountdownTimer(
                     controller: controller,
                     onEnd: onEnd,
+                    textStyle: Theme.of(context).primaryTextTheme.caption,
                     endTime: endTime,
                   )
                 ],

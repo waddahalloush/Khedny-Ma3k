@@ -22,9 +22,10 @@ void showBecomeDriverBottomSheet(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           width: context.width,
           height: context.height,
-          decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(35))),
+          decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(35))),
           child: const BecomeDriverWidget(),
         ),
       ),
@@ -40,13 +41,16 @@ class BecomeDriverWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 20),
-          width: 35,
-          height: 5,
-          decoration: BoxDecoration(
-              color: const Color(0XFFE4E6E9),
-              borderRadius: BorderRadius.circular(2.5)),
+        InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            width: 35,
+            height: 5,
+            decoration: BoxDecoration(
+                color: const Color(0XFFE4E6E9),
+                borderRadius: BorderRadius.circular(2.5)),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(30),

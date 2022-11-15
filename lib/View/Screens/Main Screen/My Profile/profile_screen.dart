@@ -226,11 +226,7 @@ class DriverFeaturesWidget extends StatelessWidget {
         ),
         Text(
           title,
-          style: const TextStyle(
-              fontSize: 15,
-              fontFamily: "Nunito",
-              fontWeight: FontWeight.normal,
-              color: Colors.black87),
+          style: Theme.of(context).primaryTextTheme.subtitle1,
         ),
       ],
     );

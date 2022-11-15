@@ -99,7 +99,7 @@ class TripDetailsScreen extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black26),
+                    border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   children: [
@@ -108,6 +108,7 @@ class TripDetailsScreen extends StatelessWidget {
                         AssetManager.door,
                         width: 30,
                         height: 30,
+                        color: Colors.grey,
                       ),
                       title: Text(
                         "Door".tr(context),
@@ -157,7 +158,7 @@ class TripDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black26),
+                    border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +176,7 @@ class TripDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black26),
+                    border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(8)),
                 child: Row(
                   children: [
@@ -224,7 +225,7 @@ class TripDetailsScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   height: 55,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorLight,
+                    color:const Color(0xFFFC6752),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: TextButton(

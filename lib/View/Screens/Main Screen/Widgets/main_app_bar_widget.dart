@@ -25,7 +25,7 @@ class MainAppBarWidget extends StatelessWidget {
                 context.read<AppProvider>().openDrawer();
               },
               elevation: 2,
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               child: Image.asset(
                 AssetManager.menu,
                 height: 35,
@@ -41,7 +41,7 @@ class MainAppBarWidget extends StatelessWidget {
               heroTag: "n",
               onPressed: () {},
               elevation: 2,
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               child: Image.asset(
                 AssetManager.bell,
                 height: 35,

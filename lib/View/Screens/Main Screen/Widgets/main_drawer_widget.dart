@@ -17,9 +17,11 @@ class MainDrawerWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 8),
         child: Drawer(
-          backgroundColor: Colors.white,
+          elevation: 2,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           width: context.width - 50,
           shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white),
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20),
                 bottomRight: Radius.circular(20)),

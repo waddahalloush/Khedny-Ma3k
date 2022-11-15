@@ -8,7 +8,7 @@ class GlobalTextForm extends StatelessWidget {
   final bool isReadOnly;
   final VoidCallback onTap;
   final TextEditingController controller;
- 
+
   final TextInputType keyBoardType;
 
   const GlobalTextForm({
@@ -24,15 +24,23 @@ class GlobalTextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(controller: controller,
-      readOnly: isReadOnly,onTap: onTap,
+    return TextFormField(
+      controller: controller,
+      style: Theme.of(context).primaryTextTheme.headline3,
+      readOnly: isReadOnly,
+      onTap: onTap,
       decoration: InputDecoration(
+          border: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue)),
+          enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue)),
           floatingLabelAlignment: FloatingLabelAlignment.start,
           floatingLabelBehavior: FloatingLabelBehavior.always,
+          contentPadding: const EdgeInsets.all(8),
           floatingLabelStyle: Theme.of(context).primaryTextTheme.caption,
-          labelText: label,suffixIcon:suffix ,
+          labelText: label,
+          suffixIcon: suffix,
           labelStyle: Theme.of(context).primaryTextTheme.caption),
-     
       keyboardType: keyBoardType,
       obscureText: obSecure,
     );

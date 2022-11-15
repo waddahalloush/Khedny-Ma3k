@@ -21,19 +21,10 @@ class OnBoardingScreen extends StatelessWidget {
           width: context.width - 120,
           height: context.height / 2,
         )),
-        decoration: const PageDecoration(
-          imageFlex: 2,
-          titleTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 32.0),
-          bodyTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black45,
-              fontWeight: FontWeight.w600,
-              fontSize: 16.0),
-        ),
+        decoration: PageDecoration(
+            imageFlex: 2,
+            titleTextStyle: Theme.of(context).primaryTextTheme.headline6!,
+            bodyTextStyle: Theme.of(context).primaryTextTheme.headline4!),
       ),
       PageViewModel(
         title: "RequestRide".tr(context),
@@ -44,18 +35,10 @@ class OnBoardingScreen extends StatelessWidget {
           width: context.width - 120,
           height: context.height / 2,
         )),
-        decoration: const PageDecoration(
+        decoration: PageDecoration(
           imageFlex: 2,
-          titleTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 32.0),
-          bodyTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black45,
-              fontWeight: FontWeight.w600,
-              fontSize: 16.0),
+          titleTextStyle: Theme.of(context).primaryTextTheme.headline6!,
+          bodyTextStyle: Theme.of(context).primaryTextTheme.headline4!,
         ),
       ),
       PageViewModel(
@@ -69,18 +52,10 @@ class OnBoardingScreen extends StatelessWidget {
           height: context.height / 2,
           fit: BoxFit.contain,
         ))),
-        decoration: const PageDecoration(
+        decoration: PageDecoration(
           imageFlex: 2,
-          titleTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 32.0),
-          bodyTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black45,
-              fontWeight: FontWeight.w600,
-              fontSize: 16.0),
+          titleTextStyle: Theme.of(context).primaryTextTheme.headline6!,
+          bodyTextStyle: Theme.of(context).primaryTextTheme.headline4!,
         ),
       ),
       PageViewModel(
@@ -96,20 +71,12 @@ class OnBoardingScreen extends StatelessWidget {
                 child: Image.asset(
           AssetManager.onboarding4,
         ))),
-        decoration: const PageDecoration(
-          imageFlex: 2,
-          imagePadding: EdgeInsets.symmetric(horizontal: 50, vertical: 70),
-          titleTextStyle: TextStyle(
-              fontFamily: "Nunito",
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 30.0),
-          bodyTextStyle: TextStyle(
-              color: Colors.black45,
-              fontFamily: "Nunito",
-              fontWeight: FontWeight.w600,
-              fontSize: 16.0),
-        ),
+        decoration: PageDecoration(
+            imageFlex: 2,
+            imagePadding:
+                const EdgeInsets.symmetric(horizontal: 50, vertical: 70),
+            titleTextStyle: Theme.of(context).primaryTextTheme.headline6!,
+            bodyTextStyle: Theme.of(context).primaryTextTheme.headline4!),
       ),
     ];
 
@@ -121,7 +88,7 @@ class OnBoardingScreen extends StatelessWidget {
             activeColor: const Color.fromARGB(255, 144, 114, 226),
             size: const Size(20.0, 8.0),
             activeSize: const Size(20.0, 8.0),
-            color: Colors.black26,
+            color: Colors.grey,
             spacing: const EdgeInsets.all(0),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),

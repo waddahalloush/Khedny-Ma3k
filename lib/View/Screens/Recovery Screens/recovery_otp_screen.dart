@@ -70,10 +70,7 @@ class _RecoveryOtpScreenState extends State<RecoveryOtpScreen> {
                     controller: recoverypinController,
                     defaultPinTheme: PinTheme(
                         width: context.width / 8,
-                        textStyle: TextStyle(
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.w900,
-                            color: const Color(0xFF000000)),
+                        textStyle: Theme.of(context).primaryTextTheme.headline3,
                         decoration: const BoxDecoration(
                             color: Colors.transparent,
                             border: Border(

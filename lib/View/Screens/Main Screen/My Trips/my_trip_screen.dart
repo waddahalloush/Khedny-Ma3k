@@ -17,7 +17,7 @@ class MyTripScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Row(
                 children: [
                   const SizedBox(
@@ -32,7 +32,8 @@ class MyTripScreen extends StatelessWidget {
                       heroTag: "n",
                       onPressed: () {},
                       elevation: 2,
-                      backgroundColor: Colors.white,
+                      backgroundColor:
+                          Theme.of(context).scaffoldBackgroundColor,
                       child: Image.asset(
                         AssetManager.bell,
                         height: 35,
@@ -41,7 +42,6 @@ class MyTripScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Divider(),
             MyRideCardWidget(
               numPassenger: 1,
               distance: "11,3",
@@ -87,13 +87,14 @@ class MyRideCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: context.width,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-          color: const Color(0xFFFFFFFF)),
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
+        color: Theme.of(context).scaffoldBackgroundColor,
+      ),
       child: Column(
         children: [
           Row(
@@ -157,10 +158,10 @@ class MyRideCardWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.circle,
                   size: 10,
-                  color: Colors.black,
+                  color: Theme.of(context).primaryColor,
                 ),
                 const SizedBox(
                   width: 16,
@@ -173,7 +174,7 @@ class MyRideCardWidget extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: status == "Confirmed".tr(context)
                           ? Colors.green
-                          : Theme.of(context).primaryColorLight),
+                          : const Color(0xFFFC6752)),
                 )
               ],
             ),
@@ -182,21 +183,17 @@ class MyRideCardWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.circle,
                   size: 10,
-                  color: Colors.black,
+                  color: Theme.of(context).primaryColor,
                 ),
                 const SizedBox(
                   width: 16,
                 ),
                 Text(
                   "Passengers".tr(context),
-                  style: const TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Nunito',
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black),
+                  style: Theme.of(context).primaryTextTheme.headline3,
                 ),
                 const Spacer(),
                 DriverRoadParameterWidget(

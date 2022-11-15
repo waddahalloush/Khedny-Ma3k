@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
 import 'package:flutter_material_pickers/helpers/show_swatch_picker.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
+import 'package:khedni_m3k/View%20Model/add_vehicle_provider.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:provider/provider.dart';
@@ -20,13 +21,14 @@ void showAddVehicleBottomSheet(
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       context: context,
-      constraints: BoxConstraints(maxHeight: context.height / 1.3),
+      constraints: BoxConstraints(maxHeight: context.height / 1.2),
       builder: (context) => Container(
         width: context.width,
         height: context.height,
-        decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(35))),
+        decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(35))),
         child: const DriverSetupWidget(),
       ),
     );
@@ -69,18 +71,21 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Consumer<AppProvider>(
+      child: Consumer<AddVehicleProvider>(
         builder: (context, myType, child) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 20),
-                width: 35,
-                height: 5,
-                decoration: BoxDecoration(
-                    color: const Color(0XFFE4E6E9),
-                    borderRadius: BorderRadius.circular(2.5)),
+              InkWell(
+                onTap: () => Navigator.pop(context),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 20),
+                  width: 35,
+                  height: 5,
+                  decoration: BoxDecoration(
+                      color: const Color(0XFFE4E6E9),
+                      borderRadius: BorderRadius.circular(2.5)),
+                ),
               ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
@@ -97,7 +102,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               ),
               TextButton(
                 onPressed: () {
-                  myType.upLoadImage(context, false);
+                  myType.upLoadImage(context);
                 },
                 child: Text(
                   "UploadPhoto".tr(context),
@@ -245,7 +250,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 height: 20,
               ),
               SizedBox(
-                width: context.width / 2 + 30,
+                width: context.width / 2 + 60,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Row(
@@ -254,14 +259,16 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                         padding: const EdgeInsets.only(right: 8),
                         child: Image.asset(
                           AssetManager.group,
-                          width: 20,
-                          height: 20,
+                          width: 30,
+                          height: 30,
                         ),
                       ),
                       Expanded(
                         child: Consumer<AppProvider>(
                           builder: (context, myType, child) {
                             return TextFormField(
+                              style:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               onTap: () {
                                 showMaterialNumberPicker(
                                     context: context,
@@ -283,6 +290,9 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                                       .primaryTextTheme
                                       .caption,
                                   hintText: "SeatsNum".tr(context),
+                                  hintStyle: Theme.of(context)
+                                      .primaryTextTheme
+                                      .headline3,
                                   labelStyle: Theme.of(context)
                                       .primaryTextTheme
                                       .caption),
@@ -315,32 +325,15 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   ),
                   Text(
                     "Aircondation".tr(context),
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontFamily: "Nunito",
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black),
+                    style: Theme.of(context).primaryTextTheme.headline3,
                   )
                 ],
               ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
-                width: context.width,
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25)),
-                    boxShadow: [
-                      BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                    ],
-                    color: const Color(0xFFFFFFFF)),
-                child: BlurButton(
-                    onPress: () {
-                      Navigator.pop(context);
-                    },
-                    label: "AddCar".tr(context)),
-              )
+              BlurButton(
+                  onPress: () {
+                    Navigator.pop(context);
+                  },
+                  label: "AddCar".tr(context))
             ],
           );
         },

@@ -75,8 +75,14 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                                 myType.changeVisible1();
                               },
                               icon: myType.isVisible1
-                                  ? const Icon(Icons.visibility)
-                                  : const Icon(Icons.visibility_off)),
+                                  ? const Icon(
+                                      Icons.visibility,
+                                      color: Colors.blue,
+                                    )
+                                  : const Icon(
+                                      Icons.visibility_off,
+                                      color: Colors.blue,
+                                    )),
                           keyBoardType: TextInputType.phone,
                           label: "NewPassword".tr(context),
                           obSecure: myType.isVisible1 ? false : true,
@@ -93,8 +99,12 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                                 myType.changeVisible2();
                               },
                               icon: myType.isVisible2
-                                  ? const Icon(Icons.visibility)
-                                  : const Icon(Icons.visibility_off)),
+                                  ? const Icon(
+                                      Icons.visibility,
+                                      color: Colors.blue,
+                                    )
+                                  : const Icon(Icons.visibility_off,
+                                      color: Colors.blue)),
                           keyBoardType: TextInputType.phone,
                           label: "Confirm".tr(context),
                           obSecure: myType.isVisible2 ? false : true,

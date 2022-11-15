@@ -35,70 +35,67 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 27.w),
-        child: Form(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 85.h,
-              ),
-              Text(
-                "Createaccount".tr(context),
-                style: TextStyle(
-                    fontSize: 24.sp,
-                    fontFamily: "Nunito",
-                    fontWeight: FontWeight.w800,
-                    color: const Color(0xFF000000)),
-              ),
-              SizedBox(
-                height: 18.h,
-              ),
-              Text(
-                "PhoneNumber".tr(context),
-                style: Theme.of(context).primaryTextTheme.caption,
-              ),
-              SizedBox(
-                height: 8.h,
-              ),
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                controller: phoneController,
-                decoration: InputDecoration(
-                    hintText: "+62812 0101 0101",
-                    enabledBorder: const OutlineInputBorder(),
-                    focusedBorder: const OutlineInputBorder(),
-                    hintStyle: TextStyle(
-                        color: const Color(0XFF5E5E5E),
-                        fontSize: 18.sp,
-                        fontFamily: 'Nunito'),
-                    suffixIcon: const Icon(Icons.phone_iphone_rounded),
-                    suffixIconColor: Theme.of(context).primaryColor,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20)),
-              ),
-              SizedBox(
-                height: 95.h,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(AppRouter.recoveryRoute);
-                    },
-                    child: Text("RecoverAccount".tr(context),
-                        style: Theme.of(context).primaryTextTheme.headline2)),
-              ),
-              SizedBox(
-                height: 95.h,
-              ),
-              BlurButton(
-                  onPress: () {
-                    Provider.of<CreateAccountProvider>(context, listen: false)
-                        .createAccount(phoneController.text);
-                    Navigator.pushNamed(context, AppRouter.otpRoute);
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 85.h,
+            ),
+            Text(
+              "Createaccount".tr(context),
+              style: Theme.of(context).primaryTextTheme.headline1,
+            ),
+            SizedBox(
+              height: 18.h,
+            ),
+            Text(
+              "PhoneNumber".tr(context),
+              style: Theme.of(context).primaryTextTheme.caption,
+            ),
+            SizedBox(
+              height: 8.h,
+            ),
+            TextFormField(
+              style: Theme.of(context).primaryTextTheme.headline3,
+              keyboardType: TextInputType.phone,
+              controller: phoneController,
+              decoration: InputDecoration(
+                  hintText: "+62812 0101 0101",
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey , )),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
+                  hintStyle: TextStyle(
+                      color: const Color(0XFF5E5E5E),
+                      fontSize: 18.sp,
+                      fontFamily: 'Nunito'),
+                  suffixIcon: const Icon(Icons.phone_iphone_rounded),
+                  suffixIconColor: Theme.of(context).primaryColor,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 20)),
+            ),
+            SizedBox(
+              height: 95.h,
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AppRouter.recoveryRoute);
                   },
-                  label: "Continue".tr(context))
-            ],
-          ),
+                  child: Text("RecoverAccount".tr(context),
+                      style: Theme.of(context).primaryTextTheme.headline1)),
+            ),
+            SizedBox(
+              height: 95.h,
+            ),
+            BlurButton(
+                onPress: () {
+                  Provider.of<CreateAccountProvider>(context, listen: false)
+                      .createAccount(phoneController.text);
+                  Navigator.pushNamed(context, AppRouter.otpRoute);
+                },
+                label: "Continue".tr(context))
+          ],
         ),
       ),
     ));

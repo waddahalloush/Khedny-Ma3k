@@ -15,9 +15,11 @@ void showRequestTripBottomSheet(BuildContext context) => showModalBottomSheet(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         width: context.width,
         height: context.height,
-        decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(35))),
+        decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            boxShadow: const [BoxShadow(color: Colors.white)],
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(35))),
         child: const DriverInfoWidget(),
       ),
     );
@@ -67,7 +69,7 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                 width: 35,
                 height: 5,
                 decoration: BoxDecoration(
-                    color: const Color(0XFFE4E6E9),
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(2.5)),
               )),
           Text("RequestDetail".tr(context),
@@ -84,11 +86,12 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
               width: context.width,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  boxShadow: [
-                    BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                  ],
-                  color: const Color(0xFFFFFFFF)),
+                borderRadius: BorderRadius.circular(25),
+                boxShadow: [
+                  BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
+                ],
+                color: Theme.of(context).scaffoldBackgroundColor,
+              ),
               child: Column(
                 children: [
                   Row(
@@ -96,7 +99,7 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                       Image.asset(
                         AssetManager.mediumProgress,
                         width: 20,
-                        height: 85,
+                        height: 75,
                       ),
                       Expanded(
                           child: Column(
@@ -123,13 +126,13 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                           padding: const EdgeInsets.only(right: 8),
                           child: Image.asset(
                             AssetManager.group,
-                            width: 20,
-                            height: 20,
+                            width: 30,
+                            height: 30,
                           ),
                         ),
                         Expanded(
                             child: TextFormField(
-                          style: const TextStyle(fontSize: 13),
+                          style: Theme.of(context).primaryTextTheme.headline3,
                           onTap: () {
                             showMaterialNumberPicker(
                                 context: context,
@@ -150,7 +153,8 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                               floatingLabelStyle:
                                   Theme.of(context).primaryTextTheme.caption,
                               hintText: 'NumPeople'.tr(context),
-                              hintStyle: const TextStyle(fontSize: 13),
+                              hintStyle:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               labelStyle:
                                   Theme.of(context).primaryTextTheme.caption),
                           keyboardType: TextInputType.datetime,
@@ -169,8 +173,10 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                         hintText: "Additional".tr(context),
                         hintStyle:
                             const TextStyle(color: Colors.grey, fontSize: 12),
-                        enabledBorder: const OutlineInputBorder(),
-                        focusedBorder: const OutlineInputBorder(),
+                        enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey)),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey)),
                       ),
                     ),
                   ),
@@ -181,7 +187,7 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                       alignment: Alignment.center,
                       height: 55,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColorLight,
+                        color: const Color(0xFFFC6752),
                         boxShadow: const [
                           BoxShadow(
                               blurRadius: 20,

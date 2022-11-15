@@ -18,9 +18,9 @@ class FindRideFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: TextFormField(
-        style: const TextStyle(fontSize: 13),
+        style: Theme.of(context).primaryTextTheme.headline3,
         controller: controller,
         readOnly: true,
         onTap: () async {

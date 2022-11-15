@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_trip_screen.dart';
-import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/driver_edit_trip.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../Widgets/driver_road_parameter_widget.dart';
 
@@ -19,17 +17,10 @@ class MyOfferedTripScreen extends StatelessWidget {
         child: Column(
           children: [
             const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: MainAppBarWidget(title: 'My Offered Trips')),
             DriverTripWidget(
-              onTap: () {
-                PersistentNavBarNavigator.pushNewScreen(
-                  context,
-                  screen: const DriverEditTripScreen(),
-                  withNavBar: true,
-                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
-                );
-              },
+              onTap: () {},
               distance: "11,3",
               driver: "Jinny",
               time: "20th May, 17:00",
@@ -52,11 +43,12 @@ class MyOfferedTripScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 24, horizontal: 147),
                 width: context.width,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    boxShadow: [
-                      BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                    ],
-                    color: const Color(0xFFFFFFFF)),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
+                  ],
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                ),
                 child: Icon(
                   Icons.add_circle_outline,
                   color: Theme.of(context).primaryColorLight,
@@ -101,9 +93,10 @@ class DriverTripWidget extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         width: context.width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-            color: const Color(0xFFFFFFFF)),
+          borderRadius: BorderRadius.circular(25),
+          boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
+          color: Theme.of(context).scaffoldBackgroundColor,
+        ),
         child: Column(
           children: [
             Row(
@@ -137,7 +130,7 @@ class DriverTripWidget extends StatelessWidget {
                 Image.asset(
                   AssetManager.tripProgress,
                   width: 30,
-                  height: 55,
+                  height: 60,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
@@ -166,25 +159,21 @@ class DriverTripWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Row(
-                children: const [
+                children: [
                   Icon(
                     Icons.circle,
                     size: 10,
-                    color: Colors.black,
+                    color: Theme.of(context).primaryColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Text(
                     "Passengers",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Nunito',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black),
+                    style: Theme.of(context).primaryTextTheme.headline3,
                   ),
-                  Spacer(),
-                  DriverRoadParameterWidget(
+                  const Spacer(),
+                  const DriverRoadParameterWidget(
                     icon: AssetManager.redDot,
                     title: "0 / 2",
                     weight: FontWeight.normal,

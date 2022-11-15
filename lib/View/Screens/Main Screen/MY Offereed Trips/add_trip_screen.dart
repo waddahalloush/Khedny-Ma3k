@@ -57,7 +57,6 @@ class _AddTripScreenState extends State<AddTripScreen> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
         title: Text("AddTrip".tr(context),
@@ -156,7 +155,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     child: Consumer<AppProvider>(
                       builder: (context, myType, child) {
                         return TextFormField(
-                          style: const TextStyle(fontSize: 13),
+                          style: Theme.of(context).primaryTextTheme.headline3,
                           onTap: () {
                             showMaterialNumberPicker(
                                 context: context,
@@ -179,7 +178,8 @@ class _AddTripScreenState extends State<AddTripScreen> {
                               floatingLabelStyle:
                                   Theme.of(context).primaryTextTheme.caption,
                               hintText: "Price".tr(context),
-                              hintStyle: const TextStyle(fontSize: 13),
+                              hintStyle:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               labelStyle:
                                   Theme.of(context).primaryTextTheme.caption),
                           keyboardType: TextInputType.datetime,
@@ -198,8 +198,8 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     padding: const EdgeInsets.only(right: 8),
                     child: Image.asset(
                       AssetManager.timer,
-                      width: 20,
-                      height: 20,
+                      width: 30,
+                      height: 30,
                     ),
                   ),
                   Expanded(
@@ -217,13 +217,14 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           },
                           readOnly: true,
                           showCursor: true,
-                          style: const TextStyle(fontSize: 13),
+                          style: Theme.of(context).primaryTextTheme.headline3,
                           controller: timeController,
                           decoration: InputDecoration(
                               floatingLabelStyle:
                                   Theme.of(context).primaryTextTheme.caption,
                               hintText: "Picktime".tr(context),
-                              hintStyle: const TextStyle(fontSize: 13),
+                              hintStyle:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               contentPadding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               labelStyle:
@@ -240,15 +241,15 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     padding: const EdgeInsets.only(right: 8),
                     child: Image.asset(
                       AssetManager.calender,
-                      width: 20,
-                      height: 20,
+                      width: 30,
+                      height: 30,
                     ),
                   ),
                   Expanded(
                     child: Consumer<AppProvider>(
                       builder: (context, myType, child) {
                         return TextFormField(
-                          style: const TextStyle(fontSize: 13),
+                          style: Theme.of(context).primaryTextTheme.headline3,
                           onTap: () {
                             showMaterialDatePicker(
                                 context: context,
@@ -269,7 +270,8 @@ class _AddTripScreenState extends State<AddTripScreen> {
                               floatingLabelStyle:
                                   Theme.of(context).primaryTextTheme.caption,
                               hintText: "Pickdate".tr(context),
-                              hintStyle: const TextStyle(fontSize: 13),
+                              hintStyle:
+                                  Theme.of(context).primaryTextTheme.headline3,
                               labelStyle:
                                   Theme.of(context).primaryTextTheme.caption),
                           keyboardType: TextInputType.datetime,
@@ -286,7 +288,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
+                      border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(8)),
                   child: Column(
                     children: [
@@ -295,6 +297,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           AssetManager.door,
                           width: 30,
                           height: 30,
+                          color: Colors.grey,
                         ),
                         title: Text(
                           "Door".tr(context),
@@ -319,7 +322,9 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           ),
                         ),
                       ),
-                      const Divider(),
+                      const Divider(
+                        thickness: 1,
+                      ),
                       ListTile(
                         leading: Image.asset(
                           AssetManager.smoke,
@@ -349,7 +354,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           ),
                         ),
                       ),
-                      const Divider(),
+                      const Divider(thickness: 1),
                       ListTile(
                         leading: Image.asset(
                           AssetManager.air,
@@ -400,8 +405,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     maxLines: 2,
                     decoration: const InputDecoration(
                       constraints: BoxConstraints(maxHeight: 80),
-                      enabledBorder: OutlineInputBorder(),
-                      focusedBorder: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey)),
                     ),
                   ),
                 ],
@@ -414,25 +421,26 @@ class _AddTripScreenState extends State<AddTripScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 width: context.width,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                    ],
-                    color: const Color(0xFFFFFFFF)),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
+                  ],
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                ),
                 child: TextButton.icon(
                     onPressed: () {
                       showAddVehicleBottomSheet(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.add_circle_outline,
-                      color: Theme.of(context).primaryColorLight,
+                      color: Color(0xFFFC6752),
                     ),
                     label: Text(
                       "AddCar".tr(context),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: "Nunito",
                           fontSize: 18,
-                          color: Theme.of(context).primaryColorLight,
+                          color: Color(0xFFFC6752),
                           fontWeight: FontWeight.bold),
                     ))),
             Padding(
@@ -451,8 +459,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     maxLines: 2,
                     decoration: const InputDecoration(
                       constraints: BoxConstraints(maxHeight: 80),
-                      enabledBorder: OutlineInputBorder(),
-                      focusedBorder: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey)),
                     ),
                   ),
                   const Padding(
@@ -469,7 +479,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                       alignment: Alignment.center,
                       height: 45,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColorLight,
+                        color: const Color(0xFFFC6752),
                         boxShadow: const [
                           BoxShadow(
                               blurRadius: 20,

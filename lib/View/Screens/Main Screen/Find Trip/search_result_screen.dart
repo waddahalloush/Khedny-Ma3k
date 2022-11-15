@@ -10,10 +10,9 @@ class SearchResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Consumer<SearchResultProvider>(
-        builder: (context, myType, child) {
-          return  SafeArea(
+    return Scaffold(body: Consumer<SearchResultProvider>(
+      builder: (context, myType, child) {
+        return SafeArea(
           child: ListView(
             children: [
               Row(
@@ -39,7 +38,7 @@ class SearchResultScreen extends StatelessWidget {
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 5),
-                child: Divider(thickness: 2),
+                child: Divider(),
               ),
               ListView.builder(
                 itemBuilder: (context, index) {
@@ -52,8 +51,7 @@ class SearchResultScreen extends StatelessWidget {
             ],
           ),
         );
-        },
-      )
-    );
+      },
+    ));
   }
 }
