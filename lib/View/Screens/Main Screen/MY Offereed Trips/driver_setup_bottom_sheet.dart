@@ -213,7 +213,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
-              height: context.height * 0.15,
+              height: context.height * 0.16,
               child: ListView(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 scrollDirection: Axis.horizontal,

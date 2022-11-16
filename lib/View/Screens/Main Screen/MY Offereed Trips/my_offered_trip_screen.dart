@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/driver_edit_trip.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_trip_screen.dart';
 import '../../../../Core/constants/asset_manager.dart';
@@ -20,7 +21,13 @@ class MyOfferedTripScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 child: MainAppBarWidget(title: 'My Offered Trips')),
             DriverTripWidget(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const DriverEditTripScreen(),
+                    ));
+              },
               distance: "11,3",
               driver: "Jinny",
               time: "20th May, 17:00",

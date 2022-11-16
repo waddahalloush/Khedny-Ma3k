@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/become_driver_modal.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_drawer_widget.dart';
@@ -49,29 +50,29 @@ class MainScreen extends StatelessWidget {
                 ),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 30.sp),
             PersistentBottomNavBarItem(
                 icon: const Icon(Icons.time_to_leave_outlined),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 30.sp),
             PersistentBottomNavBarItem(
               icon: Image.asset(
                 AssetManager.fab,
-                width: 50,
-                height: 50,
+                width: 50.w,
+                height: 50.h,
               ),
             ),
             PersistentBottomNavBarItem(
                 icon: const Icon(UniconsLine.comment),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 30.sp),
             PersistentBottomNavBarItem(
                 icon: const Icon(UniconsLine.user_circle),
                 activeColorPrimary: Theme.of(context).primaryColor,
                 inactiveColorPrimary: Theme.of(context).primaryColorDark,
-                iconSize: 30),
+                iconSize: 30.sp),
           ],
           confineInSafeArea: true,
           backgroundColor: Theme.of(context)
@@ -99,7 +100,7 @@ class MainScreen extends StatelessWidget {
             curve: Curves.ease,
             duration: Duration(milliseconds: 200),
           ),
-          navBarHeight: 90,
+          navBarHeight: 90.h,
 
           popAllScreensOnTapAnyTabs: true,
           navBarStyle: NavBarStyle

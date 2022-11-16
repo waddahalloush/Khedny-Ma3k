@@ -37,7 +37,11 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
             Row(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                      );
+                    },
                     icon: const Icon(Icons.arrow_back_ios_new)),
                 Text(
                   "Tuesday, 17th April",
@@ -58,7 +62,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                   Image.asset(
                     AssetManager.progress,
                     width: 30,
-                    height: 100,
+                    height: 75,
                   ),
                   const SizedBox(
                     width: 20,
@@ -113,7 +117,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
             Container(
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black12),
+                  border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(8)),
               child: Column(
                 children: [
@@ -122,6 +126,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       AssetManager.door,
                       width: 40,
                       height: 40,
+                      color: Colors.grey,
                     ),
                     title: Text(
                       "Door to Door",
@@ -132,7 +137,10 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       color: Theme.of(context).canvasColor,
                     ),
                   ),
-                  const Divider(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Divider(),
+                  ),
                   ListTile(
                     leading: Image.asset(
                       AssetManager.smoke,
@@ -148,7 +156,10 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       color: Theme.of(context).canvasColor,
                     ),
                   ),
-                  const Divider(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Divider(),
+                  ),
                   ListTile(
                     leading: Image.asset(
                       AssetManager.air,
@@ -215,7 +226,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                   boxShadow: [
                     BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
                   ],
-                  color: const Color(0xFFFFFFFF)),
+                  color: Theme.of(context).scaffoldBackgroundColor),
               child: Column(
                 children: [
                   Row(
@@ -241,18 +252,18 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       const SizedBox(
                         width: 10,
                       ),
-                      const Text(
+                      Text(
                         "2",
-                        style: TextStyle(fontSize: 13),
+                        style: Theme.of(context).primaryTextTheme.caption,
                       )
                     ],
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: TextFormField(controller: noteController,
+                    child: TextFormField(
+                      controller: noteController,
                       maxLines: 3,
                       readOnly: true,
-                      initialValue: "I have 2 pieces of luggage ",
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(5),
                           enabledBorder: OutlineInputBorder(
@@ -274,17 +285,17 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                             height: 40,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              border: Border.all(
-                                  color: Theme.of(context).primaryColorLight),
+                              border:
+                                  Border.all(color: const Color(0xFFFC6752)),
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: const Text(
                               "Decline",
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "Nunito",
                                   fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColorLight),
+                                  color: Color(0xFFFC6752)),
                               textAlign: TextAlign.center,
                             ),
                           ),

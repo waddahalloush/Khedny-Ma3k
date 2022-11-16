@@ -159,7 +159,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 20),
                 height: context.height * 0.16,
                 child: ListView(
                   shrinkWrap: true,

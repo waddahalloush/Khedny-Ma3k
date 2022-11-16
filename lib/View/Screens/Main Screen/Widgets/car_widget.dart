@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarWidget extends StatelessWidget {
   final String carImage;
@@ -16,7 +17,7 @@ class CarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 5),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
@@ -27,8 +28,8 @@ class CarWidget extends StatelessWidget {
         children: [
           Image.asset(
             carImage,
-            width: 70,
-            height: 60,
+            width: 70.w,
+            height: 60.h,
           ),
           Text(
             carname,

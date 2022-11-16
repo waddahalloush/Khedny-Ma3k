@@ -7,7 +7,7 @@ class AppTheme {
       primaryColorDark: const Color(0XFFACACAC),
       primaryColorLight: const Color(0xFFFC6752),
       scaffoldBackgroundColor: Colors.white,
-      dividerTheme: const DividerThemeData(thickness: 1, color: Colors.indigo),
+      dividerTheme: const DividerThemeData(thickness: 0.5, color: Colors.grey),
       appBarTheme: const AppBarTheme(
           elevation: 0,
           color: Colors.transparent,
@@ -40,8 +40,8 @@ class AppTheme {
             fontFamily: "Nunito",
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)),
-        headline6: const TextStyle(
-            color: Colors.black, fontSize: 32, fontWeight: FontWeight.w800),
+        headline6:  TextStyle(
+            color: Colors.black, fontSize: 32.sp, fontWeight: FontWeight.bold),
         bodyText1: TextStyle(
             fontSize: 16.sp,
             fontFamily: "Nunito",
@@ -113,11 +113,11 @@ class AppTheme {
             fontFamily: "Nunito",
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)), // Button text
-        headline6: const TextStyle(
+        headline6:  TextStyle(
             color: Colors.white,
             fontFamily: "Nunito",
-            fontSize: 32,
-            fontWeight: FontWeight.w800), //play video & skip Text
+            fontSize: 32.sp,
+            fontWeight: FontWeight.bold), //play video & skip Text
         subtitle1: TextStyle(
             fontSize: 15.sp,
             fontFamily: "Nunito",
@@ -128,8 +128,8 @@ class AppTheme {
             fontWeight: FontWeight.bold,
             fontFamily: "Nunito",
             color: const Color.fromARGB(255, 59, 98, 238)),
-        bodyText1: const TextStyle(
-            fontSize: 18,
+        bodyText1:  TextStyle(
+            fontSize: 18.sp,
             fontFamily: "Nunito",
             color: Color.fromARGB(255, 206, 211, 213),
             fontWeight: FontWeight.w600), //wanna know Text
@@ -152,7 +152,7 @@ class AppTheme {
       ),
       scaffoldBackgroundColor: const Color.fromARGB(209, 17, 9, 35),
       fontFamily: "Nunito",
-      dividerTheme: const DividerThemeData(thickness: 1, color: Colors.amber),
+      dividerTheme: const DividerThemeData(thickness:0.5, color: Colors.amber),
       iconTheme: const IconThemeData(color: Colors.white),
       inputDecorationTheme:
           const InputDecorationTheme(border: InputBorder.none));

@@ -329,11 +329,14 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   )
                 ],
               ),
-              BlurButton(
-                  onPress: () {
-                    Navigator.pop(context);
-                  },
-                  label: "AddCar".tr(context))
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: BlurButton(
+                    onPress: () {
+                      Navigator.pop(context);
+                    },
+                    label: "AddCar".tr(context)),
+              )
             ],
           );
         },

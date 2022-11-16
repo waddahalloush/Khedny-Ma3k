@@ -21,13 +21,13 @@ class BlurButton extends StatelessWidget {
         child: Container(
           width: context.width - 20,
           alignment: Alignment.center,
-          height: 48,
+          height: 48.h,
           decoration: BoxDecoration(
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
-                    blurRadius: 12,
-                    color: Color.fromARGB(255, 180, 173, 251),
-                    offset: Offset(0, 7))
+                    blurRadius: 12.r,
+                    color: const Color.fromARGB(255, 180, 173, 251),
+                    offset: const Offset(0, 2))
               ],
               borderRadius: BorderRadius.circular(25.r),
               gradient: const LinearGradient(

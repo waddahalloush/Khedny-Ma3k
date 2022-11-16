@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 
 class AddTripProvider extends ChangeNotifier {
+  List<String> priceType = ["PricePassenger", "TotalPrice"];
+  String selectedPriceType = "PricePassenger";
   bool isDoorToDoor = false;
   bool isSmoking = false;
   bool isCondition = false;
@@ -11,6 +14,11 @@ class AddTripProvider extends ChangeNotifier {
 
   void changeSmoking(bool val) {
     isSmoking = val;
+    notifyListeners();
+  }
+
+  void setPriceType(String value) {
+    selectedPriceType = value;
     notifyListeners();
   }
 

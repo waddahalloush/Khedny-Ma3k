@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             title: 'Khedny M3K',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.darkTheme,
+            darkTheme: AppTheme.darkTheme,
             supportedLocales: const [Locale('en'), Locale('ar')],
             localizationsDelegates: const [
               AppLocalizations.delegate,
