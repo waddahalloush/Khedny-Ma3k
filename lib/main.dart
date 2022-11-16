@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           builder: (context, child) => MaterialApp(
             title: 'Khedny M3K',
             debugShowCheckedModeBanner: false,
-            theme: AppTheme.darkTheme,
+            theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             supportedLocales: const [Locale('en'), Locale('ar')],
             localizationsDelegates: const [
