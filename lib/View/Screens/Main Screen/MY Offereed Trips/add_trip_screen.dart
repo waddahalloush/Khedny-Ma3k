@@ -57,7 +57,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
         child: Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
         title: Text("AddTrip".tr(context),
             style: Theme.of(context).primaryTextTheme.headline1),
         centerTitle: true,

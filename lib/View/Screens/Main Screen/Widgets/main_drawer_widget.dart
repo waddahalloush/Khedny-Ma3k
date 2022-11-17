@@ -23,11 +23,16 @@ class MainDrawerWidget extends StatelessWidget {
           elevation: 2,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           width: context.width - 50,
-          shape: const RoundedRectangleBorder(
-            side: BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.white),
+            borderRadius:
+                Provider.of<AppProvider>(context).lang.languageCode == 'ar'
+                    ? const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        bottomLeft: Radius.circular(20))
+                    : const BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20)),
           ),
           child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 30),

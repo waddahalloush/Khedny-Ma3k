@@ -82,6 +82,7 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                     )),
               ),
               Expanded(
+                flex: 1,
                 child: ListView.builder(
                   controller: scrollController,
                   shrinkWrap: true,
@@ -135,7 +136,7 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                               ? null
                               : myType.addChatToList(messageController.text);
                           scrollController.jumpTo(
-                              scrollController.position.maxScrollExtent);
+                              scrollController.position.maxScrollExtent + 70);
                           messageController.clear();
                         },
                         child: Icon(

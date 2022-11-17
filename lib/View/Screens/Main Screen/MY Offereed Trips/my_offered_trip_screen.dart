@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/driver_edit_trip.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/main_app_bar_widget.dart';
@@ -176,7 +177,7 @@ class DriverTripWidget extends StatelessWidget {
                     width: 16,
                   ),
                   Text(
-                    "Passengers",
+                    "Passengers".tr(context),
                     style: Theme.of(context).primaryTextTheme.headline3,
                   ),
                   const Spacer(),

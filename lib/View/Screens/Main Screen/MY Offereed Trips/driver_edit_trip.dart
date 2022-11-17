@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_profile_listtile.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Widgets/driver_road_parameter_widget.dart';
@@ -104,7 +105,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                   borderRadius: BorderRadius.circular(8)),
               child: Row(
                 children: [
-                  Text("Price per Passenger",
+                  Text("PricePassenger".tr(context),
                       style: Theme.of(context).primaryTextTheme.headline3),
                   const Spacer(),
                   const DriverRoadParameterWidget(
@@ -129,7 +130,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       color: Colors.grey,
                     ),
                     title: Text(
-                      "Door to Door",
+                      "Door".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                     trailing: Icon(
@@ -148,7 +149,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       height: 40,
                     ),
                     title: Text(
-                      "Smooking ",
+                      "Smook".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                     trailing: Icon(
@@ -167,7 +168,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                       height: 40,
                     ),
                     title: Text(
-                      "Air condation",
+                      "Aircondation".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                     trailing: Icon(
@@ -187,7 +188,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Additional Info",
+                  Text("Additional".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2),
                   Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla aenean id in nisi, vestibulum in aliquet.",
@@ -208,7 +209,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Safety notice",
+                  Text("Safety".tr(context),
                       style: Theme.of(context).primaryTextTheme.bodyText2),
                   Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla aenean id in nisi, vestibulum in aliquet.",
@@ -289,9 +290,9 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                                   Border.all(color: const Color(0xFFFC6752)),
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: const Text(
-                              "Decline",
-                              style: TextStyle(
+                            child: Text(
+                              "Decline".tr(context),
+                              style: const TextStyle(
                                   fontSize: 20,
                                   fontFamily: "Cairo",
                                   fontWeight: FontWeight.bold,
@@ -304,7 +305,8 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                           width: 15,
                         ),
                         Expanded(
-                            child: BlurButton(onPress: () {}, label: "Accept"))
+                            child: BlurButton(
+                                onPress: () {}, label: "Accept".tr(context)))
                       ],
                     ),
                   )
