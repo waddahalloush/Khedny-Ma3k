@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
@@ -75,8 +74,9 @@ class OnBoardingScreen extends StatelessWidget {
           height: context.height / 2,
         ))),
         decoration: PageDecoration(
-            imagePadding:
-                EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+            bodyFlex: 2,
+            imageFlex: 3,
+            // imagePadding: EdgeInsets.only(top: 50.h),
             titleTextStyle: Theme.of(context).primaryTextTheme.headline6!,
             bodyTextStyle: Theme.of(context).primaryTextTheme.headline4!),
       ),

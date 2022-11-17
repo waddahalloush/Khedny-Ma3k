@@ -127,7 +127,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       style: TextStyle(
                           fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "Nunito",
+                          fontFamily: "Cairo",
                           color: isCountDownComplete
                               ? const Color.fromARGB(255, 59, 98, 238)
                               : Colors.grey)),

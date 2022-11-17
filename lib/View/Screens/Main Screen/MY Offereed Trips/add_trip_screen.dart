@@ -117,7 +117,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           "500,000",
                           style: TextStyle(
                               fontSize: 15,
-                              fontFamily: "Nunito",
+                              fontFamily: "Cairo",
                               fontWeight: FontWeight.bold,
                               color: Theme.of(context).primaryColorLight),
                         ),
@@ -427,7 +427,7 @@ class _AddTripScreenState extends State<AddTripScreen> {
                       label: Text(
                         "AddCar".tr(context),
                         style: const TextStyle(
-                            fontFamily: "Nunito",
+                            fontFamily: "Cairo",
                             fontSize: 18,
                             color: Color(0xFFFC6752),
                             fontWeight: FontWeight.bold),

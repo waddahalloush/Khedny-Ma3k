@@ -293,7 +293,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                               "Decline",
                               style: TextStyle(
                                   fontSize: 20,
-                                  fontFamily: "Nunito",
+                                  fontFamily: "Cairo",
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFFFC6752)),
                               textAlign: TextAlign.center,

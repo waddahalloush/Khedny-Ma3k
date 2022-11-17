@@ -74,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                         "QuickWallet".tr(context),
                         style: const TextStyle(
                             fontSize: 13,
-                            fontFamily: "Nunito",
+                            fontFamily: "Cairo",
                             fontWeight: FontWeight.w600,
                             color: Colors.white),
                       ),
@@ -85,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                         "43.64 ${"Points".tr(context)}",
                         style: const TextStyle(
                             fontSize: 18,
-                            fontFamily: "Nunito",
+                            fontFamily: "Cairo",
                             fontWeight: FontWeight.w800,
                             color: Colors.white),
                       ),

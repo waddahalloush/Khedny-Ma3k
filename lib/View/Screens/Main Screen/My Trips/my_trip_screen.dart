@@ -170,7 +170,7 @@ class MyRideCardWidget extends StatelessWidget {
                   status,
                   style: TextStyle(
                       fontSize: 16,
-                      fontFamily: 'Nunito',
+                      fontFamily: 'Cairo',
                       fontWeight: FontWeight.w700,
                       color: status == "Confirmed".tr(context)
                           ? Colors.green

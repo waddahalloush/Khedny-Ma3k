@@ -68,7 +68,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   hintStyle: TextStyle(
                       color: const Color(0XFF5E5E5E),
                       fontSize: 18.sp,
-                      fontFamily: 'Nunito'),
+                      fontFamily: 'Cairo'),
                   suffixIcon: const Icon(Icons.phone_iphone_rounded),
                   suffixIconColor: Theme.of(context).primaryColor,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20)),
