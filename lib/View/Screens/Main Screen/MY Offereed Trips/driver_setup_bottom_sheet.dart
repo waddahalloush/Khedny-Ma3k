@@ -236,7 +236,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                         boxShadow: [
                           BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
                         ],
-                        color: const Color(0xFFFFFFFF)),
+                        color: Theme.of(context).scaffoldBackgroundColor),
                     child: Icon(
                       Icons.add_circle_outline,
                       size: 70,

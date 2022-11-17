@@ -89,6 +89,8 @@
     "lateMay":"I may be late about 10 minutes",
     "ratePassenger":"Rate Your Passenger",
     "waitConfirm":"Waiting for Confirmation",
-    "Confirmed":"Confirmed"
+    "Confirmed":"Confirmed",
+    "theme":"App Theme",
+    "lang":"App Language"
     
 }

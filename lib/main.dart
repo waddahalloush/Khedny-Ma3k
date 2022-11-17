@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/View%20Model/Providers%20List/providers.dart';
+import 'package:khedni_m3k/View%20Model/app_provider.dart';
 import 'package:provider/provider.dart';
 import 'Core/utils/Localization/app_localizations.dart';
 import 'Core/utils/Theme/app_theme.dart';
 import 'Core/utils/app_router.dart';
+import 'View Model/my_profile_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,30 +27,37 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: providersList,
         child: ScreenUtilInit(
-          builder: (context, child) => MaterialApp(
-            title: 'Khedny M3K',
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            supportedLocales: const [Locale('en'), Locale('ar')],
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate
-            ],
-            localeResolutionCallback: (deviceLocale, supportedLocales) {
-              for (var locale in supportedLocales) {
-                if (deviceLocale != null &&
-                    deviceLocale.languageCode == locale.languageCode) {
-                  return deviceLocale;
-                }
-              }
+          builder: (context, child) => Consumer<AppProvider>(
+            builder: (context, myType, child) {
+              return MaterialApp(
+                title: 'Khedny M3K',
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme,
+                themeMode: myType.isDark ? ThemeMode.dark : ThemeMode.light,
+                supportedLocales: const [Locale('en'), Locale('ar')],
+                locale: myType.lang,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate
+                ],
+                // localeResolutionCallback: (deviceLocale, supportedLocales) {
+                //   for (var locale in supportedLocales) {
+                //     if (deviceLocale != null &&
+                //         deviceLocale.languageCode == locale.languageCode) {
+                      
+                //       return deviceLocale;
+                //     }
+                //   }
 
-              return supportedLocales.first;
+                //   return supportedLocales.first;
+                // },
+                onGenerateRoute: AppRouter.onGenerateRoute,
+                initialRoute: AppRouter.splashRoute,
+              );
             },
-            onGenerateRoute: AppRouter.onGenerateRoute,
-            initialRoute: AppRouter.splashRoute,
           ),
           designSize: const Size(375, 812),
         ));

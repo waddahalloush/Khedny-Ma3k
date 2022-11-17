@@ -75,7 +75,6 @@ class OnBoardingScreen extends StatelessWidget {
           height: context.height / 2,
         ))),
         decoration: PageDecoration(
-            imageFlex: 2,
             imagePadding:
                 EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             titleTextStyle: Theme.of(context).primaryTextTheme.headline6!,

@@ -17,11 +17,11 @@ class CarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 5),
-      padding:  EdgeInsets.symmetric(horizontal: 20.w),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-          color: const Color(0xFFFFFFFF)),
+          color: Theme.of(context).scaffoldBackgroundColor),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

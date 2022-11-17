@@ -40,7 +40,7 @@ class AppTheme {
             fontFamily: "Nunito",
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)),
-        headline6:  TextStyle(
+        headline6: TextStyle(
             color: Colors.black, fontSize: 32.sp, fontWeight: FontWeight.bold),
         bodyText1: TextStyle(
             fontSize: 16.sp,
@@ -113,7 +113,7 @@ class AppTheme {
             fontFamily: "Nunito",
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)), // Button text
-        headline6:  TextStyle(
+        headline6: TextStyle(
             color: Colors.white,
             fontFamily: "Nunito",
             fontSize: 32.sp,
@@ -128,10 +128,10 @@ class AppTheme {
             fontWeight: FontWeight.bold,
             fontFamily: "Nunito",
             color: const Color.fromARGB(255, 59, 98, 238)),
-        bodyText1:  TextStyle(
+        bodyText1: TextStyle(
             fontSize: 18.sp,
             fontFamily: "Nunito",
-            color: Color.fromARGB(255, 206, 211, 213),
+            color: const Color.fromARGB(255, 206, 211, 213),
             fontWeight: FontWeight.w600), //wanna know Text
         bodyText2: TextStyle(
             fontSize: 16.sp,
@@ -152,7 +152,7 @@ class AppTheme {
       ),
       scaffoldBackgroundColor: const Color.fromARGB(209, 17, 9, 35),
       fontFamily: "Nunito",
-      dividerTheme: const DividerThemeData(thickness:0.5, color: Colors.amber),
+      dividerTheme: const DividerThemeData(thickness: 0.5, color: Colors.amber),
       iconTheme: const IconThemeData(color: Colors.white),
       inputDecorationTheme:
           const InputDecorationTheme(border: InputBorder.none));

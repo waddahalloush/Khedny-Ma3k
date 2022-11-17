@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class DrawerListTileWidget extends StatelessWidget {
-  final String icon;
+  final Widget icon;
   final VoidCallback ontap;
   final String title;
 
@@ -15,19 +15,12 @@ class DrawerListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: ListTile(
-        onTap: ontap,
-        leading: Image.asset(
-          icon,
-          height: 35,
-          width: 30,
-        ),
-        title: Text(
-          title,
-          style: Theme.of(context).primaryTextTheme.headline1,
-        ),
+    return ListTile(
+      onTap: ontap,
+      leading: icon,
+      title: Text(
+        title,
+        style: Theme.of(context).primaryTextTheme.headline1,
       ),
     );
   }

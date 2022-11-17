@@ -23,7 +23,7 @@ import '../search_result_provider.dart';
 import '../trip_details_provider.dart';
 
 List<SingleChildWidget> providersList = [  ChangeNotifierProvider(
-          create: (context) => AppProvider(),
+          create: (context) => AppProvider()..getSavedTheme()..getSavedLanguage(),
         ),
         ChangeNotifierProvider(
           create: (context) => AccountOTPProvider(),

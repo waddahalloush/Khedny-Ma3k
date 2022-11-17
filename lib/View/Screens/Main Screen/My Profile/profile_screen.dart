@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                         AssetManager.edit,
                         width: 20,
                         height: 20,
-                      ))
+                      )),
                 ],
               ),
               Text("Kimmy Natasa",
@@ -185,7 +185,7 @@ class ProfileScreen extends StatelessWidget {
                             BoxShadow(
                                 blurRadius: 6, color: Colors.grey.shade300)
                           ],
-                          color: const Color(0xFFFFFFFF)),
+                          color: Theme.of(context).scaffoldBackgroundColor),
                       child: Icon(
                         Icons.add_circle_outline,
                         size: 50,

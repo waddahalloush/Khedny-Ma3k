@@ -1,16 +1,37 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
+import '../Core/utils/Localization/language_cache_helper.dart';
+import '../Core/utils/Theme/theme_cache_helper.dart';
+
 class AppProvider extends ChangeNotifier {
-  bool isVisible1 = false;
-  bool isVisible2 = false;
-  bool doorToDoor = false;
+  bool isDark = false;
+  Locale lang = const Locale("en");
 
- 
+  Future<void> setAppTheme(bool val) async {
+    isDark = val;
+    await ThemeCacheHelper().cacheTheme(val);
+    notifyListeners();
+  }
+
+  Future<void> getSavedTheme() async {
+    isDark = await ThemeCacheHelper().getCachedThemeIndex();
+
+    notifyListeners();
+  }
+
+  Future<void> getSavedLanguage() async {
+    lang = Locale(await LanguageCacheHelper().getCachedLanguageCode());
+
+    notifyListeners();
+  }
+
+  Future<void> setApplang(String val) async {
+    await LanguageCacheHelper().cacheLanguageCode(val);
+    lang = Locale(val);
+    notifyListeners();
+  }
+
   int navIndex = 0;
-
-  
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -24,6 +45,4 @@ class AppProvider extends ChangeNotifier {
 
     notifyListeners();
   }
-
- 
 }

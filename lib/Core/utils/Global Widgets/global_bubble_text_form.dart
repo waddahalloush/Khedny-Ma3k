@@ -26,14 +26,16 @@ class GlobalBubbleTextForm extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-            color: const Color(0xFFFFFFFF)),
-        child: TextFormField(controller: controller,
+            color: Theme.of(context).scaffoldBackgroundColor),
+        child: TextFormField(
+          controller: controller,
           readOnly: isReadOnly,
           onTap: onTap,
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.all(15),
               suffixIcon: suffix,
               hintText: hint,
+              hintStyle: Theme.of(context).primaryTextTheme.headline3,
               border: InputBorder.none),
         ));
   }
