@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View%20Model/driver_setup_provider.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_vehicle_bottm_sheet.dart';
@@ -91,7 +92,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                     Navigator.pop(context);
                   },
                   icon: const Icon(Icons.arrow_back_ios)),
-              title: Text("Become a Driver",
+              title: Text("Become".tr(context),
                   style: Theme.of(context).primaryTextTheme.headline3),
               centerTitle: true,
             ),
@@ -123,9 +124,9 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               onPressed: () {
                 myType.upLoadImage(context);
               },
-              child: const Text(
-                "Add Profile Image",
-                style: TextStyle(
+              child: Text(
+                "AddProfImg".tr(context),
+                style: const TextStyle(
                     color: Color(0XFF406C96),
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
@@ -137,7 +138,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   controller: fNameController,
                   isReadOnly: false,
                   onTap: () {},
-                  label: "First Name",
+                  label: "FName".tr(context),
                   obSecure: false,
                   suffix: const SizedBox(),
                   keyBoardType: TextInputType.name),
@@ -151,7 +152,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   controller: lNameController,
                   isReadOnly: false,
                   onTap: () {},
-                  label: "Last Name",
+                  label: "LName".tr(context),
                   obSecure: false,
                   suffix: const SizedBox(),
                   keyBoardType: TextInputType.name),
@@ -165,7 +166,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 onTap: () {
                   myType.changeDriverLicense();
                 },
-                hint: "Driver License",
+                hint: "License".tr(context),
                 suffix: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Row(
@@ -193,7 +194,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 )),
             GlobalBubbleTextForm(
               controller: whatsAppController,
-              hint: "WhatsApp",
+              hint: "WhatsApp".tr(context),
               isReadOnly: false,
               onTap: () {},
               suffix: const Icon(
@@ -205,7 +206,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               controller: telegramController,
               isReadOnly: false,
               onTap: () {},
-              hint: "Telegram",
+              hint: "Telegram".tr(context),
               suffix: const Icon(
                 Icons.telegram_outlined,
                 color: Color(0XFF406C96),
@@ -213,7 +214,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
-              height: context.height * 0.16,
+              height: context.height * 0.18,
               child: ListView(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 scrollDirection: Axis.horizontal,
@@ -253,7 +254,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                     Navigator.pop(context);
                     showAddVehicleBottomSheet(context);
                   },
-                  label: "Next"),
+                  label: "Next".tr(context)),
             )
           ],
         );

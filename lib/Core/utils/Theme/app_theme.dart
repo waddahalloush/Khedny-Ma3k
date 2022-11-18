@@ -5,6 +5,7 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
       primaryColor: const Color(0XFF004E98),
       primaryColorDark: const Color(0XFFACACAC),
+      cardColor: Colors.white,
       primaryColorLight: const Color(0xFFFC6752),
       scaffoldBackgroundColor: Colors.white,
       fontFamily: "Cairo",
@@ -33,7 +34,7 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             fontSize: 16.0.sp),
         headline5: TextStyle(
-            fontSize: 20.sp,
+            fontSize: 18.sp,
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)),
         headline6: TextStyle(
@@ -70,6 +71,7 @@ class AppTheme {
       primaryColorLight: Colors.amber,
       primaryColorDark: Colors.white70,
       primarySwatch: Colors.blue,
+      cardColor: Colors.grey,
       drawerTheme: const DrawerThemeData(
         backgroundColor: Colors.black,
       ),
@@ -83,9 +85,9 @@ class AppTheme {
             fontWeight: FontWeight.bold,
             color: Colors.white), //heading screens text
         headline2: TextStyle(
-            fontSize: 15.sp,
-            color: Colors.white,
-            fontWeight: FontWeight.w900), // User Name text
+            fontSize: 20.sp,
+            fontWeight: FontWeight.bold,
+            color: Colors.white), // User Name text
         headline3: TextStyle(
             fontSize: 16.sp,
             color: Colors.white,
@@ -95,7 +97,7 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             fontSize: 16.0.sp),
         headline5: TextStyle(
-            fontSize: 20.sp,
+            fontSize: 18.sp,
             fontWeight: FontWeight.bold,
             color: const Color(0xFFFFFFFF)), // Button text
         headline6: TextStyle(

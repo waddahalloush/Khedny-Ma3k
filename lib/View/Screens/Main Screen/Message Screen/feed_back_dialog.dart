@@ -33,13 +33,14 @@ Widget _buildDialogContent(
         width: context.width, alignment: Alignment.center,
         height: context.height / 1.9,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(12),
         ),
         padding: const EdgeInsets.only(top: 50),
         child: Column(
           children: [
             Card(
+              color: Theme.of(context).cardColor,
               margin: const EdgeInsets.all(0),
               elevation: 3,
               child: Column(
@@ -74,7 +75,7 @@ Widget _buildDialogContent(
                       children: [
                         Image.asset(
                           AssetManager.tripProgress,
-                          height: 40,
+                          height: 50,
                           width: 20,
                         ),
                         const SizedBox(
@@ -104,18 +105,12 @@ Widget _buildDialogContent(
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
-                  ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Text(
-                "ratePassenger".tr(context),
-                style: Theme.of(context).primaryTextTheme.bodyText2,
-              ),
+            Text(
+              "ratePassenger".tr(context),
+              style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             RatingBar.builder(
               glow: true,
@@ -125,6 +120,19 @@ Widget _buildDialogContent(
               itemBuilder: (context, index) => const Icon(
                 CupertinoIcons.star_fill,
                 color: Colors.amber,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "rateNote".tr(context),
+                  hintStyle: Theme.of(context).primaryTextTheme.caption,
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black)),
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black)),
+                ),
               ),
             )
           ],

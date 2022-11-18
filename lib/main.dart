@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'Core/utils/Localization/app_localizations.dart';
 import 'Core/utils/Theme/app_theme.dart';
 import 'Core/utils/app_router.dart';
-import 'View Model/my_profile_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +46,7 @@ class MyApp extends StatelessWidget {
                 //   for (var locale in supportedLocales) {
                 //     if (deviceLocale != null &&
                 //         deviceLocale.languageCode == locale.languageCode) {
-                      
+
                 //       return deviceLocale;
                 //     }
                 //   }
