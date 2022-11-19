@@ -5,7 +5,6 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/Find%20Trip/search_result_screen.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../../../../Core/utils/Global Widgets/blur_button.dart';
@@ -230,13 +229,10 @@ class _FindTripScreenState extends State<FindTripScreen> {
                               //     distinationController.text,
                               //     dateController.text,
                               //     pepoleController.text);
-                              PersistentNavBarNavigator.pushNewScreen(
-                                context,
-                                screen: const SearchResultScreen(),
-                                withNavBar: true,
-                                pageTransitionAnimation:
-                                    PageTransitionAnimation.cupertino,
-                              );
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const SearchResultScreen(),
+                              ));
                             },
                             label: "Search".tr(context))
                       ],

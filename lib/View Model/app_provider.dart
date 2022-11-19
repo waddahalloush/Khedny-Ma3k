@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/become_driver_modal.dart';
 
 import '../Core/utils/Localization/language_cache_helper.dart';
 import '../Core/utils/Theme/theme_cache_helper.dart';
@@ -35,8 +36,13 @@ class AppProvider extends ChangeNotifier {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void changeNav(int index) {
+  void changeNav(int index , BuildContext context) {
     navIndex = index;
+    if (index==1) {
+      showBecomeDriverBottomSheet(context);
+    } else {
+      
+    }
     notifyListeners();
   }
 

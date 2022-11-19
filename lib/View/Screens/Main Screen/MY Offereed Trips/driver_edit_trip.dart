@@ -43,7 +43,7 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                         context,
                       );
                     },
-                    icon: const Icon(Icons.arrow_back_ios_new)),
+                    icon: const Icon(Icons.arrow_back_ios)),
                 Text(
                   "Tuesday, 17th April",
                   style: Theme.of(context).primaryTextTheme.headline3,
@@ -62,8 +62,8 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                 children: [
                   Image.asset(
                     AssetManager.progress,
-                    width: 30,
-                    height: 75,
+                    width: 15,
+                    height: 120,
                   ),
                   const SizedBox(
                     width: 20,
@@ -76,14 +76,14 @@ class _DriverEditTripScreenState extends State<DriverEditTripScreen> {
                         style: Theme.of(context).primaryTextTheme.headline3,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         "Homs",
                         style: Theme.of(context).primaryTextTheme.headline3,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         "Damascus",

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
@@ -21,37 +22,41 @@ class MessageScreen extends StatelessWidget {
               ListView(
                 shrinkWrap: true,
                 children: [
-                  Container(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                    padding: const EdgeInsets.all(5),
-                    width: context.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
-                        ],
-                        color: Theme.of(context).scaffoldBackgroundColor),
-                    child: ListTile(
-                      onTap: () {
-                        showChatDriverDialog(context);
-                      },
-                      leading: const DriverConnectionImage(),
-                      title: Text(
-                        "Kimmy Natasa",
-                        style: Theme.of(context).primaryTextTheme.headline1,
+                  SlideInLeft(
+                    delay: const Duration(milliseconds: 100),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 5),
+                      padding: const EdgeInsets.all(5),
+                      width: context.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 6, color: Colors.grey.shade300)
+                          ],
+                          color: Theme.of(context).scaffoldBackgroundColor),
+                      child: ListTile(
+                        onTap: () {
+                          showChatDriverDialog(context);
+                        },
+                        leading: const DriverConnectionImage(),
+                        title: Text(
+                          "Kimmy Natasa",
+                          style: Theme.of(context).primaryTextTheme.headline1,
+                        ),
+                        subtitle: Text(
+                          "Online".tr(context),
+                          style: Theme.of(context).primaryTextTheme.caption,
+                        ),
+                        trailing: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: Theme.of(context).primaryColor,
+                              size: 30,
+                            )),
                       ),
-                      subtitle: Text(
-                        "Online".tr(context),
-                        style: Theme.of(context).primaryTextTheme.caption,
-                      ),
-                      trailing: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.more_vert,
-                            color: Theme.of(context).primaryColor,
-                            size: 30,
-                          )),
                     ),
                   )
                 ],

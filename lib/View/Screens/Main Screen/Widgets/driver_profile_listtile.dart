@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../Core/constants/asset_manager.dart';
 
 class DriverProfileListTile extends StatelessWidget {
@@ -30,7 +28,11 @@ class DriverProfileListTile extends StatelessWidget {
             driverName,
             style: Theme.of(context).primaryTextTheme.headline1,
           ),
-          SvgPicture.asset(AssetManager.purplecrown)
+          Image.asset(
+            AssetManager.purplecrown,
+            height: 20,
+            width: 20,
+          )
         ],
       ),
       subtitle: Row(

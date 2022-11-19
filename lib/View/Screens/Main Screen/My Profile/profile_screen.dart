@@ -5,12 +5,34 @@ import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View%20Model/my_profile_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:unicons/unicons.dart';
 import '../../../../Core/constants/asset_manager.dart';
 import '../Widgets/car_widget.dart';
 import '../Widgets/main_app_bar_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  late TextEditingController userNameController;
+  late FocusNode myFocusNode;
+  @override
+  void initState() {
+    userNameController = TextEditingController(text: "Waddah");
+    myFocusNode = FocusNode();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    userNameController.dispose();
+    super.dispose();
+    myFocusNode.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +54,73 @@ class ProfileScreen extends StatelessWidget {
                     width: context.width,
                     height: 90,
                   ),
-                  Container(
-                    width: 80,
-                    height: 80,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.grey),
+                  Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      myType.userImage != null
+                          ? CircleAvatar(
+                              radius: 40,
+                              backgroundImage: FileImage(
+                                myType.userImage!,
+                              ),
+                            )
+                          : Container(
+                              width: 80,
+                              height: 80,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle, color: Colors.grey),
+                            ),
+                      InkWell(
+                        onTap: () => myType.upLoadImage(context),
+                        child: const CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 15,
+                          child: Icon(
+                            UniconsLine.camera,
+                            color: Colors.black,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                   Positioned(
                       right: 30,
                       bottom: 10,
-                      child: Image.asset(
-                        AssetManager.edit,
-                        width: 20,
-                        height: 20,
+                      child: InkWell(
+                        onTap: () {
+                          myType.changeUserNameState();
+                          Future.delayed(const Duration(milliseconds: 500));
+                          myFocusNode.requestFocus();
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: myType.isUserNameEdit
+                              ? Colors.greenAccent
+                              : const Color.fromARGB(255, 155, 151, 240),
+                          radius: 14,
+                          child: const Icon(
+                            UniconsLine.edit_alt,
+                            size: 20,
+                            color: Colors.black,
+                          ),
+                        ),
                       )),
                 ],
               ),
-              Text("Kimmy Natasa",
-                  style: Theme.of(context).primaryTextTheme.headline1),
+              SizedBox(
+                width: 200,
+                child: TextField(
+                  focusNode: myFocusNode,
+                  autofocus: true,
+                  enabled: myType.isUserNameEdit,
+                  decoration: const InputDecoration(border: InputBorder.none),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).primaryTextTheme.headline1,
+                  controller: userNameController,
+                ),
+              )
+              // Text("Kimmy Natasa",
+              //     style: Theme.of(context).primaryTextTheme.headline1),
+              ,
               const SizedBox(
                 height: 5,
               ),
@@ -159,7 +230,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 20),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 height: context.height * 0.18,
                 child: ListView(
                   shrinkWrap: true,

@@ -87,7 +87,7 @@ class MyRideCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: context.width,
       decoration: BoxDecoration(

@@ -23,8 +23,10 @@ class TripDetailsScreen extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.arrow_back_ios_new)),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
                   Text(
                     "Tue, 07 Apr. -3 Passengers",
                     style: Theme.of(context).primaryTextTheme.headline3,
@@ -225,7 +227,7 @@ class TripDetailsScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   height: 55,
                   decoration: BoxDecoration(
-                    color:const Color(0xFFFC6752),
+                    color: const Color(0xFFFC6752),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: TextButton(

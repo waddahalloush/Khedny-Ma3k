@@ -16,7 +16,7 @@ void showBecomeDriverBottomSheet(
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       context: context,
-      constraints: BoxConstraints(maxHeight: context.height - 30),
+      constraints: BoxConstraints(maxHeight: context.height - 50),
       builder: (context) => SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 30),

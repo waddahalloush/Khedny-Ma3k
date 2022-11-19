@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,31 +16,34 @@ class CarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(left: 10, right: 5),
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-          color: Theme.of(context).scaffoldBackgroundColor),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            carImage,
-            width: 70.w,
-            height: 60.h,
-          ),
-          Text(
-            carname,
-            style: Theme.of(context).primaryTextTheme.bodyText1,
-          ),
-          Text(
-            carmodel,
-            style: Theme.of(context).primaryTextTheme.bodyText1,
-          )
-        ],
+    return SlideInLeft(
+      duration: const Duration(milliseconds: 1000),
+      child: Container(
+        margin: const EdgeInsets.only(left: 10, right: 5),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
+            color: Theme.of(context).scaffoldBackgroundColor),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              carImage,
+              width: 70.w,
+              height: 60.h,
+            ),
+            Text(
+              carname,
+              style: Theme.of(context).primaryTextTheme.bodyText1,
+            ),
+            Text(
+              carmodel,
+              style: Theme.of(context).primaryTextTheme.bodyText1,
+            )
+          ],
+        ),
       ),
     );
   }

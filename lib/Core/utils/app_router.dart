@@ -59,8 +59,6 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const TestScreen(),
         );
-
-    
     }
     return null;
   }

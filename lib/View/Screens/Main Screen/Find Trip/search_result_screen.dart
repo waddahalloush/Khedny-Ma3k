@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/View%20Model/search_result_provider.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +19,10 @@ class SearchResultScreen extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.arrow_back_ios_new)),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -42,7 +45,9 @@ class SearchResultScreen extends StatelessWidget {
               ),
               ListView.builder(
                 itemBuilder: (context, index) {
-                  return const FindDriverWidget();
+                  return FadeInDown(
+                      duration: Duration(milliseconds: index * 1000),
+                      child: const FindDriverWidget());
                 },
                 itemCount: 3,
                 shrinkWrap: true,

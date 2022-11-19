@@ -67,7 +67,7 @@ class AppTheme {
       ));
 
   static ThemeData darkTheme = ThemeData(
-      primaryColor: Colors.teal,
+      primaryColor: const Color(0XFF004E98),
       primaryColorLight: Colors.amber,
       primaryColorDark: Colors.white70,
       primarySwatch: Colors.blue,

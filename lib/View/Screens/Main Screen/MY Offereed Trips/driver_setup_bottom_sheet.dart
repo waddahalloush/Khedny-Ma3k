@@ -18,7 +18,7 @@ void showDriverSetupBottomSheet(
     showModalBottomSheet(
       barrierColor: Colors.black45,
       isScrollControlled: true,
-      constraints: BoxConstraints(maxHeight: context.height - 30),
+      constraints: BoxConstraints(maxHeight: context.height - 50),
       backgroundColor: Colors.transparent,
       context: context,
       builder: (context) => Container(
@@ -77,7 +77,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             InkWell(
               onTap: () => Navigator.pop(context),
               child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 20),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 width: 35,
                 height: 5,
                 decoration: BoxDecoration(
@@ -97,7 +97,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               centerTitle: true,
             ),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
             myType.driverimage != null
                 ? CircleAvatar(
@@ -118,7 +118,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                     ),
                   ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             TextButton(
               onPressed: () {

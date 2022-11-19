@@ -64,7 +64,6 @@ class _AddTripScreenState extends State<AddTripScreen> {
         title: Text("AddTrip".tr(context),
             style: Theme.of(context).primaryTextTheme.headline1),
         centerTitle: true,
-        elevation: 2,
       ),
       body: SingleChildScrollView(child: Consumer<AddTripProvider>(
         builder: (context, myType, child) {
