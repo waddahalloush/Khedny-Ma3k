@@ -15,7 +15,7 @@ class BlurButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInDown(
+    return ElasticIn(
       child: Align(
         alignment: Alignment.center,
         child: InkWell(

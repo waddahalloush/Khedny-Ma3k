@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
@@ -30,14 +31,18 @@ class MyTripScreen extends StatelessWidget {
                   const Spacer(),
                   FloatingActionButton(
                       heroTag: "n",
+                      mini: true,
                       onPressed: () {},
                       elevation: 2,
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor,
-                      child: Image.asset(
-                        AssetManager.bell,
-                        height: 35,
-                        width: 30,
+                      child: ElasticIn(
+                        duration: const Duration(milliseconds: 1000),
+                        child: Image.asset(
+                          AssetManager.bell,
+                          height: 35,
+                          width: 30,
+                        ),
                       )),
                 ],
               ),
@@ -104,10 +109,13 @@ class MyRideCardWidget extends StatelessWidget {
                 style: Theme.of(context).primaryTextTheme.overline,
               ),
               const Spacer(),
-              Image.asset(
-                AssetManager.messageBubble,
-                width: 30,
-                height: 30,
+              Flash(
+                duration: const Duration(milliseconds: 2000),
+                child: Image.asset(
+                  AssetManager.messageBubble,
+                  width: 40,
+                  height: 40,
+                ),
               ),
               const SizedBox(
                 width: 15,

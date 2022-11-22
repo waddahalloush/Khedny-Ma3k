@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import '../../../../Core/constants/asset_manager.dart';
@@ -153,8 +154,10 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                               floatingLabelStyle:
                                   Theme.of(context).primaryTextTheme.caption,
                               hintText: 'NumPeople'.tr(context),
-                              hintStyle:
-                                  Theme.of(context).primaryTextTheme.headline3,
+                              hintStyle: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey),
                               labelStyle:
                                   Theme.of(context).primaryTextTheme.caption),
                           keyboardType: TextInputType.datetime,

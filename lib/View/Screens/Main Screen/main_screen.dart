@@ -13,8 +13,26 @@ import 'package:unicons/unicons.dart';
 
 import '../../../Core/constants/asset_manager.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  late PageController _pageController;
+  @override
+  void initState() {
+    _pageController = PageController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +52,10 @@ class MainScreen extends StatelessWidget {
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             color: Theme.of(context).primaryColor,
             index: provider.navIndex,
-            onTap: (value) => provider.changeNav(value, context),
+            onTap: (value) {
+              provider.changeNav(value, context);
+              _pageController.jumpToPage(provider.navIndex);
+            },
             items: [
               const Icon(
                 UniconsLine.estate,
@@ -58,7 +79,13 @@ class MainScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ]),
-        body: screens[provider.navIndex],
+        body: PageView.builder(
+          controller: _pageController,
+          allowImplicitScrolling: true,
+          itemCount: screens.length,
+          onPageChanged: (value) => provider.changeNav(value, context),
+          itemBuilder: (context, index) => screens[provider.navIndex],
+        ),
       ),
     );
   }

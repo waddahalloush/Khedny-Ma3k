@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/helpers/show_number_picker.dart';
 import 'package:flutter_material_pickers/helpers/show_swatch_picker.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/add_vehicle_provider.dart';
 import 'package:khedni_m3k/View%20Model/app_provider.dart';
@@ -21,7 +22,7 @@ void showAddVehicleBottomSheet(
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       context: context,
-      constraints: BoxConstraints(maxHeight: context.height / 1.2),
+      constraints: BoxConstraints(maxHeight: context.height - 80),
       builder: (context) => Container(
         width: context.width,
         height: context.height,
@@ -79,12 +80,12 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               InkWell(
                 onTap: () => Navigator.pop(context),
                 child: Container(
-                  margin: const EdgeInsets.symmetric(vertical: 20),
-                  width: 35,
-                  height: 5,
+                  margin: EdgeInsets.symmetric(vertical: 20.h),
+                  width: 35.w,
+                  height: 5.h,
                   decoration: BoxDecoration(
                       color: const Color(0XFFE4E6E9),
-                      borderRadius: BorderRadius.circular(2.5)),
+                      borderRadius: BorderRadius.circular(2.5.r)),
                 ),
               ),
               Container(
@@ -92,11 +93,11 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 child: myType.carimage == null
                     ? Image.asset(
                         AssetManager.sedan,
-                        width: 100,
-                        height: 80,
+                        width: 100.w,
+                        height: 80.h,
                       )
                     : CircleAvatar(
-                        radius: 50,
+                        radius: 50.r,
                         backgroundImage: FileImage(myType.carimage!),
                       ),
               ),
@@ -106,42 +107,43 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 },
                 child: Text(
                   "UploadPhoto".tr(context),
-                  style: const TextStyle(
-                      color: Color(0XFF406C96),
+                  style: TextStyle(
+                      color: const Color(0XFF406C96),
+                      fontFamily: 'Cairo',
                       fontWeight: FontWeight.bold,
-                      fontSize: 15),
+                      fontSize: 15.sp),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: GlobalTextForm(
                     controller: carModelController,
-                    isReadOnly: true,
+                    isReadOnly: false,
                     onTap: () {},
                     label: "CarModel".tr(context),
                     obSecure: false,
                     suffix: const SizedBox(),
                     keyBoardType: TextInputType.name),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: GlobalTextForm(
                     controller: plateNumController,
-                    isReadOnly: true,
+                    isReadOnly: false,
                     onTap: () {},
                     label: "PlateNum".tr(context),
                     obSecure: false,
                     suffix: const SizedBox(),
                     keyBoardType: TextInputType.name),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: Row(
                   children: [
                     Expanded(
@@ -223,8 +225,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                           suffix: const SizedBox(),
                           keyBoardType: TextInputType.name),
                     ),
-                    const SizedBox(
-                      width: 10,
+                    SizedBox(
+                      width: 10.w,
                     ),
                     Expanded(
                       child: GlobalTextForm(
@@ -246,21 +248,21 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               SizedBox(
                 width: context.width / 2 + 60,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: Row(
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 8),
                         child: Image.asset(
                           AssetManager.group,
-                          width: 30,
-                          height: 30,
+                          width: 30.w,
+                          height: 30.h,
                         ),
                       ),
                       Expanded(
@@ -290,9 +292,10 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                                       .primaryTextTheme
                                       .caption,
                                   hintText: "SeatsNum".tr(context),
-                                  hintStyle: Theme.of(context)
-                                      .primaryTextTheme
-                                      .headline3,
+                                  hintStyle: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey),
                                   labelStyle: Theme.of(context)
                                       .primaryTextTheme
                                       .caption),
@@ -308,7 +311,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               Row(
                 children: [
                   Container(
-                    margin: const EdgeInsets.all(30),
+                    margin: EdgeInsets.all(30.w),
                     height: 24,
                     width: 24,
                     decoration: BoxDecoration(

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GlobalTextForm extends StatelessWidget {
   final String label;
@@ -24,25 +25,28 @@ class GlobalTextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      style: Theme.of(context).primaryTextTheme.headline3,
-      readOnly: isReadOnly,
-      onTap: onTap,
-      decoration: InputDecoration(
-          border: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.blue)),
-          enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.blue)),
-          floatingLabelAlignment: FloatingLabelAlignment.start,
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          contentPadding: const EdgeInsets.all(8),
-          floatingLabelStyle: Theme.of(context).primaryTextTheme.caption,
-          labelText: label,
-          suffixIcon: suffix,
-          labelStyle: Theme.of(context).primaryTextTheme.caption),
-      keyboardType: keyBoardType,
-      obscureText: obSecure,
+    return SizedBox(
+      height: 60.h,
+      child: TextFormField(
+        controller: controller,
+        style: Theme.of(context).primaryTextTheme.headline3,
+        readOnly: isReadOnly,
+        onTap: onTap,
+        decoration: InputDecoration(
+            border: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue)),
+            enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue)),
+            floatingLabelAlignment: FloatingLabelAlignment.start,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            contentPadding: const EdgeInsets.all(8),
+            floatingLabelStyle: Theme.of(context).primaryTextTheme.caption,
+            labelText: label,
+            suffixIcon: suffix,
+            labelStyle: Theme.of(context).primaryTextTheme.caption),
+        keyboardType: keyBoardType,
+        obscureText: obSecure,
+      ),
     );
   }
 }

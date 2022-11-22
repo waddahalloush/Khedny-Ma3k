@@ -18,17 +18,18 @@ class MainAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.symmetric(vertical: 5.h),
       child: Row(
         children: [
           FloatingActionButton(
               heroTag: "m",
+              mini: true,
               onPressed: () {
                 context.read<AppProvider>().openDrawer();
               },
               elevation: 2,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              child: FlipInY(
+              child: ElasticIn(
                 duration: const Duration(milliseconds: 1000),
                 child: Image.asset(
                   AssetManager.menu,
@@ -44,10 +45,11 @@ class MainAppBarWidget extends StatelessWidget {
           const Spacer(),
           FloatingActionButton(
               heroTag: "n",
+              mini: true,
               onPressed: () {},
               elevation: 2,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              child: FlipInY(
+              child: ElasticIn(
                 duration: const Duration(milliseconds: 1000),
                 child: Image.asset(
                   AssetManager.bell,

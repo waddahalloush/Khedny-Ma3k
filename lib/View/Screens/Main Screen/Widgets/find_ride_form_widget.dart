@@ -3,6 +3,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_hoc081098/flutter_google_places_hoc081098.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_webservice/places.dart';
 
 class FindRideFormWidget extends StatelessWidget {
@@ -18,7 +19,7 @@ class FindRideFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeIn(
+    return ZoomIn(
       duration: const Duration(milliseconds: 1000),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -50,7 +51,10 @@ class FindRideFormWidget extends StatelessWidget {
                     size: 15,
                     color: Color(0XFF5E5E5E),
                   )),
-              hintStyle: Theme.of(context).primaryTextTheme.headline3,
+              hintStyle: TextStyle(
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 4, vertical: 10)),
         ),

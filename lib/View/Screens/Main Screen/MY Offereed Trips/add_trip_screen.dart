@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_pickers/flutter_material_pickers.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/View%20Model/add_trip_provider.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
@@ -186,8 +187,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           floatingLabelStyle:
                               Theme.of(context).primaryTextTheme.caption,
                           hintText: "Price".tr(context),
-                          hintStyle:
-                              Theme.of(context).primaryTextTheme.headline3,
+                          hintStyle: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
                           labelStyle:
                               Theme.of(context).primaryTextTheme.caption),
                       keyboardType: TextInputType.datetime,
@@ -226,8 +229,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           floatingLabelStyle:
                               Theme.of(context).primaryTextTheme.caption,
                           hintText: "Picktime".tr(context),
-                          hintStyle:
-                              Theme.of(context).primaryTextTheme.headline3,
+                          hintStyle: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
                           contentPadding:
                               const EdgeInsets.symmetric(horizontal: 10),
                           labelStyle:
@@ -268,8 +273,10 @@ class _AddTripScreenState extends State<AddTripScreen> {
                           floatingLabelStyle:
                               Theme.of(context).primaryTextTheme.caption,
                           hintText: "Pickdate".tr(context),
-                          hintStyle:
-                              Theme.of(context).primaryTextTheme.headline3,
+                          hintStyle: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
                           labelStyle:
                               Theme.of(context).primaryTextTheme.caption),
                       keyboardType: TextInputType.datetime,

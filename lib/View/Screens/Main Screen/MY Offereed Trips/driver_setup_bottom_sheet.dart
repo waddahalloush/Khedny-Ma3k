@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View%20Model/driver_setup_provider.dart';
@@ -18,7 +19,7 @@ void showDriverSetupBottomSheet(
     showModalBottomSheet(
       barrierColor: Colors.black45,
       isScrollControlled: true,
-      constraints: BoxConstraints(maxHeight: context.height - 50),
+      constraints: BoxConstraints(maxHeight: context.height - 30),
       backgroundColor: Colors.transparent,
       context: context,
       builder: (context) => Container(
@@ -77,9 +78,9 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
             InkWell(
               onTap: () => Navigator.pop(context),
               child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                width: 35,
-                height: 5,
+                margin: EdgeInsets.symmetric(vertical: 10.h),
+                width: 35.w,
+                height: 5.w,
                 decoration: BoxDecoration(
                     color: const Color(0XFFE4E6E9),
                     borderRadius: BorderRadius.circular(2.5)),
@@ -96,19 +97,19 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   style: Theme.of(context).primaryTextTheme.headline3),
               centerTitle: true,
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             myType.driverimage != null
                 ? CircleAvatar(
-                    radius: 50,
+                    radius: 50.r,
                     backgroundImage: FileImage(
                       myType.driverimage!,
                     ),
                   )
                 : Container(
-                    width: 100,
-                    height: 100,
+                    width: 100.w,
+                    height: 100.h,
                     decoration: const BoxDecoration(
                       color: Color(0xFFC4C4C4),
                       shape: BoxShape.circle,
@@ -117,8 +118,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                       ],
                     ),
                   ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             TextButton(
               onPressed: () {
@@ -126,14 +127,15 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               },
               child: Text(
                 "AddProfImg".tr(context),
-                style: const TextStyle(
-                    color: Color(0XFF406C96),
+                style: TextStyle(
+                    color: const Color(0XFF406C96),
+                    fontFamily: 'Cairo',
                     fontWeight: FontWeight.bold,
-                    fontSize: 15),
+                    fontSize: 15.sp),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: GlobalTextForm(
                   controller: fNameController,
                   isReadOnly: false,
@@ -143,8 +145,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   suffix: const SizedBox(),
                   keyBoardType: TextInputType.name),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: 20.h,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -157,8 +159,8 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   suffix: const SizedBox(),
                   keyBoardType: TextInputType.name),
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             GlobalBubbleTextForm(
                 controller: driverLicenceController,
@@ -213,10 +215,10 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
+              margin: EdgeInsets.symmetric(vertical: 10.h),
               height: context.height * 0.18,
               child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 5),
+                padding: EdgeInsets.symmetric(vertical: 5.h),
                 scrollDirection: Axis.horizontal,
                 children: [
                   const CarWidget(

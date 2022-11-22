@@ -62,13 +62,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               decoration: InputDecoration(
                   hintText: "+62812 0101 0101",
                   enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey , )),
+                      borderSide: BorderSide(
+                    color: Colors.grey,
+                  )),
                   focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey)),
                   hintStyle: TextStyle(
-                      color: const Color(0XFF5E5E5E),
-                      fontSize: 18.sp,
-                      fontFamily: 'Cairo'),
+                      color: Colors.grey, fontSize: 18.sp, fontFamily: 'Cairo'),
                   suffixIcon: const Icon(Icons.phone_iphone_rounded),
                   suffixIconColor: Theme.of(context).primaryColor,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20)),

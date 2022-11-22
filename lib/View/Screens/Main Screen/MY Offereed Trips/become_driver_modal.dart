@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/driver_setup_bottom_sheet.dart';
@@ -73,7 +74,7 @@ class BecomeDriverWidget extends StatelessWidget {
         ),
         const Spacer(),
         Padding(
-          padding: const EdgeInsets.only(bottom: 75),
+          padding: EdgeInsets.only(bottom: 60.w),
           child: BlurButton(
               onPress: () {
                 Navigator.pop(context);

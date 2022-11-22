@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 
@@ -20,23 +22,31 @@ class GlobalBubbleTextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-        width: context.width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [BoxShadow(blurRadius: 6, color: Colors.grey.shade300)],
-            color: Theme.of(context).scaffoldBackgroundColor),
-        child: TextFormField(
-          controller: controller,
-          readOnly: isReadOnly,
-          onTap: onTap,
-          decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(15),
-              suffixIcon: suffix,
-              hintText: hint,
-              hintStyle: Theme.of(context).primaryTextTheme.headline3,
-              border: InputBorder.none),
-        ));
+    return ZoomIn(
+      child: Container(
+          margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 30.w),
+          width: context.width,
+          height: 50.h,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: [
+                BoxShadow(blurRadius: 6, color: Colors.grey.shade300)
+              ],
+              color: Theme.of(context).scaffoldBackgroundColor),
+          child: TextFormField(
+            controller: controller,
+            readOnly: isReadOnly,
+            onTap: onTap,
+            decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                suffixIcon: suffix,
+                hintText: hint,
+                hintStyle: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey),
+                border: InputBorder.none),
+          )),
+    );
   }
 }

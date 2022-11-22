@@ -36,12 +36,10 @@ class AppProvider extends ChangeNotifier {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void changeNav(int index , BuildContext context) {
+  void changeNav(int index, BuildContext context) {
     navIndex = index;
-    if (index==1) {
+    if (index == 1) {
       showBecomeDriverBottomSheet(context);
-    } else {
-      
     }
     notifyListeners();
   }

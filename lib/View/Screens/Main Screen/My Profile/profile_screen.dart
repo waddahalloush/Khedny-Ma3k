@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View%20Model/my_profile_provider.dart';
@@ -19,11 +21,11 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   late TextEditingController userNameController;
-  late FocusNode myFocusNode;
+
   @override
   void initState() {
-    userNameController = TextEditingController(text: "Waddah");
-    myFocusNode = FocusNode();
+    userNameController = TextEditingController(text: "Kimmy Natasa");
+
     super.initState();
   }
 
@@ -31,7 +33,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void dispose() {
     userNameController.dispose();
     super.dispose();
-    myFocusNode.dispose();
   }
 
   @override
@@ -44,7 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: MainAppBarWidget(title: "MyProfile".tr(context)),
               ),
               Stack(
@@ -52,32 +53,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   SizedBox(
                     width: context.width,
-                    height: 90,
+                    height: 90.h,
                   ),
                   Stack(
                     alignment: Alignment.bottomRight,
                     children: [
                       myType.userImage != null
                           ? CircleAvatar(
-                              radius: 40,
+                              radius: 40.r,
                               backgroundImage: FileImage(
                                 myType.userImage!,
                               ),
                             )
                           : Container(
-                              width: 80,
-                              height: 80,
+                              width: 80.w,
+                              height: 80.h,
                               decoration: const BoxDecoration(
                                   shape: BoxShape.circle, color: Colors.grey),
                             ),
                       InkWell(
                         onTap: () => myType.upLoadImage(context),
-                        child: const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 15,
-                          child: Icon(
-                            UniconsLine.camera,
-                            color: Colors.black,
+                        child: ZoomIn(
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 15.r,
+                            child: const Icon(
+                              UniconsLine.camera,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       )
@@ -89,17 +92,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: InkWell(
                         onTap: () {
                           myType.changeUserNameState();
-                          Future.delayed(const Duration(milliseconds: 500));
-                          myFocusNode.requestFocus();
                         },
                         child: CircleAvatar(
                           backgroundColor: myType.isUserNameEdit
                               ? Colors.greenAccent
                               : const Color.fromARGB(255, 155, 151, 240),
-                          radius: 14,
-                          child: const Icon(
+                          radius: 14.r,
+                          child: Icon(
                             UniconsLine.edit_alt,
-                            size: 20,
+                            size: 20.sp,
                             color: Colors.black,
                           ),
                         ),
@@ -107,36 +108,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               SizedBox(
-                width: 200,
-                child: TextField(
-                  focusNode: myFocusNode,
-                  autofocus: true,
-                  enabled: myType.isUserNameEdit,
-                  decoration: const InputDecoration(border: InputBorder.none),
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).primaryTextTheme.headline1,
-                  controller: userNameController,
-                ),
-              )
+                  width: 200.w,
+                  height: 40.h,
+                  child: myType.isUserNameEdit
+                      ? TextField(
+                          autofocus: true,
+                          enabled: myType.isUserNameEdit,
+                          decoration: InputDecoration(
+                              border: myType.isUserNameEdit
+                                  ? const UnderlineInputBorder()
+                                  : InputBorder.none),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).primaryTextTheme.headline1,
+                          controller: userNameController,
+                        )
+                      : Text(
+                          userNameController.text,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).primaryTextTheme.headline1,
+                        ))
               // Text("Kimmy Natasa",
               //     style: Theme.of(context).primaryTextTheme.headline1),
               ,
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: 5.h,
               ),
               Text("VerifiedProfile".tr(context),
                   style: Theme.of(context).primaryTextTheme.subtitle2),
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Image.asset(
-                      AssetManager.banner,
-                      height: 70,
-                      width: 400,
-                      fit: BoxFit.fitHeight,
-                    ),
+                  Image.asset(
+                    AssetManager.banner,
+                    height: 80.h,
+                    fit: BoxFit.contain,
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -149,8 +154,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fontWeight: FontWeight.w600,
                             color: Colors.white),
                       ),
-                      const SizedBox(
-                        width: 40,
+                      SizedBox(
+                        width: 30.w,
                       ),
                       Text(
                         "43.64 ${"Points".tr(context)}",
@@ -230,11 +235,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
+                margin: EdgeInsets.symmetric(vertical: 10.h),
                 height: context.height * 0.18,
                 child: ListView(
                   shrinkWrap: true,
-                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  padding: EdgeInsets.symmetric(vertical: 5.h),
                   scrollDirection: Axis.horizontal,
                   children: [
                     const CarWidget(

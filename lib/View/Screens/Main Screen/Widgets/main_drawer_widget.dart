@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
@@ -18,7 +19,7 @@ class MainDrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.only(top: 8),
+        padding: EdgeInsets.only(top: 8.h),
         child: Drawer(
           elevation: 2,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -35,23 +36,23 @@ class MainDrawerWidget extends StatelessWidget {
                         bottomRight: Radius.circular(20)),
           ),
           child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30),
+              padding: EdgeInsets.symmetric(vertical: 30.w.h),
               child: Consumer<AppProvider>(
                 builder: (context, myType, child) {
                   return Column(
                     children: [
                       const UserAccountDrawerWidget(),
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                        child: Divider(),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.h, horizontal: 10.w),
+                        child: const Divider(),
                       ),
                       DrawerListTileWidget(
                         title: "Dashboard".tr(context),
                         icon: Image.asset(
                           AssetManager.dashBoard,
-                          height: 35,
-                          width: 30,
+                          height: 35.h,
+                          width: 30.w,
                         ),
                         ontap: () {},
                       ),
@@ -59,8 +60,8 @@ class MainDrawerWidget extends StatelessWidget {
                         title: "Myride".tr(context),
                         icon: Image.asset(
                           AssetManager.myRide,
-                          height: 35,
-                          width: 30,
+                          height: 35.h,
+                          width: 30.w,
                         ),
                         ontap: () {},
                       ),
@@ -68,8 +69,8 @@ class MainDrawerWidget extends StatelessWidget {
                         title: "Mypayment".tr(context),
                         icon: Image.asset(
                           AssetManager.payment,
-                          height: 35,
-                          width: 30,
+                          height: 35.h,
+                          width: 30.w,
                         ),
                         ontap: () {},
                       ),
@@ -77,8 +78,8 @@ class MainDrawerWidget extends StatelessWidget {
                         title: "Myvehicles".tr(context),
                         icon: Image.asset(
                           AssetManager.myVehicles,
-                          height: 35,
-                          width: 30,
+                          height: 35.h,
+                          width: 30.w,
                         ),
                         ontap: () {},
                       ),
@@ -86,8 +87,8 @@ class MainDrawerWidget extends StatelessWidget {
                         title: "Chat".tr(context),
                         icon: Image.asset(
                           AssetManager.chat,
-                          height: 35,
-                          width: 30,
+                          height: 35.h,
+                          width: 30.w,
                         ),
                         ontap: () {},
                       ),
@@ -106,8 +107,8 @@ class MainDrawerWidget extends StatelessWidget {
                       // DrawerListTileWidget(
                       //   title: "lang".tr(context),
                       //   icon: FlutterSwitch(
-                      //     height: 35,
-                      //     width: 30,
+                      //     height: 35.h,
+                      //     width: 30.w,
                       //     value: myType.isDark,
                       //     onToggle: (value) =>
                       //         myType.setApplang(value ? "en" : "ar"),
@@ -152,7 +153,7 @@ class MainDrawerWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0.h),
                         child: Row(
                           children: [
                             FlutterSwitch(
@@ -194,8 +195,8 @@ class MainDrawerWidget extends StatelessWidget {
                         title: "About".tr(context),
                         icon: Image.asset(
                           AssetManager.about,
-                          height: 35,
-                          width: 30,
+                          height: 35.h,
+                          width: 30.w,
                         ),
                         ontap: () {},
                       ),
