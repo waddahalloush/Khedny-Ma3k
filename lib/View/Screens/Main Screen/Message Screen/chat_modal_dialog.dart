@@ -1,15 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
+import 'package:provider/provider.dart';
+
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View%20Model/chat_modal_provider.dart';
-import 'package:provider/provider.dart';
 
 import '../Widgets/driver_connection_image.dart';
 
-Future<bool> showChatDriverDialog(BuildContext context) async {
+Future<bool> showChatDriverDialog(
+    BuildContext context, String username, String imageUrl, bool status) async {
   return await showDialog(
     context: context,
     builder: (context) => Dialog(
@@ -18,7 +21,11 @@ Future<bool> showChatDriverDialog(BuildContext context) async {
           borderRadius: BorderRadius.circular(20),
           side: const BorderSide(color: Colors.white)),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      child: const ChatViewWidget(),
+      child: ChatViewWidget(
+        username: username,
+        status: status,
+        imageUrl: imageUrl,
+      ),
     ),
   );
 }
@@ -26,8 +33,13 @@ Future<bool> showChatDriverDialog(BuildContext context) async {
 class ChatViewWidget extends StatefulWidget {
   const ChatViewWidget({
     Key? key,
+    required this.username,
+    required this.imageUrl,
+    required this.status,
   }) : super(key: key);
-
+  final String username;
+  final String imageUrl;
+  final bool status;
   @override
   State<ChatViewWidget> createState() => _ChatViewWidgetState();
 }
@@ -62,13 +74,20 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                 visualDensity: VisualDensity.compact,
                 dense: true,
                 onTap: () {},
-                leading: const DriverConnectionImage(),
+                leading: DriverConnectionImage(
+                  leading: CircleAvatar(
+                    backgroundColor: Theme.of(context).primaryColorDark,
+                    backgroundImage: NetworkImage(widget.imageUrl),
+                    radius: 20,
+                  ),
+                  status: widget.status,
+                ),
                 title: Text(
-                  "Kimmy Natasa",
+                  widget.username,
                   style: Theme.of(context).primaryTextTheme.headline3,
                 ),
                 subtitle: Text(
-                  "Online".tr(context),
+                  widget.status ? "Online".tr(context) : "Offline".tr(context),
                   style: Theme.of(context).primaryTextTheme.caption,
                 ),
                 trailing: IconButton(
@@ -145,7 +164,10 @@ class _ChatViewWidgetState extends State<ChatViewWidget> {
                           color: Theme.of(context).canvasColor,
                         ),
                       ),
-                      hintStyle: Theme.of(context).primaryTextTheme.headline3,
+                      hintStyle: Theme.of(context)
+                          .primaryTextTheme
+                          .headline3!
+                          .copyWith(color: Colors.grey),
                       hintText: "EnterMessage".tr(context))),
             ],
           ),

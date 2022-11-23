@@ -8,7 +8,7 @@ class ShimmerWidget extends StatelessWidget {
   final BoxShape shapeBorder;
   const ShimmerWidget.rectangular(
       {super.key,
-      this.width = double.infinity,
+      required this.width,
       this.isDarkmode = false,
       required this.height,
       this.shapeBorder = BoxShape.rectangle});
@@ -22,7 +22,7 @@ class ShimmerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-        baseColor:isDarkmode?Colors.white24 :Colors.white60,
+        baseColor: isDarkmode ? Colors.white24 : Colors.grey,
         highlightColor: Colors.white,
         child: Container(
           width: width,

@@ -1,8 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class DriverConnectionImage extends StatelessWidget {
+  final Widget leading;
+  final bool status;
   const DriverConnectionImage({
     Key? key,
+    required this.leading,
+    required this.status,
   }) : super(key: key);
 
   @override
@@ -10,15 +15,12 @@ class DriverConnectionImage extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        CircleAvatar(
-          backgroundColor: Theme.of(context).primaryColorDark,
-          radius: 20,
-        ),
+        leading,
         Container(
           width: 15,
           height: 15,
           decoration: BoxDecoration(
-              color: Colors.greenAccent,
+              color:status? Colors.greenAccent:Colors.grey,
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white)),
         )
