@@ -65,7 +65,7 @@ class _RecoveryOtpScreenState extends State<RecoveryOtpScreen> {
                     onCompleted: (value) {
                       // Provider.of<RecoveryOtpProvider>(context)
                       //     .checkOtp(recoverypinController.text);
-                      Navigator.pushNamed(context, AppRouter.newPassRoute);
+                      Navigator.pushNamed(context, AppRouter.mainRoute);
                     },
                     controller: recoverypinController,
                     defaultPinTheme: PinTheme(

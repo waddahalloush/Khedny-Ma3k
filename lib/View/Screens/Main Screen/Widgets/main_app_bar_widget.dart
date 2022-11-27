@@ -1,12 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'package:khedni_m3k/View%20Model/app_provider.dart';
-
 import '../../../../Core/constants/asset_manager.dart';
+import '../../../../View Model/app_provider.dart';
 
 class MainAppBarWidget extends StatelessWidget {
   final String title;
@@ -21,42 +19,44 @@ class MainAppBarWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 5.h),
       child: Row(
         children: [
-          FloatingActionButton(
-              heroTag: "m",
-              mini: true,
-              onPressed: () {
-                context.read<AppProvider>().openDrawer();
-              },
-              elevation: 2,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              child: ElasticIn(
-                duration: const Duration(milliseconds: 1000),
-                child: Image.asset(
-                  AssetManager.menu,
-                  height: 35.h,
-                  width: 30.w,
-                ),
-              )),
+          InkWell(
+            onTap: () => context.read<AppProvider>().openDrawer(),
+            child: Card(
+                shape: const CircleBorder(),
+                elevation: 2,
+                shadowColor: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    AssetManager.menu,
+                    height: 35.h,
+                    width: 30.w,
+                  ),
+                )),
+          ),
           const Spacer(),
           Text(
             title,
             style: Theme.of(context).primaryTextTheme.headline1,
           ),
           const Spacer(),
-          FloatingActionButton(
-              heroTag: "n",
-              mini: true,
-              onPressed: () {},
-              elevation: 2,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              child: ElasticIn(
-                duration: const Duration(milliseconds: 1000),
-                child: Image.asset(
-                  AssetManager.bell,
-                  height: 35.h,
-                  width: 30.w,
-                ),
-              )),
+          InkWell(
+            onTap: () {},
+            child: Card(
+                elevation: 2,
+                shape: const CircleBorder(),
+                shadowColor: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    AssetManager.bell,
+                    height: 35.h,
+                    width: 30.w,
+                  ),
+                )),
+          ),
         ],
       ),
     );

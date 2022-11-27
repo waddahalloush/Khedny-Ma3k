@@ -1,72 +1,113 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:animate_do/animate_do.dart';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:khedni_m3k/Core/utils/Global%20Widgets/shimmer_widget.dart';
 
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
+import 'package:khedni_m3k/View%20Model/my_trips_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../Core/constants/asset_manager.dart';
 import '../Widgets/driver_road_parameter_widget.dart';
 
-class MyTripScreen extends StatelessWidget {
+class MyTripScreen extends StatefulWidget {
   const MyTripScreen({Key? key}) : super(key: key);
 
   @override
+  State<MyTripScreen> createState() => _MyTripScreenState();
+}
+
+class _MyTripScreenState extends State<MyTripScreen> {
+  @override
+  void didChangeDependencies() {
+    context.read<MyTripsProvider>().loadingTest();
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              child: Row(
-                children: [
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Text(
-                    "MYTrips".tr(context),
-                    style: Theme.of(context).primaryTextTheme.headline1,
-                  ),
-                  const Spacer(),
-                  FloatingActionButton(
-                      heroTag: "n",
-                      mini: true,
-                      onPressed: () {},
-                      elevation: 2,
-                      backgroundColor:
-                          Theme.of(context).scaffoldBackgroundColor,
-                      child: ElasticIn(
-                        duration: const Duration(milliseconds: 1000),
-                        child: Image.asset(
-                          AssetManager.bell,
-                          height: 35,
-                          width: 30,
-                        ),
-                      )),
-                ],
+    return Scaffold(body: Consumer<MyTripsProvider>(
+      builder: (context, tripProv, child) {
+        return SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Text(
+                      "MYTrips".tr(context),
+                      style: Theme.of(context).primaryTextTheme.headline1,
+                    ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () {},
+                      child: Card(
+                          shadowColor: Colors.white,
+                          shape: const CircleBorder(),
+                          elevation: 2,
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              AssetManager.bell,
+                              height: 35,
+                              width: 30,
+                            ),
+                          )),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            MyRideCardWidget(
-              numPassenger: 1,
-              distance: "11,3",
-              time: "20th May, 17:00",
-              status: "waitConfirm".tr(context),
-              from: "Latakia",
-              to: "Damascus",
-            ),
-            MyRideCardWidget(
-              numPassenger: 3,
-              distance: "11,3",
-              time: "21th June, 18:00",
-              status: "Confirmed".tr(context),
-              from: "Baniyas",
-              to: "Damascus",
-            )
-          ],
-        ),
-      ),
-    );
+              Expanded(
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: 2,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => ConditionalBuilder(
+                    condition: tripProv.isLoading,
+                    builder: (context) => ShimmerWidget.rectangular(
+                      width: double.infinity,
+                      height: 250.h,
+                      marginH: 20,
+                      marginV: 10,
+                      radius: 25,
+                    ),
+                    fallback: (context) => FadeInLeft(
+                      delay: Duration(milliseconds: index * 1000),
+                      child: MyRideCardWidget(
+                        numPassenger: 1,
+                        distance: "11,3",
+                        time: "20th May, 17:00",
+                        status: "waitConfirm".tr(context),
+                        from: "Latakia",
+                        to: "Damascus",
+                      ),
+                    ),
+                  ),
+                ),
+              )
+
+              // MyRideCardWidget(
+              //   numPassenger: 3,
+              //   distance: "11,3",
+              //   time: "21th June, 18:00",
+              //   status: "Confirmed".tr(context),
+              //   from: "Baniyas",
+              //   to: "Damascus",
+              // )
+            ],
+          ),
+        );
+      },
+    ));
   }
 }
 

@@ -185,27 +185,27 @@ class _DriverInfoWidgetState extends State<DriverInfoWidget> {
                   ),
                   Align(
                     alignment: Alignment.center,
-                    child: Container(
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      height: 55,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFC6752),
-                        boxShadow: const [
-                          BoxShadow(
-                              blurRadius: 20,
-                              color: Color.fromARGB(255, 180, 173, 251),
-                              offset: Offset(0, 7))
-                        ],
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "SendRequest".tr(context),
-                          style: Theme.of(context).primaryTextTheme.headline5,
-                          textAlign: TextAlign.center,
+                    child: InkWell(onTap: () => Navigator.pop(context),
+                      child: Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        height: 55,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFC6752),
+                          boxShadow: const [
+                            BoxShadow(
+                                blurRadius: 20,
+                                color: Color.fromARGB(255, 180, 173, 251),
+                                offset: Offset(0, 7))
+                          ],
+                          borderRadius: BorderRadius.circular(25),
                         ),
+                        child:Text(
+                            "SendRequest".tr(context),
+                            style: Theme.of(context).primaryTextTheme.headline5,
+                            textAlign: TextAlign.center,
+                          ),
+                        
                       ),
                     ),
                   )

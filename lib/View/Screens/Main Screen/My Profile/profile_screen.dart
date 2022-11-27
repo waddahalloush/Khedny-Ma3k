@@ -1,8 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:animate_do/animate_do.dart';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:khedni_m3k/Core/utils/Global%20Widgets/shimmer_widget.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
 import 'package:khedni_m3k/View%20Model/my_profile_provider.dart';
@@ -27,6 +29,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     userNameController = TextEditingController(text: "Kimmy Natasa");
 
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    context.read<MyProfileProvider>().loadingTest();
+    super.didChangeDependencies();
   }
 
   @override
@@ -133,41 +141,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 5.h,
               ),
-              Text("VerifiedProfile".tr(context),
-                  style: Theme.of(context).primaryTextTheme.subtitle2),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Image.asset(
-                    AssetManager.banner,
-                    height: 80.h,
-                    fit: BoxFit.contain,
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "QuickWallet".tr(context),
-                        style: const TextStyle(
-                            fontSize: 13,
-                            fontFamily: "Cairo",
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 30.w,
-                      ),
-                      Text(
-                        "43.64 ${"Points".tr(context)}",
-                        style: const TextStyle(
-                            fontSize: 18,
-                            fontFamily: "Cairo",
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white),
-                      ),
-                    ],
-                  )
-                ],
+              ConditionalBuilder(
+                condition: myType.isLoading,
+                fallback: (context) => Text("VerifiedProfile".tr(context),
+                    style: Theme.of(context).primaryTextTheme.subtitle2),
+                builder: (context) => const ShimmerWidget.rectangular(
+                  width: 100,
+                  height: 15,
+                  radius: 5,
+                ),
+              ),
+              ConditionalBuilder(
+                condition: myType.isLoading,
+                builder: (context) => ShimmerWidget.rectangular(
+                  width: double.infinity,
+                  height: 80.h,
+                  radius: 12,
+                  marginH: 30,
+                  marginV: 5,
+                ),
+                fallback: (context) => Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      AssetManager.banner,
+                      height: 80.h,
+                      fit: BoxFit.contain,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "QuickWallet".tr(context),
+                          style: const TextStyle(
+                              fontSize: 13,
+                              fontFamily: "Cairo",
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          width: 30.w,
+                        ),
+                        Text(
+                          "43.64 ${"Points".tr(context)}",
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Cairo",
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -471,23 +471,23 @@ class _AddTripScreenState extends State<AddTripScreen> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 30),
-                        width: context.width / 1.5,
-                        alignment: Alignment.center,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFC6752),
-                          boxShadow: const [
-                            BoxShadow(
-                                blurRadius: 20,
-                                color: Color.fromARGB(255, 180, 173, 251),
-                                offset: Offset(0, 7))
-                          ],
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        child: TextButton(
-                          onPressed: () {},
+                      child: InkWell(
+                        onTap: () => Navigator.pop(context),
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 30),
+                          width: context.width / 1.5,
+                          alignment: Alignment.center,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFC6752),
+                            boxShadow: const [
+                              BoxShadow(
+                                  blurRadius: 20,
+                                  color: Color.fromARGB(255, 180, 173, 251),
+                                  offset: Offset(0, 7))
+                            ],
+                            borderRadius: BorderRadius.circular(25),
+                          ),
                           child: Text(
                             "SendRequest".tr(context),
                             style: Theme.of(context).primaryTextTheme.headline5,

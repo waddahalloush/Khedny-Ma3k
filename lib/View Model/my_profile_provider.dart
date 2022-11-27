@@ -6,7 +6,9 @@ import 'package:image_picker/image_picker.dart';
 
 class MyProfileProvider extends ChangeNotifier {
   bool isUserNameEdit = false;
+  bool isLoading= false;
   File? userImage;
+  
   void changeUserNameState() {
     isUserNameEdit = !isUserNameEdit;
     notifyListeners();
@@ -23,5 +25,12 @@ class MyProfileProvider extends ChangeNotifier {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Failed To Pick Image")));
     }
+  }
+  loadingTest() async {
+    isLoading = true;
+    await Future.delayed(const Duration(seconds: 5), () {});
+  
+    isLoading = false;
+    notifyListeners();
   }
 }

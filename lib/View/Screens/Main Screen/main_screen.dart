@@ -53,8 +53,7 @@ class _MainScreenState extends State<MainScreen> {
             color: Theme.of(context).primaryColor,
             index: provider.navIndex,
             onTap: (value) {
-              provider.changeNav(value, context);
-              _pageController.jumpToPage(provider.navIndex);
+              _pageController.jumpToPage(value);
             },
             items: [
               const Icon(

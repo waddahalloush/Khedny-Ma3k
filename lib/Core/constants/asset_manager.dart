@@ -39,5 +39,10 @@ class AssetManager {
   static const String checkBox = "assets/images/Checkbox.png";
   static const String calender = "assets/images/calender.png";
   static const String remove = "assets/images/remove.png";
+  static const String c1 = "assets/images/circle1.png";
+  static const String c2 = "assets/images/circle2.png";
+  static const String c3 = "assets/images/circle3.png";
+  static const String c4 = "assets/images/circle4.png";
+  static const String c5 = "assets/images/circle5.png";
   
 }

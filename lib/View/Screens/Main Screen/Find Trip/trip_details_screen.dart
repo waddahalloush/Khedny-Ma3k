@@ -221,19 +221,17 @@ class TripDetailsScreen extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.center,
-                child: Container(
-                  margin: const EdgeInsets.all(40),
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  height: 55,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFC6752),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: TextButton(
-                    onPressed: () {
-                      showRequestTripBottomSheet(context);
-                    },
+                child: InkWell(
+                  onTap: () => showRequestTripBottomSheet(context),
+                  child: Container(
+                    margin: const EdgeInsets.all(40),
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFC6752),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
                     child: Text(
                       "Book".tr(context),
                       style: Theme.of(context).primaryTextTheme.headline5,
