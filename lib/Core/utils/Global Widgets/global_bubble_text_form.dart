@@ -24,7 +24,7 @@ class GlobalBubbleTextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return ZoomIn(
       child: Container(
-          margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 30.w),
+          margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
           width: context.width,
           height: 50.h,
           decoration: BoxDecoration(

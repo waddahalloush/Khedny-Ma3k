@@ -4,6 +4,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:khedni_m3k/Core/utils/Global%20Widgets/not_enough_balance_msg.dart';
 import 'package:khedni_m3k/Core/utils/Global%20Widgets/shimmer_widget.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
 import 'package:khedni_m3k/Core/utils/media_query_ex.dart';
@@ -160,39 +161,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   marginH: 30,
                   marginV: 5,
                 ),
-                fallback: (context) => Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset(
-                      AssetManager.banner,
-                      height: 80.h,
-                      fit: BoxFit.contain,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "QuickWallet".tr(context),
-                          style: const TextStyle(
-                              fontSize: 13,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        ),
-                        SizedBox(
-                          width: 30.w,
-                        ),
-                        Text(
-                          "43.64 ${"Points".tr(context)}",
-                          style: const TextStyle(
-                              fontSize: 18,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white),
-                        ),
-                      ],
-                    )
-                  ],
+                fallback: (context) => InkWell(onTap: () => showNotEnoughBalanceDialog(context),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        AssetManager.banner,
+                        height: 80.h,
+                        fit: BoxFit.contain,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "QuickWallet".tr(context),
+                            style: const TextStyle(
+                                fontSize: 13,
+                                fontFamily: "Cairo",
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 30.w,
+                          ),
+                          Text(
+                            "43.64 ${"Points".tr(context)}",
+                            style: const TextStyle(
+                                fontSize: 18,
+                                fontFamily: "Cairo",
+                                fontWeight: FontWeight.w800,
+                                color: Colors.white),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               Row(

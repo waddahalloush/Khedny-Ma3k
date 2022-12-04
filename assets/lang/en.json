@@ -93,6 +93,24 @@
     "Confirmed":"Confirmed",
     "theme":"App Theme",
     "lang":"App Language",
-    "rateNote":"Give To Driver Your Rating Note"
+    "rateNote":"Give To Driver Your Rating Note",
+    "notEnoughBalance":"Not Enough Balance",
+    "notEnoughBalanceSub":"It seems that you do not have enough\n balance in your account. \nPlease fill in your balance",
+    "yes":"Yes",
+    "no":"No",
+    "trans":"Choose any of the methods of transferring\nthe amount you want to your account:",
+    "sendInfo":"Please send the amount through the\nfollowing information:",
+    
+    "wallet":"My Wallet",
+    "addPoint":"ADD POINTS",
+    "recipient":"The recipient's full name",
+    "toCity":"To City",
+    "sender":"The sender's full name",
+    "paymentNum":"Payment Number",
+    "fromCity":"From City",
+    "pointsAmount":"Enter Points Amount",
+    "transImg":"Photo of the money transfer receipt"
+    
+
     
 }

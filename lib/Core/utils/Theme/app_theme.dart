@@ -6,14 +6,18 @@ class AppTheme {
       primaryColor: const Color(0XFF004E98),
       primaryColorDark: const Color(0XFFACACAC),
       cardColor: Colors.white,
-      primaryColorLight: const Color(0xFFFC6752),
+      primaryColorLight: const Color.fromRGBO(252, 103, 82, 1),
       scaffoldBackgroundColor: Colors.white,
       fontFamily: "Cairo",
       dividerTheme: const DividerThemeData(thickness: 0.5, color: Colors.grey),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
           elevation: 0,
-          color: Colors.transparent,
-          iconTheme: IconThemeData(color: Colors.black, size: 24)),
+          titleTextStyle: TextStyle(
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+              color: const Color(0xFF000000)),
+          color: Colors.white,
+          iconTheme: const IconThemeData(color: Colors.black, size: 24)),
       primarySwatch: Colors.blue,
       canvasColor: const Color(0XFF877EF2),
       primaryTextTheme: TextTheme(
@@ -75,10 +79,14 @@ class AppTheme {
       drawerTheme: const DrawerThemeData(
         backgroundColor: Colors.black,
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
           elevation: 0,
-          color: Colors.transparent,
-          iconTheme: IconThemeData(color: Colors.white, size: 24)),
+          titleTextStyle: TextStyle(
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+              color: const Color(0xFFFFFFFF)),
+          color: const Color.fromARGB(209, 17, 9, 35),
+          iconTheme: const IconThemeData(color: Colors.white, size: 24)),
       primaryTextTheme: TextTheme(
         headline1: TextStyle(
             fontSize: 20.sp,

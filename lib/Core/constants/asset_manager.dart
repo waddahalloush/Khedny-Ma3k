@@ -44,5 +44,9 @@ class AssetManager {
   static const String c3 = "assets/images/circle3.png";
   static const String c4 = "assets/images/circle4.png";
   static const String c5 = "assets/images/circle5.png";
+  static const String attention = "assets/images/attention.png";
+  static const String haram = "assets/images/haram.png";
+  static const String kadmous = "assets/images/kadmous.png";
+  static const String fouad = "assets/images/fouad.png";
   
 }

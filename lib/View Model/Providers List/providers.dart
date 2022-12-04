@@ -1,3 +1,4 @@
+import 'package:khedni_m3k/View%20Model/payment_reciver_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -78,6 +79,9 @@ List<SingleChildWidget> providersList = [  ChangeNotifierProvider(
         ),
         ChangeNotifierProvider(
           create: (context) => SearchResultProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => PaymentReciverProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => TripDetailsProvider(),

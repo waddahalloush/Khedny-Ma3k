@@ -166,7 +166,7 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                 controller: driverLicenceController,
                 isReadOnly: true,
                 onTap: () {
-                  myType.changeDriverLicense();
+                 myType.upLoadLicenseImage(context);
                 },
                 hint: "License".tr(context),
                 suffix: Padding(
@@ -174,14 +174,10 @@ class _DriverSetupWidgetState extends State<DriverSetupWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton(
-                          onPressed: () {
-                            myType.upLoadLicenseImage(context);
-                          },
-                          icon: const Icon(
+                      const Icon(
                             Icons.policy_rounded,
                             color: Colors.blue,
-                          )),
+                          ),
                       myType.licenseimage != null
                           ? const Icon(
                               Icons.check,

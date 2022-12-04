@@ -8,10 +8,7 @@ class DriverSetupProvider extends ChangeNotifier{
    File? driverimage;
    File? licenseimage;
    bool driverLicense = false;
-    void changeDriverLicense() {
-    driverLicense = !driverLicense;
-    notifyListeners();
-  }
+  
    Future upLoadImage(BuildContext context) async {
     try {
       var pickedImage =
