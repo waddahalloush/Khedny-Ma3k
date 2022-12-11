@@ -21,16 +21,15 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  late PageController _pageController;
+  PageController pageController = PageController(initialPage: 0);
   @override
   void initState() {
-    _pageController = PageController();
     super.initState();
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
+    pageController.dispose();
     super.dispose();
   }
 
@@ -53,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
             color: Theme.of(context).primaryColor,
             index: provider.navIndex,
             onTap: (value) {
-              _pageController.jumpToPage(value);
+              pageController.jumpToPage(value);
             },
             items: [
               const Icon(
@@ -79,11 +78,11 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ]),
         body: PageView.builder(
-          controller: _pageController,
-          allowImplicitScrolling: true,
+          
+          controller: pageController,
           itemCount: screens.length,
-          onPageChanged: (value) => provider.changeNav(value, context),
-          itemBuilder: (context, index) => screens[provider.navIndex],
+          onPageChanged: (value) => provider.changeNav(value),
+          itemBuilder: (context, index) => screens[index],
         ),
       ),
     );

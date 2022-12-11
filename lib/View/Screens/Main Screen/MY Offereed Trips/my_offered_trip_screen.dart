@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:khedni_m3k/Core/utils/Localization/app_localizations.dart';
@@ -9,8 +11,19 @@ import 'package:khedni_m3k/View/Screens/Main%20Screen/MY%20Offereed%20Trips/add_
 import '../../../../Core/constants/asset_manager.dart';
 import '../Widgets/driver_road_parameter_widget.dart';
 
-class MyOfferedTripScreen extends StatelessWidget {
+class MyOfferedTripScreen extends StatefulWidget {
   const MyOfferedTripScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MyOfferedTripScreen> createState() => _MyOfferedTripScreenState();
+}
+
+class _MyOfferedTripScreenState extends State<MyOfferedTripScreen> {
+  @override
+  void initState() {
+    log("hello world");
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

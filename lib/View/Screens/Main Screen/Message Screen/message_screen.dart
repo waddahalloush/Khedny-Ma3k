@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +22,10 @@ class MessageScreen extends StatefulWidget {
 
 class _MessageScreenState extends State<MessageScreen> {
   @override
-  void didChangeDependencies() {
+  void initState() {
+    log("hello Chat Screen");
     context.read<MessageProvider>().fillMessageList();
-    super.didChangeDependencies();
+    super.initState();
   }
 
   @override

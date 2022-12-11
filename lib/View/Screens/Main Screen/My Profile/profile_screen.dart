@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     userNameController = TextEditingController(text: "Kimmy Natasa");
-
+    log("hello ppppppp Screen");
     super.initState();
   }
 
@@ -161,7 +163,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   marginH: 30,
                   marginV: 5,
                 ),
-                fallback: (context) => InkWell(onTap: () => showNotEnoughBalanceDialog(context),
+                fallback: (context) => InkWell(
+                  onTap: () => showNotEnoughBalanceDialog(context),
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
